@@ -16,12 +16,14 @@
             const result = document.getElementById('result');
             const explanation = document.getElementById('explanation');
             if (selected) {
-                if (selected.value === '1') {
+                if (selected.value === '3') {
                     result.textContent = '〇 正解です！';
-                    explanation.textContent = '解説: 選択1が正解です。';
+                    explanation.textContent = '解説: 選択3が正解です。
+                        日本の所得税の最高税率は45%です。これは、課税所得が4000万円を超える部分に適用されます。';
                 } else {
                     result.textContent = '× 不正解です。';
-                    explanation.textContent = '解説: 残念ながら選択1が正解です。';
+                    explanation.textContent = '解説: 残念ながら選択3が正解です。
+                        日本の所得税の最高税率は45%です。これは、課税所得が4000万円を超える部分に適用されます。';
                 }
             } else {
                 result.textContent = '選択肢を選んでください。';
@@ -32,16 +34,16 @@
 </head>
 <body>
     <h1>問題1</h1>
-    <p>ここに問題1の内容を記述します。</p>
+    <p>日本の所得税の最高税率は何％ですか？</p>
     <form>
         <input type="radio" id="choice1" name="choice" value="1">
-        <label for="choice1">選択1</label><br>
+        <label for="choice1">30%</label><br>
         <input type="radio" id="choice2" name="choice" value="2">
-        <label for="choice2">選択2</label><br>
+        <label for="choice2">40%</label><br>
         <input type="radio" id="choice3" name="choice" value="3">
-        <label for="choice3">選択3</label><br>
+        <label for="choice3">45%</label><br>
         <input type="radio" id="choice4" name="choice" value="4">
-        <label for="choice4">選択4</label><br>
+        <label for="choice4">50%</label><br>
         <button type="button" onclick="checkAnswer()">回答する</button>
     </form>
     <div id="result" class="result"></div>
