@@ -1,0 +1,246 @@
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+
+        /*Taxsea*/
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .book-list {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 200px;
+        }
+
+        .book {
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .book a {
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .watch-btn {
+            background-color: #f89a7d;
+            color: white;
+        }
+
+        .download-btn {
+            background-color: #f1d961;
+            color: white;
+        }
+
+        .book a:hover {
+            opacity: 0.8;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* 顶部标题栏 */
+        .header {
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .header img {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        /*Taxsea*/
+        .header h1 {
+            font-size: 1.5em;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        /* 内容部分 */
+        .content {
+            padding: 20px;
+            background-color: white;
+        }
+
+            /* 仅修改带有 .red-title 类的标题颜色为红色 */
+        .red-title {
+        color:  #fa8174f1;
+        }
+
+
+
+        /* 广告区域 */
+        .ad {
+            background-color: rgb(152, 236, 242);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* 底部导航栏 */
+        .footer {
+        background-color: #faf5ebf1; /* 调整背景为淡黄色 */
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .footer img {
+        width: 30px;  /* 调整图片宽度 */
+        height: 30px; /* 调整图片高度 */
+    }
+
+        .footer a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部标题栏 -->
+    <div class="header">
+        <a href="#" class="back-btn">戻る</a>
+        <h1>Taxsea💧</h1>
+        <div class="plan-info">
+            plan: Free
+            <input type="text" name="name" placeholder="検索してみて">
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <h1 class="red-title">参考書で税金の知識を学ぼう</h1>
+
+    <div class="book-list">
+        
+        <div class="book">
+            <span style="font-size: 20px;"><strong>税法入門</strong></span>
+            <div class="buttons">
+                <a href="textbook/nyuumonn.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/nyuumonn.pdf" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+
+        <div class="book">
+            <span style="font-size: 20px;"><strong>国税通則法</strong></span>
+            <div class="buttons">
+                <a href="textbook/kokuzei_tsuisoku" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/kokuzei_tsuisoku" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+
+        <div class="book">
+            <span style="font-size: 20px;"><strong>所得税法</strong></span>
+            <div class="buttons">
+                <a href="textbook/syotoku.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/syotoku.pdf" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+
+        <div class="book">
+            <span style="font-size: 20px;"><strong>法人税法</strong></span>
+            <div class="buttons">
+                <a href="textbook/houjinn.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/houjinn.pdf" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+
+        <div class="book">
+            <span style="font-size: 20px;"><strong>相続税法</strong></span>
+            <div class="buttons">
+                <a href="textbook/souzoku.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/souzoku.pdf" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+
+        <div class="book">
+            <span style="font-size: 20px;"><strong>消費税法</strong></span>
+            <div class="buttons">
+                <a href="textbook/syouhi.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/syouhi.pdf" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+
+        <div class="book">
+            <span style="font-size: 20px;"><strong>国税徴収法</strong></span>
+            <div class="buttons">
+                <a href="textbook/kokuzei_cyosyu.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/kokuzei_cyosyu.pdf" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+
+        <div class="book">
+            <span style="font-size: 20px;"><strong>間接税法</strong></span>
+            <div class="buttons">
+                <a href="textbook/kannsetu.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/kannsetu.pdf" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <!-- 广告区域 -->
+    <div class="ad">
+        <p>広告</p>
+        <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="footer">
+        <a href="home.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="mark.html"><img src="bottom_mark.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
+    </div>
+
+
+</body>
+</html>
