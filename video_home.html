@@ -1,0 +1,174 @@
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* 顶部标题栏 */
+        .header {
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .header img {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        /*Taxsea*/
+        .header h1 {
+            font-size: 1.5em;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        /* 内容部分 */
+        .content {
+            padding: 20px;
+            background-color: white;
+        }
+
+            /* 仅修改带有 .red-title 类的标题颜色为红色 */
+        .red-title {
+        color:  #fa8174f1;
+        }
+        /* 按钮的基本样式 */
+        .number-btn {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #ffd27f; /* 淡黄色边框 */
+            border-radius: 10px;
+            background-color: #fff7e6; /* 按钮背景颜色 */
+            color: blue; /* 按钮文字颜色为蓝色 */
+            font-size: 1.5em;
+            text-decoration: none; /* 去除链接的下划线 */
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* 当按钮被点击过后，颜色变为红色 */
+        .number-btn:visited {
+            color: red; /* 已点击后的文字颜色 */
+        }
+
+        /* 鼠标悬停时的效果 */
+        .number-btn:hover {
+            background-color: #ffeecc; /* 悬停时按钮背景稍微变亮 */
+        }
+
+
+        /* 广告区域 */
+        .ad {
+            background-color: rgb(152, 236, 242);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* 底部导航栏 */
+        .footer {
+        background-color: #faf5ebf1; /* 调整背景为淡黄色 */
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .footer img {
+        width: 30px;  /* 调整图片宽度 */
+        height: 30px; /* 调整图片高度 */
+    }
+
+        .footer a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部标题栏 -->
+    <div class="header">
+        <a href="#" class="back-btn">戻る</a>
+        <h1>Taxsea💧</h1>
+        <div class="plan-info">
+            plan: Free
+            <input type="text" name="name" placeholder="検索してみて">
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <h1 class="red-title">動画で税金の知識を学ぼう</h1>
+         <!-- 数字按钮列表 -->
+
+    <a href="http://127.0.0.1:5500/video1_anime.html" 
+        target="_blank" class="number-btn">
+        1.租税教育教材・アニメ</a>
+    
+    <a href="http://127.0.0.1:5500/video2_kakutei.html" 
+        target="_blank" class="number-btn">2.確定申告特集</a>
+    
+    <a href="http://127.0.0.1:5500/video3_syouhi.html" 
+        target="_blank" class="number-btn">3.消費税、軽減税率制度特集</a>
+
+    <a href="http://127.0.0.1:5500/video4_nouzei.html" 
+        target="_blank" class="number-btn">4.納税の猶予制度特集</a>
+
+    <a href="http://127.0.0.1:5500/video5_kicyou.html" 
+        target="_blank" class="number-btn">5.記帳・決算のしかた</a>
+
+    <a href="http://127.0.0.1:5500/video6_etax.html" 
+        target="_blank" class="number-btn">6.e-Taxのご利用方法</a>
+
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        
+    </div>
+
+    <p style="margin: 10px;">这段文字周围有 10px 的留白。</p>
+
+    <!-- 广告区域 -->
+    <div class="ad">
+        <p>広告</p>
+        <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="footer">
+        <a href="home.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="mark.html"><img src="bottom_mark.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
+    </div>
+
+
+</body>
+</html>
