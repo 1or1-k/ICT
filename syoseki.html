@@ -105,7 +105,17 @@
 
         .btn:hover {
             background-color: #0056b3;
-        }       
+        }     
+        /*　広告　*/
+        .ad-container{
+            background-color:#add;
+            color:#333;
+            text-align:center;
+            padding:20px;
+            margin-top:20px;
+            font-size:1.2em;
+            border:2px dashed #aaa;
+        }  
 
     </style>
 </head>
@@ -119,7 +129,7 @@
 
     <!-- 検索バー -->
     <div class="search-bar">
-        <input type="text" id="search-input" placeholder="書籍を検索してください..." oninput="filterBooks()">
+        <input type="text" id="search-input" placeholder="検索" oninput="filterBooks()">
     </div>
 
     <!-- 書籍リスト -->
@@ -131,6 +141,13 @@
     <div style="text-align: center; margin-top: 20px">
         <button onclick="window.location.href='home.html'" clas="btn">home</button>
     </div>
+    <!--広告スペース-->
+    <footer>
+        <div class = "ad-container">
+            --広告スペース--
+        </div>
+    </footer>
+
     <script>
         // 書籍データの配列
         const books = [
