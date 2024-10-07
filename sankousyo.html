@@ -116,6 +116,20 @@
             font-size:1.2em;
             border:2px dashed #aaa;
         }  
+        .book button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .book button:hover {
+            background-color: #0056b3;
+        }
 
     </style>
 </head>
@@ -152,28 +166,32 @@
         // 書籍データの配列
         const books = [
             {
-                title: "マンガと図解　新・くらしの税金百科 2024‐2025",
-                description: "最新の税金事情から、くらしの中の税金、会社員・自営業者・経営者、マイホーム・不動産、相続・贈与等のテーマごとに、身近な税のしくみ・考え方をわかりやすいドラマ仕立てのマンガで紹介し、平易な表現と具体的な図解を用いて要点をつかめるようにわかりやすく解説。",
+                title: "税務会計の基礎と実践: 基礎から学ぶ税務会計入門",
+                description: "税務会計の理論と実務をバランスよく学べる入門書です。",
                 image: "https://m.media-amazon.com/images/I/713tq3T0W1L._SY522_.jpg", // 仮の画像URL
-                link: "https://www.amazon.co.jp/%E3%83%9E%E3%83%B3%E3%82%AC%E3%81%A8%E5%9B%B3%E8%A7%A3-%E6%96%B0%E3%83%BB%E3%81%8F%E3%82%89%E3%81%97%E3%81%AE%E7%A8%8E%E9%87%91%E7%99%BE%E7%A7%91-2024%E2%80%902025-%E5%85%AC%E7%9B%8A%E8%B2%A1%E5%9B%A3%E6%B3%95%E4%BA%BA-%E7%B4%8D%E7%A8%8E%E5%8D%94%E4%BC%9A%E9%80%A3%E5%90%88%E4%BC%9A/dp/4433705543/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2VWH1EXWKOQQC&dib=eyJ2IjoiMSJ9.eyIaJEtshu5txLKkYFsdU7D8eey4phj4sTkYNEe8mpEr7eZNtJcpO4JgpkTpDt0GIOvZ4dKPmwAAmCthvTMAFUihtghXkBxv4lp0Pp1ZArvb3gEaabriMJ2c5dSUA5wZmbmUK5ljJ7kCCQjCbs4PG1FON9KyEOFrqwusYumZW1t-V2Y0BomxCgMJAjF_uc5vR4k59Jn9QenoSPpaQabzp0z4tvSb3l-D6CaSs6lIqBRQ1E-drK0sklEUAmbb60n7dhygdlbKpv0tzdxgQJpu9DHtBP1H8y768O6CElPjS9E.T9VQhmRd6yQSZFe8mJvpPdfdACEkzZj1PUtvnFcd4vc&dib_tag=se&keywords=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8&qid=1728266441&sprefix=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8%2Caps%2C192&sr=8-1" // Amazonアフィリエイトリンク
+                link: "https://www.amazon.co.jp/%E3%83%9E%E3%83%B3%E3%82%AC%E3%81%A8%E5%9B%B3%E8%A7%A3-%E6%96%B0%E3%83%BB%E3%81%8F%E3%82%89%E3%81%97%E3%81%AE%E7%A8%8E%E9%87%91%E7%99%BE%E7%A7%91-2024%E2%80%902025-%E5%85%AC%E7%9B%8A%E8%B2%A1%E5%9B%A3%E6%B3%95%E4%BA%BA-%E7%B4%8D%E7%A8%8E%E5%8D%94%E4%BC%9A%E9%80%A3%E5%90%88%E4%BC%9A/dp/4433705543/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2VWH1EXWKOQQC&dib=eyJ2IjoiMSJ9.eyIaJEtshu5txLKkYFsdU7D8eey4phj4sTkYNEe8mpEr7eZNtJcpO4JgpkTpDt0GIOvZ4dKPmwAAmCthvTMAFUihtghXkBxv4lp0Pp1ZArvb3gEaabriMJ2c5dSUA5wZmbmUK5ljJ7kCCQjCbs4PG1FON9KyEOFrqwusYumZW1t-V2Y0BomxCgMJAjF_uc5vR4k59Jn9QenoSPpaQabzp0z4tvSb3l-D6CaSs6lIqBRQ1E-drK0sklEUAmbb60n7dhygdlbKpv0tzdxgQJpu9DHtBP1H8y768O6CElPjS9E.T9VQhmRd6yQSZFe8mJvpPdfdACEkzZj1PUtvnFcd4vc&dib_tag=se&keywords=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8&qid=1728266441&sprefix=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8%2Caps%2C192&sr=8-1" ,
+                readLink: "kain-sankousyo.pdf" // 参考書を読むためのリンク
             },
             {
-                title: "令和元年度版 税金の知識",
-                description: "生活のあらゆる場面で避けられない税金を一問一答で解説。",
+                title: "税法入門 第21版 (法律学講座双書)",
+                description: "日本の税法について包括的に解説している一冊で、税法の基礎を学びたい方に最適です。",
                 image: "https://m.media-amazon.com/images/I/912H9Pbpb+L._SY522_.jpg",
-                link: "https://www.amazon.co.jp/%E4%BB%A4%E5%92%8C%E5%85%83%E5%B9%B4%E5%BA%A6%E7%89%88-%E7%A8%8E%E9%87%91%E3%81%AE%E7%9F%A5%E8%AD%98-SMBC%E6%97%A5%E8%88%88%E8%A8%BC%E5%88%B8%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BC%81%E7%94%BB%E9%83%A8/dp/4502320218/ref=sr_1_8?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2VWH1EXWKOQQC&dib=eyJ2IjoiMSJ9.eyIaJEtshu5txLKkYFsdU7D8eey4phj4sTkYNEe8mpEr7eZNtJcpO4JgpkTpDt0GIOvZ4dKPmwAAmCthvTMAFUihtghXkBxv4lp0Pp1ZArvb3gEaabriMJ2c5dSUA5wZmbmUK5ljJ7kCCQjCbs4PG1FON9KyEOFrqwusYumZW1t-V2Y0BomxCgMJAjF_uc5vR4k59Jn9QenoSPpaQabzp0z4tvSb3l-D6CaSs6lIqBRQ1E-drK0sklEUAmbb60n7dhygdlbKpv0tzdxgQJpu9DHtBP1H8y768O6CElPjS9E.T9VQhmRd6yQSZFe8mJvpPdfdACEkzZj1PUtvnFcd4vc&dib_tag=se&keywords=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8&qid=1728266441&sprefix=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8%2Caps%2C192&sr=8-8"
+                link: "https://www.amazon.co.jp/%E4%BB%A4%E5%92%8C%E5%85%83%E5%B9%B4%E5%BA%A6%E7%89%88-%E7%A8%8E%E9%87%91%E3%81%AE%E7%9F%A5%E8%AD%98-SMBC%E6%97%A5%E8%88%88%E8%A8%BC%E5%88%B8%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BC%81%E7%94%BB%E9%83%A8/dp/4502320218/ref=sr_1_8?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2VWH1EXWKOQQC&dib=eyJ2IjoiMSJ9.eyIaJEtshu5txLKkYFsdU7D8eey4phj4sTkYNEe8mpEr7eZNtJcpO4JgpkTpDt0GIOvZ4dKPmwAAmCthvTMAFUihtghXkBxv4lp0Pp1ZArvb3gEaabriMJ2c5dSUA5wZmbmUK5ljJ7kCCQjCbs4PG1FON9KyEOFrqwusYumZW1t-V2Y0BomxCgMJAjF_uc5vR4k59Jn9QenoSPpaQabzp0z4tvSb3l-D6CaSs6lIqBRQ1E-drK0sklEUAmbb60n7dhygdlbKpv0tzdxgQJpu9DHtBP1H8y768O6CElPjS9E.T9VQhmRd6yQSZFe8mJvpPdfdACEkzZj1PUtvnFcd4vc&dib_tag=se&keywords=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8&qid=1728266441&sprefix=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8%2Caps%2C192&sr=8-8",
+                readLink: "kain-sankousyo.pdf" // 参考書を読むためのリンク
             },
             {
-                title: "あなたが払う税金はざっくり言ってこれくらい",
-                description: "生活と密接している税金について、日常のよくある場面を題材として、税制の概要とそのおおよその税額をイラストや図解でわかりやすく解説。",
+                title: "税務会計学: 現代税制の基礎と応用",
+                description: "現代の税制やその応用を学ぶための、より専門的な税務会計書です。",
                 image: "https://m.media-amazon.com/images/I/51H4exz3RdL._SY522_.jpg",
-                link: "https://www.amazon.co.jp/%E3%81%82%E3%81%AA%E3%81%9F%E3%81%8C%E6%89%95%E3%81%86%E7%A8%8E%E9%87%91%E3%81%AF%E3%81%96%E3%81%A3%E3%81%8F%E3%82%8A%E8%A8%80%E3%81%A3%E3%81%A6%E3%81%93%E3%82%8C%E3%81%8F%E3%82%89%E3%81%84-%E7%A3%AF%E5%B1%B1%E4%BB%81%E5%BF%97/dp/4433738913/ref=sr_1_6?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2VWH1EXWKOQQC&dib=eyJ2IjoiMSJ9.eyIaJEtshu5txLKkYFsdU7D8eey4phj4sTkYNEe8mpEr7eZNtJcpO4JgpkTpDt0GIOvZ4dKPmwAAmCthvTMAFUihtghXkBxv4lp0Pp1ZArvb3gEaabriMJ2c5dSUA5wZmbmUK5ljJ7kCCQjCbs4PG1FON9KyEOFrqwusYumZW1t-V2Y0BomxCgMJAjF_uc5vR4k59Jn9QenoSPpaQabzp0z4tvSb3l-D6CaSs6lIqBRQ1E-drK0sklEUAmbb60n7dhygdlbKpv0tzdxgQJpu9DHtBP1H8y768O6CElPjS9E.T9VQhmRd6yQSZFe8mJvpPdfdACEkzZj1PUtvnFcd4vc&dib_tag=se&keywords=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8&qid=1728266441&sprefix=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8%2Caps%2C192&sr=8-6"
+                link: "https://www.amazon.co.jp/%E3%81%82%E3%81%AA%E3%81%9F%E3%81%8C%E6%89%95%E3%81%86%E7%A8%8E%E9%87%91%E3%81%AF%E3%81%96%E3%81%A3%E3%81%8F%E3%82%8A%E8%A8%80%E3%81%A3%E3%81%A6%E3%81%93%E3%82%8C%E3%81%8F%E3%82%89%E3%81%84-%E7%A3%AF%E5%B1%B1%E4%BB%81%E5%BF%97/dp/4433738913/ref=sr_1_6?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2VWH1EXWKOQQC&dib=eyJ2IjoiMSJ9.eyIaJEtshu5txLKkYFsdU7D8eey4phj4sTkYNEe8mpEr7eZNtJcpO4JgpkTpDt0GIOvZ4dKPmwAAmCthvTMAFUihtghXkBxv4lp0Pp1ZArvb3gEaabriMJ2c5dSUA5wZmbmUK5ljJ7kCCQjCbs4PG1FON9KyEOFrqwusYumZW1t-V2Y0BomxCgMJAjF_uc5vR4k59Jn9QenoSPpaQabzp0z4tvSb3l-D6CaSs6lIqBRQ1E-drK0sklEUAmbb60n7dhygdlbKpv0tzdxgQJpu9DHtBP1H8y768O6CElPjS9E.T9VQhmRd6yQSZFe8mJvpPdfdACEkzZj1PUtvnFcd4vc&dib_tag=se&keywords=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8&qid=1728266441&sprefix=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8%2Caps%2C192&sr=8-6",
+                readLink: "kain-sankousyo.pdf" // 参考書を読むためのリンク
             },
             {
-                title: "キホンがわかる！ 税金とわたしたちのくらし 税金のしくみ",
-                description: "『税金のしくみ』では、税金のキホンをていねいに解説します。",
+                title: "日本の税制度: 制度と課題を学ぶ",
+                description: "日本の税制の概要や現在の課題について詳しく学べる参考書です。",
                 image: "https://m.media-amazon.com/images/I/81WlX+0qgnL._SY522_.jpg",
-                link: "https://www.amazon.co.jp/%E3%82%AD%E3%83%9B%E3%83%B3%E3%81%8C%E3%82%8F%E3%81%8B%E3%82%8B%EF%BC%81-%E7%A8%8E%E9%87%91%E3%81%A8%E3%82%8F%E3%81%9F%E3%81%97%E3%81%9F%E3%81%A1%E3%81%AE%E3%81%8F%E3%82%89%E3%81%97-%E7%A8%8E%E9%87%91%E3%81%AE%E3%81%97%E3%81%8F%E3%81%BF-%E4%B8%89%E6%9C%A8%E7%BE%A9%E4%B8%80-ebook/dp/B0BSW935F6/ref=sr_1_13?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2VWH1EXWKOQQC&dib=eyJ2IjoiMSJ9.eyIaJEtshu5txLKkYFsdU7D8eey4phj4sTkYNEe8mpEr7eZNtJcpO4JgpkTpDt0GIOvZ4dKPmwAAmCthvTMAFUihtghXkBxv4lp0Pp1ZArvb3gEaabriMJ2c5dSUA5wZmbmUK5ljJ7kCCQjCbs4PG1FON9KyEOFrqwusYumZW1t-V2Y0BomxCgMJAjF_uc5vR4k59Jn9QenoSPpaQabzp0z4tvSb3l-D6CaSs6lIqBRQ1E-drK0sklEUAmbb60n7dhygdlbKpv0tzdxgQJpu9DHtBP1H8y768O6CElPjS9E.T9VQhmRd6yQSZFe8mJvpPdfdACEkzZj1PUtvnFcd4vc&dib_tag=se&keywords=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8&qid=1728266441&sprefix=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8%2Caps%2C192&sr=8-13"
+                link: "https://www.amazon.co.jp/%E3%82%AD%E3%83%9B%E3%83%B3%E3%81%8C%E3%82%8F%E3%81%8B%E3%82%8B%EF%BC%81-%E7%A8%8E%E9%87%91%E3%81%A8%E3%82%8F%E3%81%9F%E3%81%97%E3%81%9F%E3%81%A1%E3%81%AE%E3%81%8F%E3%82%89%E3%81%97-%E7%A8%8E%E9%87%91%E3%81%AE%E3%81%97%E3%81%8F%E3%81%BF-%E4%B8%89%E6%9C%A8%E7%BE%A9%E4%B8%80-ebook/dp/B0BSW935F6/ref=sr_1_13?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2VWH1EXWKOQQC&dib=eyJ2IjoiMSJ9.eyIaJEtshu5txLKkYFsdU7D8eey4phj4sTkYNEe8mpEr7eZNtJcpO4JgpkTpDt0GIOvZ4dKPmwAAmCthvTMAFUihtghXkBxv4lp0Pp1ZArvb3gEaabriMJ2c5dSUA5wZmbmUK5ljJ7kCCQjCbs4PG1FON9KyEOFrqwusYumZW1t-V2Y0BomxCgMJAjF_uc5vR4k59Jn9QenoSPpaQabzp0z4tvSb3l-D6CaSs6lIqBRQ1E-drK0sklEUAmbb60n7dhygdlbKpv0tzdxgQJpu9DHtBP1H8y768O6CElPjS9E.T9VQhmRd6yQSZFe8mJvpPdfdACEkzZj1PUtvnFcd4vc&dib_tag=se&keywords=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8&qid=1728266441&sprefix=%E7%A8%8E%E9%87%91%E5%8F%82%E8%80%83%E5%88%9D%E6%9B%B8%2Caps%2C192&sr=8-13",
+                readLink: "kain-sankousyo.pdf" // 参考書を読むためのリンク
             }
         ];
 
@@ -188,11 +206,26 @@
                         <h3>${book.title}</h3>
                         <p>${book.description}</p>
                         <a href="${book.link}" target="_blank">Amazonで購入</a>
+                        <button onclick="window.location.href='${book.readLink}'">参考書を読む</button> <!-- ここでボタンを追加 -->
                     </div>
                 `;
                 bookListContainer.innerHTML += bookItem;
             });
         }
+        // 読むボタンがクリックされたときの処理
+        function handleReadButtonClick(){
+            //ここで会員状況を確認
+            const isMember = false; // ここを実際の会員状況チェックに置き換える
+
+            if (isMember) {
+                // 会員の場合、書籍を読むページに移動
+                window.location.href = 'reading_page.html'; // 読むページのURLに変更
+            } else {
+                // 非会員の場合、会員登録ページに移動
+                window.location.href = 'registration_page.html'; // 登録ページのURLに変更
+            }
+        }
+        
 
         // 初期の書籍リストを表示
         displayBooks(books);
