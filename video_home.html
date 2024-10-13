@@ -12,7 +12,7 @@
             background-color: #f5f5f5;
         }
 
-        /* 顶部标题栏 */
+        /* ヘッダー */
         .header {
             background-color: #f2f2f2;
             color: #333;
@@ -33,7 +33,7 @@
             padding: 0;
         }
 
-        /* 返回按钮 */
+        /* 戻るボタン */
         .back-btn {
             position: absolute;
             left: 10px;
@@ -43,43 +43,43 @@
             color: #007BFF;
         }
 
-        /* 内容部分 */
+        /* コンテンツ部分 */
         .content {
             padding: 20px;
             background-color: white;
         }
 
-            /* 仅修改带有 .red-title 类的标题颜色为红色 */
+            /* .red-title クラスのタイトルの色を赤に変更 */
         .red-title {
         color:  #fa8174f1;
         }
-        /* 按钮的基本样式 */
+        /* ボタンの基本スタイル */
         .number-btn {
             display: block;
             padding: 10px 15px;
             margin: 5px;
-            border: 2px solid #ffd27f; /* 淡黄色边框 */
+            border: 2px solid #ffd27f; /* 薄い黄色の枠線 */
             border-radius: 10px;
-            background-color: #fff7e6; /* 按钮背景颜色 */
-            color: blue; /* 按钮文字颜色为蓝色 */
+            background-color: #fff7e6; /* ボタンの背景色 */
+            color: blue; /* ボタンのテキスト色を青に */
             font-size: 1.5em;
-            text-decoration: none; /* 去除链接的下划线 */
+            text-decoration: none; /* リンクの下線を削除 */
             cursor: pointer;
             margin-bottom: 10px;
         }
 
-        /* 当按钮被点击过后，颜色变为红色 */
+        /* ボタンがクリックされた後の色を赤に変更 */
         .number-btn:visited {
-            color: red; /* 已点击后的文字颜色 */
+            color: red; /* クリック後のテキスト色 */
         }
 
-        /* 鼠标悬停时的效果 */
+        /* ホバー時の効果 */
         .number-btn:hover {
-            background-color: #ffeecc; /* 悬停时按钮背景稍微变亮 */
+            background-color: #ffeecc; /* ホバー時に背景を明るくする */
         }
 
 
-        /* 广告区域 */
+        /* 広告エリア */
         .ad {
             background-color: rgb(152, 236, 242);
             padding: 10px;
@@ -90,9 +90,9 @@
             width: 100%;
         }
 
-        /* 底部导航栏 */
+        /* フッター */
         .footer {
-        background-color: #faf5ebf1; /* 调整背景为淡黄色 */
+        background-color: #faf5ebf1; /* 背景色を淡い黄色に調整 */
         border-top: 1px solid #ddd;
         padding: 10px;
         position: fixed;
@@ -104,8 +104,8 @@
     }
 
     .footer img {
-        width: 30px;  /* 调整图片宽度 */
-        height: 30px; /* 调整图片高度 */
+        width: 30px;  /* 画像の幅を調整 */
+        height: 30px; /* 画像の高さを調整 */
     }
 
         .footer a {
@@ -115,7 +115,7 @@
 </head>
 <body>
 
-    <!-- 顶部标题栏 -->
+    <!-- ヘッダー -->
     <div class="header">
         <a href="#" class="back-btn">戻る</a>
         <h1>Taxsea💧</h1>
@@ -125,9 +125,9 @@
         </div>
     </div>
 
-    <!-- 主要内容 -->
+    <!-- メインコンテンツ -->
     <h1 class="red-title">動画で税金の知識を学ぼう</h1>
-         <!-- 数字按钮列表 -->
+         <!-- 数字ボタンリスト -->
 
     <a href="http://127.0.0.1:5500/video1_anime.html" 
         target="_blank" class="number-btn">
@@ -141,27 +141,24 @@
 
     <a href="http://127.0.0.1:5500/video4_nouzei.html" 
         target="_blank" class="number-btn">4.納税の猶予制度特集</a>
-
-    <a href="http://127.0.0.1:5500/video5_kicyou.html" 
-        target="_blank" class="number-btn">5.記帳・決算のしかた</a>
-
-    <a href="http://127.0.0.1:5500/video6_etax.html" 
-        target="_blank" class="number-btn">6.e-Taxのご利用方法</a>
-
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
         
     </div>
 
-    <p style="margin: 10px;">这段文字周围有 10px 的留白。</p>
+    <!-- 新しい会員情報モジュール -->
+    <div class="membership-info" style="max-width: 600px; margin: 0 auto; background-color: #faf5ebf1; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 40px; margin-bottom: 300px;">
+        <h2 style="text-align: center; color: #f89a7d;">会員になったら、もっとたくさんの動画が見れる</h2>
+        <p style="text-align: center;">今すぐ会員登録して、たくさんの税金関連の動画を楽しもう！</p>
+        <div style="text-align: center; margin-top: 10px;">
+            <a href="signup.html" style="background-color: #f89a7d; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">会員登録</a>
+        </div>
+    </div>
 
-    <!-- 广告区域 -->
+    <!-- 広告エリア -->
     <div class="ad">
-        <p>広告</p>
         <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
     </div>
 
-    <!-- 底部导航栏 -->
+    <!-- フッター -->
     <div class="footer">
         <a href="home.html"><img src="bottom_home.png"></a>
         <a href="kennsaku.html"><img src="bottom_search.png"></a>
