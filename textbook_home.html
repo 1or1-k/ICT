@@ -19,7 +19,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 200px;
+            margin-bottom: 50px;
         }
 
         .book {
@@ -65,7 +65,7 @@
             background-color: #f5f5f5;
         }
 
-        /* 顶部标题栏 */
+        /* ヘッダー */
         .header {
             background-color: #f2f2f2;
             color: #333;
@@ -86,7 +86,7 @@
             padding: 0;
         }
 
-        /* 返回按钮 */
+        /* 戻るボタン */
         .back-btn {
             position: absolute;
             left: 10px;
@@ -96,20 +96,20 @@
             color: #007BFF;
         }
 
-        /* 内容部分 */
+        /* コンテンツ部分 */
         .content {
             padding: 20px;
             background-color: white;
         }
 
-            /* 仅修改带有 .red-title 类的标题颜色为红色 */
+            /* .red-title クラスのタイトルの色を赤に変更 */
         .red-title {
         color:  #fa8174f1;
         }
 
 
 
-        /* 广告区域 */
+        /* 広告エリア */
         .ad {
             background-color: rgb(152, 236, 242);
             padding: 10px;
@@ -120,9 +120,9 @@
             width: 100%;
         }
 
-        /* 底部导航栏 */
+        /* フッター */
         .footer {
-        background-color: #faf5ebf1; /* 调整背景为淡黄色 */
+        background-color: #faf5ebf1; /* 背景色を淡い黄色に変更 */
         border-top: 1px solid #ddd;
         padding: 10px;
         position: fixed;
@@ -134,8 +134,8 @@
     }
 
     .footer img {
-        width: 30px;  /* 调整图片宽度 */
-        height: 30px; /* 调整图片高度 */
+        width: 30px;  /* 画像の幅を調整 */
+        height: 30px; /* 画像の高さを調整 */
     }
 
         .footer a {
@@ -145,7 +145,7 @@
 </head>
 <body>
 
-    <!-- 顶部标题栏 -->
+    <!-- ヘッダー -->
     <div class="header">
         <a href="#" class="back-btn">戻る</a>
         <h1>Taxsea💧</h1>
@@ -155,7 +155,7 @@
         </div>
     </div>
 
-    <!-- 主要内容 -->
+    <!-- メインコンテンツ -->
     <h1 class="red-title">参考書で税金の知識を学ぼう</h1>
 
     <div class="book-list">
@@ -191,49 +191,26 @@
                 <a href="textbook/houjinn.pdf" download class="download-btn">ダウンロード</a>
             </div>
         </div>
-
-        <div class="book">
-            <span style="font-size: 20px;"><strong>相続税法</strong></span>
-            <div class="buttons">
-                <a href="textbook/souzoku.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
-                <a href="textbook/souzoku.pdf" download class="download-btn">ダウンロード</a>
-            </div>
-        </div>
-
-        <div class="book">
-            <span style="font-size: 20px;"><strong>消費税法</strong></span>
-            <div class="buttons">
-                <a href="textbook/syouhi.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
-                <a href="textbook/syouhi.pdf" download class="download-btn">ダウンロード</a>
-            </div>
-        </div>
-
-        <div class="book">
-            <span style="font-size: 20px;"><strong>国税徴収法</strong></span>
-            <div class="buttons">
-                <a href="textbook/kokuzei_cyosyu.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
-                <a href="textbook/kokuzei_cyosyu.pdf" download class="download-btn">ダウンロード</a>
-            </div>
-        </div>
-
-        <div class="book">
-            <span style="font-size: 20px;"><strong>間接税法</strong></span>
-            <div class="buttons">
-                <a href="textbook/kannsetu.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
-                <a href="textbook/kannsetu.pdf" download class="download-btn">ダウンロード</a>
-            </div>
-        </div>
     
     </div>
 
+    <!-- 新しい会員情報モジュール -->
+    <div class="membership-info" style="max-width: 600px; margin: 0 auto; background-color: #faf5ebf1; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 20px; margin-bottom: 300px;">
+        <h2 style="text-align: center; color: #f89a7d;">会員になったら、もっとたくさんの参考書が見れる</h2>
+        <p style="text-align: center;">今すぐ会員登録して、たくさんの税金関連の参考書を楽しもう！</p>
+        <div style="text-align: center; margin-top: 10px;">
+            <a href="signup.html" style="background-color: #f89a7d; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">会員登録</a>
+        </div>
+    </div>
 
-    <!-- 广告区域 -->
+
+    <!-- 広告エリア -->
     <div class="ad">
         <p>広告</p>
         <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
     </div>
 
-    <!-- 底部导航栏 -->
+    <!-- フッター -->
     <div class="footer">
         <a href="home.html"><img src="bottom_home.png"></a>
         <a href="kennsaku.html"><img src="bottom_search.png"></a>
