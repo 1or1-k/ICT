@@ -47,6 +47,8 @@
         .content {
             padding: 20px;
             background-color: white;
+            display: flex;
+            bottom: 120px;
         }
 
         /* 广告区域 */
@@ -79,6 +81,36 @@
     </style>
 </head>
 <body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2d550c;
+        }
+        .benefit-section {
+            margin-bottom: 40px;
+        }
+        .benefit-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .benefit-section img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .benefit-section p {
+            margin-left: 60px;
+        }
+        .highlight {
+            color: #f39c12;
+            font-weight: bold;
+        }
+    </style>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -117,10 +149,155 @@
             background-color: #e9f9e9;
         }
     </style>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            bottom: 120px;
+        }
+
+        /* 左側コンテンツ */
+        .left-content {
+            width: 65%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            bottom: 120px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* 右側サイドバー */
+        .sidebar {
+            width: 33%;
+            padding: 0px;
+            margin-left: 25px;
+            
+            
+        }
+
+        .sidebar h3 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ページトップボタン */
+        .pagetop {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+        }
+
+        .pagetop a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .pagetop a:hover {
+            background-color: #388E3C;
+        }
+
+        
+
+        /* ブロックスタイル */
+        .block {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .block h3 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .block ul li {
+            padding: 5px 0;
+        }
+
+        .block ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .block ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* 広告ブロックスタイル */
+        .ad-block {
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad-block img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ad-block p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
 
     <!-- 顶部标题栏 -->
     <div class="header">
-        <a href="#" class="back-btn">戻る</a>
+        <a href="home.html" class="back-btn">戻る</a>
         <h1>Taxsea💧</h1>
         <div class="plan-info">
             plan: Free
@@ -130,21 +307,134 @@
 
     <!-- 主要内容 -->
     <div class="content">
-        <h2>プレミアムメンバーシップ制度の紹介</h2>
-        <h3>より快適に税制度の学習が可能になります！</h3>
-        <p>当サイトでは無料でも十分な学習ができるように工夫していますが、より便利に効率よく学習したい人のためにメンバーシップ制度を用意しています。メンバーシップに登録して当サイトを最大限に活用し、税制度の理解に役立ててください。</p>
-        <p></p>
-        <p>メンバーになる3つのメリット</p>
-        <ol>
-            <li>広告が非表示になる</li>
-            <li>追加の問題に取り組める</li>
-            <li>電子書籍が読める</li>
-        </ol>
+        <div class="left-content">
+            <h2>プレミアムメンバーシップ制度の紹介</h2>
+            <img src="membership2.png" style="max-width:100%;height:auto;display:block;margin:0 auto">
+            <h2>より快適に税制度の学習が可能になります！</h2>
+            <p>当サイトでは無料でも十分な学習ができるように工夫していますが、より便利に効率よく学習したい人のためにメンバーシップ制度を用意しています。メンバーシップに登録して当サイトを最大限に活用し、税制度の理解に役立ててください。</p>
+            <p>「月額払い 550円」のメンバーシッププランと、「月額払い 980円」のプレミアムメンバーシッププランの2つのサブスクリプション型プランを用意しております。</p>
+            <p></p>
+            <div class="container">
+                <button class="membership" onclick="registerMember()">メンバーシップに登録</button>
+                <button class="premiummembership" onclick="registerPremiumMember()">プレミアムメンバーシップに登録</button>
+            </div>
+            <h1>メンバーになる6つのメリット</h1>
+
+            <div class="benefit-section">
+                <h2><img src="https://img.icons8.com/fluent/48/000000/privacy-policy.png" alt="広告非表示アイコン"> 広告が非表示になる</h2>
+                <p>
+                    当サイト内の過去問題道場（PC・モバイル）を広告表示なしで利用できるようになります。
+                    <br><span class="highlight">※サイトの仕様上、上記のページ以外のページ（たとえば掲示板、分野別過去問ページ、試験回別過去問ページ）は対象外です。</span>
+                </p>
+            </div>
+
+            <div class="benefit-section">
+                <h2><img src="https://img.icons8.com/fluent/48/000000/speed.png" alt="速度向上アイコン"> ページ表示速度の向上</h2>
+                <p>
+                    広告の読み込みおよび描画時間がゼロになってページの表示速度が大幅に向上します。ストレスの軽減や時間の節約につながります。
+                </p>
+            </div>
+
+            <div class="benefit-section">
+                <h2><img src="https://img.icons8.com/fluent/48/000000/cloud-computing.png" alt="通信量節約アイコン"> 通信量の節約</h2>
+                <p>
+                    広告表示のための通信がなくなることにより、ギガ（通信量）を節約できます。
+                </p>
+            </div>
+
+            <div class="benefit-section">
+                <h2><img src="https://img.icons8.com/fluent/48/000000/diamond.png" alt="特典アイコン"> メンバーシップ特典</h2>
+                <p>
+                    平成21年から最新回までの過去問題の解説（科目A・科目B、旧試験制度は午前・午後）をまとめたPDFをダウンロードして利用することができます。
+                </p>
+            </div>
+
+            <div class="benefit-section">
+                <h2><img src="https://img.icons8.com/fluent/48/000000/idea.png" alt="機能追加アイコン"> 機能追加</h2>
+                <p>
+                    PC利用時に「キーボード操作で学習を進める」ことができる機能や、過去問題道場の模擬試験モードで「半分の問題数で実施する」オプション機能を利用できます。また、過去問ページに掛かっているコンテンツのコピー制限が解除されます。
+                </p>
+            </div>
+
+            <div class="roundBox">
+                <h3>注意点</h3>
+                <ul>
+                <li>過去問道場では資格試験ごと別サイトで運営しているため、メンバーシップ登録や解約もサイトごとに行ってください。</li>
+                <li>クレジットカード、Apple Pay、Google Payでのお支払いになります。</li>
+                <li>申込み完了後、すぐにご利用いただけます。</li>
+                <li>サービスの性質上、お客様の都合による返品や返金はお受けできません。</li>
+                <li>お申込み日が請求日となります。また、お支払いは毎月または毎年自動的に更新されます。例えば、9/6に月額プランの申込みをした場合、9/6、10/6、11/6というように毎月の応当日に請求が行われます。</li>
+                <li>クレジットカードの有効期限切れやご利用限度額超過などによりお支払いに失敗した場合、自動的にメンバーシップ登録が解約されます。</li>
+                <li>解約は、ログイン後メニューの[アカウント]→[メンバーシップ管理]からいつでもすることができます。ただし、解約した場合その時点で広告非表示その他のメンバーシップサービスの提供は終了します。解約の際に請求対象期間が残っていても、その部分についての払戻しはいたしません。</li>
+                <li>メンバーシップの特典の内容が変更され、または提供を終了した場合でも、請求対象期間の残りの部分についての払戻しはいたしません。
+                </li><li>ご入力いただいたクレジットカード情報は、PCI DSS（クレジットカード業界のセキュリティ基準）に基づき、当サイトでは保持せず、クレジットカード情報管理先のストライプジャパン株式会社によって管理されるため安全です。</li>
+                </ul>
+                </div>
+        </div>
+
+        <!-- 右側サイドバー -->
+        <div class="sidebar">
+            <!-- 試験制度解説ブロック -->
+            <div class="block">
+                <h3>税金制度解説</h3>
+                <ul>
+                    <li><a href="#">税金とは</a></li>
+                    <li><a href="#">税金の概要</a></li>
+                    <li><a href="#">おすすめテキスト集</a></li>
+                    <li><a href="#">よくある質問(FAQ)</a></li>
+                </ul>
+            </div>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 商品やサービスの紹介がここに入ります。</p>
+            </div>
+
+            <!-- 過去問題解説ブロック -->
+            <div class="block">
+                <h3>問題解説</h3>
+                <ul>
+                    <li><a href="#">消費税</a></li>
+                    <li><a href="#">法人税</a></li>
+                    <li><a href="#">贈与税</a></li>
+                </ul>
+            </div>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ページトップボタン -->
+    <div class="pagetop">
+        <a href="#">Pagetop</a>
     </div>
     
-    
+    <script>
+        // メンバー登録ボタンの処理
+        function registerMember() {
+            const isAccepted = confirm("クレジットカード情報の登録ページに移動しますか？");
+            if (isAccepted) {
+                window.location.href = "member_register.html"; // クレジットカード登録ページに遷移
+                //alert("メンバー登録が完了しました。"); // 本来はクレジットカード情報の受理後にこの処理を行う
+            }
+        }
 
-    
+        // プレミアムメンバー登録ボタンの処理
+        function registerPremiumMember() {
+            const isAccepted = confirm("プレミアムメンバー用のクレジットカード登録ページに移動しますか？");
+            if (isAccepted) {
+                window.location.href = "premium_register.html"; // プレミアムクレジットカード登録ページに遷移
+                //alert("プレミアムメンバー登録が完了しました。"); // 本来はクレジットカード情報の受理後にこの処理を行う
+            }
+        }
+    </script>
+
+    <p style="margin: 20px;">这段文字周围有 10px 的留白。</p>
 
     <!-- 广告区域 -->
     <div class="ad">
