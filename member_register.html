@@ -115,7 +115,7 @@
 
         <button type="button" style="width: 100%; margin-bottom: 15px;">詳細を表示</button>
 
-        <form action="home2.html" method="POST">
+        <form id="signup-form">
             <label for="email">ユーザ情報入力</label>
             <input type="email" id="email" name="email" placeholder="メールアドレスを入力" required>
             <input type="password" id="loginPassword" placeholder="パスワード" required><br>
@@ -137,7 +137,30 @@
 
             <label for="country">国または地域</label>
             <select id="country" name="country" required>
-                <option value="JP">日本</option>
+                <option value="JP">アイスランド</option>
+                <option value="JP">アイルランド</option>
+                <option value="JP">アゼルバイジャン</option>
+                <option value="JP">アセンション島</option>
+                <option value="JP">アフガニスタン</option>
+                <option value="JP">アメリカ合衆国</option>
+                <option value="JP">アラブ首長国連邦</option>
+                <option value="JP">アルジェリア</option>
+                <option value="JP">ロシア</option>
+                <option value="JP">英領インド洋地域</option>
+                <option value="JP">英領ヴァージン諸島</option>
+                <option value="JP">韓国</option>
+                <option value="JP">西サハラ</option>
+                <option value="JP">赤道ギニア</option>
+                <option value="JP">台湾</option>
+                <option value="JP">中央アフリカ共和国</option>
+                <option value="JP">中華人民共和国マカオ特別行政区</option>
+                <option value="JP">中華人民共和国香港特別行政区</option>
+                <option value="JP">中国</option>
+                <option value="JP">東ティモール</option>
+                <option value="JP">南アフリカ</option>
+                <option value="JP">南スーダン</option>
+                <option value="JP">南極</option>
+                <option value="JP" selected>日本</option>
                 <!-- 他の国のオプションも追加できます -->
             </select>
 
@@ -192,14 +215,16 @@
         signupForm.addEventListener('submit', function(event) {
             event.preventDefault(); // フォームの送信を防止
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('email').value;
+            const password = document.getElementById('loginPassword').value;
 
             // localStorageにユーザーデータを保存
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
+            localStorage.setItem(username, password);
+            localStorage.setItem(password, 'normal');
 
             alert('ユーザー登録が完了しました！');
+
+            location.href = "home_login.html";
         });
     </script>
 
