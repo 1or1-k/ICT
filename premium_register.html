@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支払い方法</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h3[type="title"] {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #666;
+        }
+        a[type="add"] {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .credit-card-icons {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .credit-card-icons img {
+            width: 40px;
+            margin-left: 5px;
+        }
+
+        .checkbox {
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: center;
+            color: #666;
+        }
+
+        .footer-text a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Taxsea💧</h1>
+        <h3 type="title">プレミアムメンバーシップ登録(広告非表示プラン+α)に申し込む</h3>
+        <h1 type="price">￥980<a type="add"> 1ヶ月につき</a></h1>
+
+        <button type="button" style="width: 100%; margin-bottom: 15px;">詳細を表示</button>
+
+        <form id="signup-form">
+            <label for="email">ユーザ情報入力</label>
+            <input type="email" id="email" name="email" placeholder="メールアドレスを入力" required>
+            <input type="password" id="loginPassword" placeholder="パスワード" required><br>
+
+            <h3>支払い方法</h3>
+
+            <label for="card">カード情報</label>
+            <input type="text" id="card" name="card" maxlength="19" placeholder="1234 1234 1234 1234" oninput="formatCardNumber(this)" required>
+            <div class="credit-card-icons">
+                <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+                <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+            </div>
+            <input type="text" id="expiry" name="expiry" maxlength="7" placeholder="MM / YY (年)" oninput="formatExpiryDate(this)" required>
+            <input type="text" id="cvc" name="cvc" placeholder="セキュリティコード" required>
+
+            <label for="name">カード保持者の名前</label>
+            <input type="text" id="name" name="name" placeholder="氏名を入力" required>
+
+            <label for="country">国または地域</label>
+            <select id="country" name="country" required>
+                <option value="JP">アイスランド</option>
+                <option value="JP">アイルランド</option>
+                <option value="JP">アゼルバイジャン</option>
+                <option value="JP">アセンション島</option>
+                <option value="JP">アフガニスタン</option>
+                <option value="JP">アメリカ合衆国</option>
+                <option value="JP">アラブ首長国連邦</option>
+                <option value="JP">アルジェリア</option>
+                <option value="JP">ロシア</option>
+                <option value="JP">英領インド洋地域</option>
+                <option value="JP">英領ヴァージン諸島</option>
+                <option value="JP">韓国</option>
+                <option value="JP">西サハラ</option>
+                <option value="JP">赤道ギニア</option>
+                <option value="JP">台湾</option>
+                <option value="JP">中央アフリカ共和国</option>
+                <option value="JP">中華人民共和国マカオ特別行政区</option>
+                <option value="JP">中華人民共和国香港特別行政区</option>
+                <option value="JP">中国</option>
+                <option value="JP">東ティモール</option>
+                <option value="JP">南アフリカ</option>
+                <option value="JP">南スーダン</option>
+                <option value="JP">南極</option>
+                <option value="JP" selected>日本</option>
+                <!-- 他の国のオプションも追加できます -->
+            </select>
+
+            <div class="checkbox">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">Taxseaの
+                    <a href="#">利用規約</a>と
+                    <a href="#">プライバシーポリシー</a>に同意します
+                </label>
+            </div>
+
+            <button type="submit">申し込む</button>
+        </form>
+
+        <div class="footer-text">
+            サブスクリプションを確定すると、Taxseaがその規約に従って今後の支払いをお客様に請求することを許可することになります。
+            サブスクリプションはいつでもキャンセルすることができます。
+            <br><br>
+            Powered by <strong>Stripe</strong>
+            <br>
+            <a href="#">特定商取引法に基づく表記</a> | <a href="#">利用規約</a> | <a href="#">プライバシー</a>
+        </div>
+    </div>
+
+    <script>
+        // カード番号の自動フォーマット (4桁ごとにスペースを入れる)
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\D/g, '');  // 数字以外の文字を除去
+            if (value.length > 16) {
+                value = value.slice(0, 16);
+            }
+            input.value = value.replace(/(\d{4})(?=\d)/g, '$1 ');  // 4桁ごとにスペース
+        }
+
+        // 有効期限の自動フォーマット (MM / YY形式)
+        function formatExpiryDate(input) {
+            let value = input.value.replace(/\D/g, '');  // 数字以外の文字を除去
+            if (value.length > 4) {
+                value = value.slice(0, 4);
+            }
+            if (value.length > 2) {
+                input.value = value.slice(0, 2) + ' / ' + value.slice(2);
+            } else {
+                input.value = value;
+            }
+        }
+    </script>
+
+    <script>
+        const signupForm = document.getElementById('signup-form');
+        
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // フォームの送信を防止
+
+            const username = document.getElementById('email').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // localStorageにユーザーデータを保存
+            localStorage.setItem(username, password);
+            localStorage.setItem(password, 'premium');
+
+            alert('ユーザー登録が完了しました！');
+
+            location.href = "home_login.html";
+        });
+    </script>
+
+</body>
+</html>
