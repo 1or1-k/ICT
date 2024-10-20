@@ -143,23 +143,7 @@
                 <button onclick="hidePanel()">閉じる</button>
 
                 <div>アカウントを作成しませんか？</div>
-                <button id="registerButton" onclick="showRegisterPanel()">＋新規登録</button>
-            </div>
-        
-            <div id="registerPanel" class="panel">
-                <h2>新規登録</h2>
-                <input type="text" id="registerUserId" placeholder="ユーザーID"><br>
-                <input type="password" id="registerPassword" placeholder="パスワード"><br>
-                <button onclick="register()">登録する</button>
-                <button onclick="hidePanel()">閉じる</button>
-            </div>
-        
-            <div id="adminPanel" class="panel">
-                <h2>管理パネル</h2>
-                <button onclick="location.href='member.html';">メンバー登録</button>
-                <button onclick="review()">復習</button>
-                <button onclick="logout()">ログアウト</button>
-                <button onclick="hidePanel()">閉じる</button>
+                <button id="registerButton" onclick="location.href='member.html';">メンバーシップの紹介</button>
             </div>
         
             <script>
@@ -168,68 +152,25 @@
                     document.getElementById("loginPanel").style.display = "block";
                 }
         
-                function showRegisterPanel() {
-                    hideAllPanels();
-                    document.getElementById("registerPanel").style.display = "block";
-                }
-        
                 function login() {
                     const userId = document.getElementById("loginUserId").value;
                     const password = document.getElementById("loginPassword").value;
         
-                    const storedUserId = localStorage.getItem('userId');
-                    const storedPassword = localStorage.getItem('password');
+                    const storedPassword = localStorage.getItem(userId);
+                    const storedRank = localStorage.getItem(password);
         
-                    if (userId === storedUserId && password === storedPassword) {
-                        alert("ログイン成功！");
-                        document.getElementById("loginButton").textContent = storedUserId+"さん";
-                        document.getElementById("loginButton").onclick = showAdminPanel;
-                        document.getElementById("registerButton").style.display = "none";
-                        hideAllPanels();
+                    if (password === storedPassword) {
+                        //alert("ログイン成功！");
+                        if (storedRank === 'normal') {
+                            location.href = "home2.html";
+                        }
                     } else {
                         alert("ユーザーIDまたはパスワードが間違っています。");
                     }
                 }
-        
-                function register() {
-                    const userId = document.getElementById("registerUserId").value;
-                    const password = document.getElementById("registerPassword").value;
-        
-                    if (userId && password) {
-                        localStorage.setItem('userId', userId);
-                        localStorage.setItem('password', password);
-                        alert("新規登録成功！");
-                        hideAllPanels();
-                    } else {
-                        alert("ユーザーIDとパスワードを入力してください。");
-                    }
-                }
-        
-                function showAdminPanel() {
-                    hideAllPanels();
-                    document.getElementById("adminPanel").style.display = "block";
-                }
-        
-                function registerMember() {
-                    alert("メンバー登録機能");
-                }
-        
-                function review() {
-                    alert("復習機能");
-                }
-        
-                function logout() {
-                    alert("ログアウトしました。");
-                    document.getElementById("loginButton").textContent = "ログイン";
-                    document.getElementById("loginButton").onclick = showLoginPanel;
-                    document.getElementById("registerButton").style.display = "inline-block";
-                    hideAllPanels();
-                }
-        
+
                 function hideAllPanels() {
                     document.getElementById("loginPanel").style.display = "none";
-                    document.getElementById("registerPanel").style.display = "none";
-                    document.getElementById("adminPanel").style.display = "none";
                 }
         
                 function hidePanel() {
