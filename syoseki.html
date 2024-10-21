@@ -116,7 +116,31 @@
             font-size:1.2em;
             border:2px dashed #aaa;
         }  
+        .footer {
+        background-color: #faf5ebf1; 
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 
+    .footer img {
+        width: 30px;     
+        height: 30px;
+    }
+
+    .footer a {
+    text-decoration: none;
+    display: flex;              /* 子要素（画像）をフレックスボックスで配置 */
+    justify-content: center;    /* 水平方向に中央揃え */
+    align-items: center;        /* 垂直方向に中央揃え */
+    width: 60px;                /* 固定幅 */
+    height: 40px;               /* 固定高さ */
+}
     </style>
 </head>
 <body>
@@ -138,8 +162,14 @@
     </div>
 
     <!-- ホームに戻るボタン　-->
-    <div style="text-align: center; margin-top: 20px">
+    <!--<div style="text-align: center; margin-top: 20px">
         <button onclick="window.location.href='home.html'" clas="btn">home</button>
+    </div>-->
+    <div class="footer">
+        <a href="home.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="mark.html"><img src="bottom_mark.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
     </div>
     <!--広告スペース-->
     <footer>
