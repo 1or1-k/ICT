@@ -12,7 +12,7 @@
             background-color: #f5f5f5;
         }
 
-        /* 顶部标题栏 */
+        /* ヘッダータイトルバー */
         .header {
             background-color: #f2f2f2;
             color: #333;
@@ -33,7 +33,7 @@
             padding: 0;
         }
 
-        /* 返回按钮 */
+        /* 戻るボタン */
         .back-btn {
             position: absolute;
             left: 10px;
@@ -42,14 +42,40 @@
             text-decoration: none;
             color: #007BFF;
         }
+         /* ボタンの基本スタイル */
+        .number-btn {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #ffd27f; /* 薄い黄色のボーダー */
+            border-radius: 10px;
+            background-color: #fff7e6; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
 
-        /* 内容部分 */
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .number-btn:visited {
+            color: red; /* クリック後の文字色 */
+        }
+
+        /* ホバー時のスタイル */
+        .number-btn:hover {
+            background-color: #ffeecc; /* ホバー時にボタン背景が少し明るくなる */
+        }
+
+
+        
+        /* コンテンツ部分 */
         .content {
             padding: 20px;
             background-color: white;
         }
 
-        /* 广告区域 */
+        /* 広告エリア */
         .ad {
             background-color: #ccf;
             padding: 10px;
@@ -118,7 +144,7 @@
         }
     </style>
 
-    <!-- 顶部标题栏 -->
+    <!-- ヘッダータイトルバー -->
     <div class="header">
         <a href="#" class="back-btn">戻る</a>
         <h1>Taxsea💧</h1>
@@ -231,7 +257,7 @@
         </div>
     </div>
 
-    <!-- 主要内容 -->
+    <!-- メインコンテンツ -->
     <div class="content">
         <h2>納税の義務</h2>
         <p>日本の国民の三大義務は、以下の通りです。</p>
@@ -253,18 +279,16 @@
 
     </div>
     
-    
 
-    <p style="margin: 10px;">这段文字周围有 10px 的留白。</p>
 
-    <!-- 广告区域 -->
+    <!-- 広告エリア -->
     <div class="ad">
         <p>広告</p>
         <a href="https://ads.google.com/intl/ja_jp/home/">詳しくはこちら</a>
 
     </div>
 
-    <!-- 底部导航栏 -->
+    <!-- フッターナビゲーション -->
     <div class="footer">
         <a href="#">ホーム</a>
         <a href="kennsaku.html">検索</a>
