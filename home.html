@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>納税の義務</title>
-    <style>
+   <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -12,7 +12,7 @@
             background-color: #f5f5f5;
         }
 
-        /* 顶部标题栏 */
+        /* ヘッダータイトルバー */
         .header {
             background-color: #f2f2f2;
             color: #333;
@@ -33,7 +33,7 @@
             padding: 0;
         }
 
-        /* 返回按钮 */
+        /* 戻るボタン */
         .back-btn {
             position: absolute;
             left: 10px;
@@ -43,7 +43,32 @@
             color: #007BFF;
         }
 
-        /* 内容部分 */
+        /* ボタンの基本スタイル */
+        .number-btn {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #ffd27f; /* 薄い黄色のボーダー */
+            border-radius: 10px;
+            background-color: #fff7e6; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .number-btn:visited {
+            color: red; /* クリック後の文字色 */
+        }
+
+        /* ホバー時のスタイル */
+        .number-btn:hover {
+            background-color: #ffeecc; /* ホバー時にボタン背景が少し明るくなる */
+        }
+
+        /* コンテンツ部分 */
         .content {
             padding: 20px;
             background-color: white;
@@ -52,7 +77,8 @@
         .red-title {
         color:  #fa8174f1;
         }
-        /* 广告区域 */
+
+        /* 広告エリア */
         .ad {
             background-color: rgb(152, 236, 242);
             padding: 10px;
@@ -63,9 +89,9 @@
             width: 100%;
         }
 
-        /* 底部导航栏 */
+        /* フッターナビゲーション */
         .footer {
-        background-color: #faf5ebf1; /* 调整背景为淡黄色 */
+        background-color: #faf5ebf1; /* 背景色を薄い黄色に調整 */
         border-top: 1px solid #ddd;
         padding: 10px;
         position: fixed;
@@ -77,14 +103,15 @@
     }
 
     .footer img {
-        width: 30px;  /* 调整图片宽度 */
-        height: 30px; /* 调整图片高度 */
+        width: 30px;  /* 画像の幅を調整 */
+        height: 30px; /* 画像の高さを調整 */
     }
 
-        .footer a {
-            text-decoration: none;
-        }
+    .footer a {
+        text-decoration: none;
+    }
     </style>
+</head>
 </head>
 <body>
     <style>
