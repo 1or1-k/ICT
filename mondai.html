@@ -4,18 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>問題集</title>
+    <style>
+        .category {
+            margin-bottom: 20px;
+        }
+        .favorite {
+            color: gold;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>問題集</h1>
-    <ul>
-        <li><button onclick="location.href='question1.html'">問題1:日本の所得税の最高税率は何％ですか？</button></li>
-        <li><button onclick="location.href='question2.html'">問題2:所得税の課税対象となる所得の種類はどれですか？</button></li>
-        <li><button onclick="location.href='question3.html'">問題3:固定資産税はどのような資産に対して課されますか？</button></li>
-        <li><button onclick="location.href='question4.html'">問題4:住民税はどのように計算されますか？</button></li>
-        <li><button onclick="location.href='question5.html'">問題5:相続税の基礎控除額はどのように計算されますか？</button></li>
-        <li><button onclick="location.href='home.html'">戻る</button></li>
-        <!-- 必要に応じて他の問題も追加 -->
-    </ul>
+    <div id="categories"></div>
+    <button onclick="location.href='home.html'">戻る</button>
+
+    <script>
+        const questions = [
+            { id: 1, text: "日本の所得税の最高税率は何％ですか？", category: "所得税について" },
+            { id: 2, text: "所得税の課税対象となる所得の種類はどれですか？", category: "所得税について" },
+            { id: 3, text: "固定資産税はどのような資産に対して課されますか？", category: "固定資産税について" },
+            { id: 4, text: "住民税はどのように計算されますか？", category: "その他" },
+            { id: 5, text: "相続税の基礎控除額はどのように計算されますか？", category: "その他" }
+        ];
+
+        let favorites = [];
+
+        function renderQuestions() {
+            const categoriesDiv = document.getElementById('categories');
+            categoriesDiv.innerHTML = '';
+
+            const categories = {};
+            questions.forEach(q => {
+                if (!categories[q.category]) {
+                    categories[q.category] = [];
+                }
+                categories[q.category].push(q);
+            });
+
+            // お気に入りカテゴリーを先頭に追加
+            if (favorites.length > 0) {
+                const favoriteCategory = document.createElement('div');
+                favoriteCategory.className = 'category';
+                favoriteCategory.innerHTML = `<h2>お気に入り</h2>`;
+                const favoriteList = document.createElement('ul');
+                favorites.forEach(fav => {
+                    const question = questions.find(q => q.id === fav);
+                    if (question) {
+                        favoriteList.innerHTML += createQuestionLi(question);
+                    }
+                });
+                favoriteCategory.appendChild(favoriteList);
+                categoriesDiv.appendChild(favoriteCategory);
+            }
+
+            // その他のカテゴリーを追加
+            for (const [category, categoryQuestions] of Object.entries(categories)) {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+                categoryDiv.innerHTML = `<h2>${category}</h2>`;
+                const questionList = document.createElement('ul');
+                categoryQuestions.forEach(q => {
+                    questionList.innerHTML += createQuestionLi(q);
+                });
+                categoryDiv.appendChild(questionList);
+                categoriesDiv.appendChild(categoryDiv);
+            }
+        }
+
+        function createQuestionLi(question) {
+            const isFavorite = favorites.includes(question.id);
+            return `
+                <li>
+                    <button onclick="location.href='question${question.id}.html'">${question.text}</button>
+                    <span class="favorite" onclick="toggleFavorite(${question.id})">${isFavorite ? '★' : '☆'}</span>
+                </li>
+            `;
+        }
+
+        function toggleFavorite(id) {
+            const index = favorites.indexOf(id);
+            if (index === -1) {
+                favorites.push(id);
+            } else {
+                favorites.splice(index, 1);
+            }
+            renderQuestions();
+        }
+
+        renderQuestions();
+    </script>
 </body>
 </html>
-
