@@ -258,7 +258,7 @@
             position: relative;
             color: white;
             line-height: 30px;
-            height: 25px;
+            height: 24px;
             text-align: center;
             font-size: 24px;
             padding: 5px 0px;
@@ -276,7 +276,6 @@
             list-style: none;
             margin-bottom: 5px;
         }
-
         ul {
             display: block;
             list-style-type: disc;
@@ -286,6 +285,30 @@
             margin-inline-end: 0px;
             padding-inline-start: 40px;
             unicode-bidi: isolate;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* ボタンの基本スタイル */
+        .box-menu {
+            display: block;
+            padding: 5px 15px;
+            margin: 0px;
+            border: 1px solid #e7e5e5; /* 薄い黄色のボーダー */
+            border-radius: 0px;
+            background-color: #ffffff; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            /*text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 0px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .box-menu:visited {
+            color: red; /* クリック後の文字色 */
+        }
+        /* ホバー時のスタイル */
+        .box-menu:hover {
+            background-color: #eae7e7; /* ホバー時にボタン背景が少し明るくなる */
         }
     </style>
 </head>
@@ -439,6 +462,11 @@
             
             <h3>問題解説</h3>
             <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="#">消費税</a></li>
+                <li><a class="box-menu" href="#">法人税</a></li>
+                <li><a class="box-menu" href="#">贈与税</a></li>
+            </ul>
             <div class="block">
                 <ul>
                     <li><a href="#">消費税</a></li>
