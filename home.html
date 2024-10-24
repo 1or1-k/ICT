@@ -253,6 +253,40 @@
             color: #666;
             font-size: 14px;
         }
+
+        .sidebar h3 {
+            position: relative;
+            color: white;
+            line-height: 30px;
+            height: 25px;
+            text-align: center;
+            font-size: 24px;
+            padding: 5px 0px;
+            border-top: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-bottom: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-left: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-image: initial;
+            border-right: none;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px;
+            background: linear-gradient(#f7a992, #ef8e71);
+        }
+
+        .sidebar .box {
+            background: white;
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+            unicode-bidi: isolate;
+        }
     </style>
 </head>
 </head>
@@ -387,8 +421,8 @@
         <!-- 右側サイドバー -->
         <div class="sidebar">
             <!-- 試験制度解説ブロック -->
+            <h3 class="title-block">税金制度解説</h3>
             <div class="block">
-                <h3>税金制度解説</h3>
                 <ul>
                     <li><a href="#">税金とは</a></li>
                     <li><a href="#">税金の概要</a></li>
@@ -402,10 +436,10 @@
                 <img src="https://via.placeholder.com/300x250" alt="広告">
                 <p>スポンサー広告: 商品やサービスの紹介がここに入ります。</p>
             </div>
-
+            
+            <h3>問題解説</h3>
             <!-- 過去問題解説ブロック -->
             <div class="block">
-                <h3>問題解説</h3>
                 <ul>
                     <li><a href="#">消費税</a></li>
                     <li><a href="#">法人税</a></li>
