@@ -112,6 +112,205 @@
             text-decoration: none;
         }
     </style>
+
+    <style>
+
+        /* 左側コンテンツ */
+        .left-content {
+            width: 65%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            bottom: 120px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white; /* ボタンの文字色は白 */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #f7a992; /* ホバー時にボタン背景が少し明るくなる */
+        }
+        
+        /* 右側サイドバー */
+        .sidebar {
+            width: 33%;
+            padding: 0px;
+            margin-left: 25px;
+            
+            
+        }
+
+        .sidebar h3 {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white; /* ボタンの文字色は白 */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 0px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ページトップボタン */
+        .pagetop {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+        }
+
+        .pagetop a {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .pagetop a:hover {
+            background-color: #f7a992; /* ホバー時にボタン背景が少し明るくなる */
+        }
+
+        
+
+        /* ブロックスタイル */
+        .block {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .block h3 {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .block ul li {
+            padding: 5px 0;
+        }
+
+        .block ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .block ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* 広告ブロックスタイル */
+        .ad-block {
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad-block img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ad-block p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .sidebar h3 {
+            position: relative;
+            color: white;
+            line-height: 30px;
+            height: 24px;
+            text-align: center;
+            font-size: 24px;
+            padding: 5px 0px;
+            border-top: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-bottom: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-left: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-image: initial;
+            border-right: none;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px;
+            background: linear-gradient(#f7a992, #ef8e71);
+        }
+
+        .sidebar .box {
+            background: white;
+            list-style: none;
+            margin-bottom: 5px;
+        }
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+            unicode-bidi: isolate;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* ボタンの基本スタイル */
+        .box-menu {
+            display: block;
+            padding: 5px 15px;
+            margin: 0px;
+            border: 1px solid #e7e5e5; /* 薄い黄色のボーダー */
+            border-radius: 0px;
+            background-color: #ffffff; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            /*text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 0px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .box-menu:visited {
+            color: red; /* クリック後の文字色 */
+        }
+        /* ホバー時のスタイル */
+        .box-menu:hover {
+            background-color: #eae7e7; /* ホバー時にボタン背景が少し明るくなる */
+        }
+    </style>
 </head>
 <body>
 
@@ -126,31 +325,89 @@
     </div>
 
     <!-- メインコンテンツ -->
-    <h1 class="red-title">動画で税金の知識を学ぼう</h1>
-         <!-- 数字ボタンリスト -->
-
-    <a href="http://127.0.0.1:5500/video1_anime.html" 
-        target="_blank" class="number-btn">
-        1.租税教育教材・アニメ</a>
-    
-    <a href="http://127.0.0.1:5500/video2_kakutei.html" 
-        target="_blank" class="number-btn">2.確定申告特集</a>
-    
-    <a href="http://127.0.0.1:5500/video3_syouhi.html" 
-        target="_blank" class="number-btn">3.消費税、軽減税率制度特集</a>
-
-    <a href="http://127.0.0.1:5500/video4_nouzei.html" 
-        target="_blank" class="number-btn">4.納税の猶予制度特集</a>
+    <div class="content">
+        <div class="left-content">
+            <h1 class="red-title">動画で税金の知識を学ぼう</h1>
+                 <!-- 数字ボタンリスト -->
         
+            <a href="http://127.0.0.1:5500/video1_anime.html" 
+                target="_blank" class="number-btn">
+                1.租税教育教材・アニメ</a>
+            
+            <a href="http://127.0.0.1:5500/video2_kakutei.html" 
+                target="_blank" class="number-btn">2.確定申告特集</a>
+            
+            <a href="http://127.0.0.1:5500/video3_syouhi.html" 
+                target="_blank" class="number-btn">3.消費税、軽減税率制度特集</a>
+        
+            <a href="http://127.0.0.1:5500/video4_nouzei.html" 
+                target="_blank" class="number-btn">4.納税の猶予制度特集</a>
+                
+            </div>
+        
+            <!-- 新しい会員情報モジュール -->
+            <div class="membership-info" style="max-width: 600px; margin: 0 auto; background-color: #faf5ebf1; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 40px; margin-bottom: 300px;">
+                <h2 style="text-align: center; color: #f89a7d;">会員になったら、もっとたくさんの動画が見れる</h2>
+                <p style="text-align: center;">今すぐ会員登録して、たくさんの税金関連の動画を楽しもう！</p>
+                <div style="text-align: center; margin-top: 10px;">
+                    <a href="signup.html" style="background-color: #f89a7d; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">会員登録</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右側サイドバー -->
+        <div class="sidebar">
+            <!-- 試験制度解説ブロック -->
+            <h3 class="title-block">税金の基本</h3>
+            <ul>
+                <li><a class="box-menu" href="#">税金とは</a></li>
+                <li><a class="box-menu" href="home.html">納税の義務とは</a></li>
+                <li><a class="box-menu" href="syoseki.html">おすすめ書籍集</a></li>
+                <li><a class="box-menu" href="video_home.html">おすすめ動画集</a></li>
+                <li><a class="box-menu" href="#">よくある質問(FAQ)</a></li>
+            </ul>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 商品やサービスの紹介がここに入ります。</p>
+            </div>
+            
+            <h3>問題解説</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="#">消費税</a></li>
+                <li><a class="box-menu" href="#">法人税</a></li>
+                <li><a class="box-menu" href="#">贈与税</a></li>
+                <li><a class="box-menu" href="#">固定資産税</a></li>
+                <li><a class="box-menu" href="textbook_home.html">参考書</a></li>
+            </ul>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
+
+            <h3>メンバーシップの紹介</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="member.html">メンバーシップとは</a></li>
+            </ul>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
+
+            <p style="margin: 50px; color: white;">这段文字周围有 10px 的留白。</p>
+        </div>
     </div>
 
-    <!-- 新しい会員情報モジュール -->
-    <div class="membership-info" style="max-width: 600px; margin: 0 auto; background-color: #faf5ebf1; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 40px; margin-bottom: 300px;">
-        <h2 style="text-align: center; color: #f89a7d;">会員になったら、もっとたくさんの動画が見れる</h2>
-        <p style="text-align: center;">今すぐ会員登録して、たくさんの税金関連の動画を楽しもう！</p>
-        <div style="text-align: center; margin-top: 10px;">
-            <a href="signup.html" style="background-color: #f89a7d; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">会員登録</a>
-        </div>
+    <!-- ページトップボタン -->
+    <div class="pagetop">
+        <a href="#">Pagetop</a>
     </div>
 
     <!-- 広告エリア -->
