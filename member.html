@@ -51,10 +51,10 @@
             bottom: 120px;
         }
 
-        /* 广告区域 */
+        /* 広告エリア */
         .ad {
-            background-color: #ccf;
-            padding: 10px;
+            background-color: rgb(152, 236, 242);
+            padding: 15px;
             text-align: center;
             font-size: 0.9em;
             position: fixed;
@@ -62,21 +62,26 @@
             width: 100%;
         }
 
-        /* 底部导航栏 */
+        /* フッターナビゲーション */
         .footer {
-            background-color: #fff;
+            background-color: #faf5ebf1; /* 背景色を薄い黄色に調整 */
             border-top: 1px solid #ddd;
             padding: 10px;
             position: fixed;
             width: 100%;
             bottom: 50px;
-            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
-
+    
+        .footer img {
+            width: 30px;  /* 画像の幅を調整 */
+            height: 30px; /* 画像の高さを調整 */
+        }
+    
         .footer a {
-            margin: 0 10px;
             text-decoration: none;
-            color: #007BFF;
         }
     </style>
 </head>
@@ -509,8 +514,7 @@
 
     <!-- 广告区域 -->
     <div class="ad">
-        <p>広告</p>
-        <a href="https://ads.google.com/intl/ja_jp/home/">詳しくはこちら</a>
+        <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
 
     </div>
 
