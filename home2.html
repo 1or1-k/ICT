@@ -607,6 +607,7 @@
                 localStorage.removeItem(now_username);
                 localStorage.removeItem(now_password);
                 alert('メンバーシップが解約されました。');
+                location.href = "home.html";
                 displayCurrentEmail(); // 解約後のメールアドレス欄を更新
             }
         }
