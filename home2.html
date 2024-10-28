@@ -545,7 +545,86 @@
         <a href="#">Pagetop</a>
     </div>
     
-    
+    <!-- ハンバーガーパネル -->
+    <div class="menu-panel" id="menu-panel">
+        <h2>会員情報管理</h2>
+
+        <div class="menu-item" onclick="showSection('current-email')">現在の登録メールアドレス</div>
+        <div class="menu-item" onclick="showSection('change-email')">メールアドレスの変更</div>
+        <div class="menu-item" onclick="showSection('cancel-membership')">メンバーシップの解約</div>
+
+        <!-- 現在の登録メールアドレス表示 -->
+        <div class="section" id="current-email">
+            <h3>現在のメールアドレス</h3>
+            <p id="display-email">メールアドレスが登録されていません。</p>
+        </div>
+
+        <!-- メールアドレスの変更フォーム -->
+        <form id="change-email" class="section">
+            <h3>メールアドレスの変更</h3>
+            <label class="menu-btn" for="new-email">新しいメールアドレス:</label>
+            <input class="menu-btn" type="email" id="new-email" required>
+            <button class="menu-btn" type="submit">変更する</button>
+        </form>
+
+        <!-- メンバーシップ解約 -->
+        <div class="section" id="cancel-membership">
+            <h3>メンバーシップの解約</h3>
+            <button class="menu-btn" onclick="cancelMembership()">解約する</button>
+        </div>
+    </div>
+
+    <script>
+        // メニュー表示/非表示の切り替え
+        function toggleMenu() {
+            const menuPanel = document.getElementById('menu-panel');
+            menuPanel.classList.toggle('active');
+        }
+
+        // 指定されたセクションのみ表示
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // 現在のメールアドレスを表示する関数
+        function displayCurrentEmail() {
+            const email = localStorage.getItem('email');
+            const emailDisplay = document.getElementById('display-email');
+            emailDisplay.textContent = email ? email : 'メールアドレスが登録されていません。';
+        }
+
+        // 初期化 - ページロード時に現在のメールアドレスを表示
+        displayCurrentEmail();
+
+        // メールアドレス変更処理
+        const changeEmailForm = document.getElementById('change-email');
+        changeEmailForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const newEmail = document.getElementById('new-email').value;
+            localStorage.setItem('email', newEmail);
+            alert('メールアドレスが変更されました。');
+            displayCurrentEmail(); // 変更後のメールアドレスを表示
+        });
+
+        // メンバーシップ解約処理
+        function cancelMembership() {
+            const confirmation = confirm('本当にメンバーシップを解約しますか？');
+            if (confirmation) {
+                localStorage.removeItem('email'); // メールアドレスの削除
+                localStorage.removeItem('membership'); // メンバーシップのステータスを削除
+                alert('メンバーシップが解約されました。');
+                displayCurrentEmail(); // 解約後のメールアドレス欄を更新
+            }
+        }
+
+        // 初期メンバーシップ情報の設定
+        if (!localStorage.getItem('membership')) {
+            localStorage.setItem('membership', 'active'); // 初期メンバーシップステータスを設定
+            localStorage.setItem('email', 'example@example.com'); // デフォルトメールアドレスを設定（仮の値）
+        }
+    </script>
 
 
 
