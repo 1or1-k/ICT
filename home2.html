@@ -347,6 +347,82 @@
         }
     </style>
 
+    <style>
+        /* ハンバーガーパネル */
+        .menu-panel {
+            position: fixed;
+            top: 0;
+            right: -300px; /* 初期は画面外に配置 */
+            width: 300px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        .menu-panel.active {
+            right: 0; /* パネルがスライドインして表示 */
+        }
+        .menu-panel h2 {
+            text-align: center;
+            color: #fff;
+            margin-top: 0;
+        }
+        .menu-item {
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            background-color: #444;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .menu-item:hover {
+            background-color: #555;
+        }
+
+        /* メニューボタン */
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1001;
+        }
+
+        /* フォーム */
+        .menu-panel form, .menu-panel .section {
+            padding: 15px;
+            display: none; /* 初期は非表示 */
+        }
+        .menu-panel form.active, .menu-panel .section.active {
+            display: block; /* アクティブなフォームのみ表示 */
+        }
+        .menu-btn label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .menu-btn input, button {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+        .menu-btn button {
+            background-color: #f44336;
+            color: white;
+            cursor: pointer;
+        }
+        .menu-btn button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+
     <!-- 顶部标题栏 -->
     <div class="header">
         <a href="#" class="back-btn">戻る</a>
@@ -485,7 +561,7 @@
         <a href="home2.html"><img src="bottom_home.png"></a>
         <a href="kennsaku.html"><img src="bottom_search.png"></a>
         <a href="bookmarkmatome.html"><img src="bottom_mark.png"></a>
-        <a href="other.html"><img src="bottom_other.png"></a>
+        <a onclick="toggleMenu()"><img src="bottom_other.png"></a>
     </div>
 
 </body>
