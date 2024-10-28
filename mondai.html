@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>問題集</title>
     <style>
-        /* 既存のスタイルはそのまま維持 */
         .category {
             margin-bottom: 20px;
         }
@@ -13,7 +12,211 @@
             color: gold;
             cursor: pointer;
         }
-        /* その他のスタイルは省略 */
+    </style>
+
+    <style>
+        /* コンテンツ部分 */
+        .content {
+            padding: 20px;
+            background-color: white;
+            display: flex;
+        }
+
+        /* 左側コンテンツ */
+        .left-content {
+            width: 65%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            bottom: 120px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white; /* ボタンの文字色は白 */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #f7a992; /* ホバー時にボタン背景が少し明るくなる */
+        }
+        
+        /* 右側サイドバー */
+        .sidebar {
+            width: 33%;
+            padding: 0px;
+            margin-left: 25px;
+            
+            
+        }
+
+        .sidebar h3 {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white; /* ボタンの文字色は白 */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 0px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ページトップボタン */
+        .pagetop {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+        }
+
+        .pagetop a {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .pagetop a:hover {
+            background-color: #f7a992; /* ホバー時にボタン背景が少し明るくなる */
+        }
+
+        
+
+        /* ブロックスタイル */
+        .block {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .block h3 {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .block ul li {
+            padding: 5px 0;
+        }
+
+        .block ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .block ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* 広告ブロックスタイル */
+        .ad-block {
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad-block img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ad-block p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .sidebar h3 {
+            position: relative;
+            color: white;
+            line-height: 30px;
+            height: 24px;
+            text-align: center;
+            font-size: 24px;
+            padding: 5px 0px;
+            border-top: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-bottom: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-left: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-image: initial;
+            border-right: none;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px;
+            background: linear-gradient(#f7a992, #ef8e71);
+        }
+
+        .sidebar .box {
+            background: white;
+            list-style: none;
+            margin-bottom: 5px;
+        }
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+            unicode-bidi: isolate;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* ボタンの基本スタイル */
+        .box-menu {
+            display: block;
+            padding: 5px 15px;
+            margin: 0px;
+            border: 1px solid #e7e5e5; /* 薄い黄色のボーダー */
+            border-radius: 0px;
+            background-color: #ffffff; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            /*text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 0px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .box-menu:visited {
+            color: red; /* クリック後の文字色 */
+        }
+        /* ホバー時のスタイル */
+        .box-menu:hover {
+            background-color: #eae7e7; /* ホバー時にボタン背景が少し明るくなる */
+        }
     </style>
 </head>
 <body>
@@ -22,42 +225,83 @@
             <h1>問題集</h1>
             <div id="categories"></div>
             <button onclick="location.href='home2.html'">戻る</button>
-            <button onclick="location.href='mark.html'">お気に入り一覧へ</button>
         </div>
 
-        <!-- 右側のサイドバーは変更なし -->
+        <!-- 右側サイドバー -->
         <div class="sidebar">
-            <!-- サイドバーの内容は変更なし -->
+            <!-- 試験制度解説ブロック -->
+            <h3 class="title-block">税金の基本</h3>
+            <ul>
+                <li><a class="box-menu" href="#">税金とは</a></li>
+                <li><a class="box-menu" href="home.html">納税の義務とは</a></li>
+                <li><a class="box-menu" href="syoseki.html">おすすめ書籍集</a></li>
+                <li><a class="box-menu" href="video_home.html">おすすめ動画集</a></li>
+                <li><a class="box-menu" href="#">よくある質問(FAQ)</a></li>
+            </ul>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 商品やサービスの紹介がここに入ります。</p>
+            </div>
+            
+            <h3>問題解説</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="#">消費税</a></li>
+                <li><a class="box-menu" href="#">法人税</a></li>
+                <li><a class="box-menu" href="#">贈与税</a></li>
+                <li><a class="box-menu" href="#">固定資産税</a></li>
+                <li><a class="box-menu" href="textbook_home.html">参考書</a></li>
+            </ul>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
+
+            <h3>メンバーシップの紹介</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="member.html">メンバーシップとは</a></li>
+            </ul>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p >スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
+
+            <p style="margin: 50px; color: white;">这段文字周围有 10px 的留白。</p>
         </div>
+    </div>
+        
+    <!-- ページトップボタン -->
+    <div class="pagetop">
+        <a href="#">Pagetop</a>
     </div>
 
     <script>
         const questions = [
             { id: 1, text: "日本の所得税の最高税率は何％ですか？", category: "所得税について" },
             { id: 2, text: "所得税の課税対象となる所得の種類はどれですか？", category: "所得税について" },
-            { id: 3, text: "固定資産税はどのような資産に対して課されますか？", category: "固定資産税について" },
-            { id: 4, text: "住民税はどのように計算されますか？", category: "その他" },
-            { id: 5, text: "相続税の基礎控除額はどのように計算されますか？", category: "その他" }
+            { id: 3, text: "所得税の確定申告が必要となるのはどのような場合ですか？", category: "所得税について" },
+            { id: 4, text: "固定資産税はどのような資産に対して課されますか？", category: "固定資産税について" },
+            { id: 5, text: "固定資産税の納税義務者は誰ですか？", category: "固定資産税について" },
+            { id: 6, text: "贈与税の基礎控除額は年間いくらですか？", category: "贈与税について" },
+            { id: 7, text: "贈与税が課されるのはどのような場合ですか？", category: "贈与税について" },
+            { id: 8, text: "住民税はどのように計算されますか？", category: "その他" },
+            { id: 9, text: "相続税の基礎控除額はどのように計算されますか？", category: "その他" }
         ];
 
-        // ローカルストレージからお気に入りを読み込む
-        function loadFavorites() {
-            const storedFavorites = localStorage.getItem('questionFavorites');
-            return storedFavorites ? JSON.parse(storedFavorites) : [];
-        }
-
-        // お気に入りの保存
-        function saveFavorites(favorites) {
-            localStorage.setItem('questionFavorites', JSON.stringify(favorites));
-        }
+        let favorites = [];
 
         function renderQuestions() {
             const categoriesDiv = document.getElementById('categories');
             categoriesDiv.innerHTML = '';
-            
-            const favorites = loadFavorites();
+
             const categories = {};
-            
             questions.forEach(q => {
                 if (!categories[q.category]) {
                     categories[q.category] = [];
@@ -71,8 +315,8 @@
                 favoriteCategory.className = 'category';
                 favoriteCategory.innerHTML = `<h2>お気に入り</h2>`;
                 const favoriteList = document.createElement('ul');
-                favorites.forEach(favId => {
-                    const question = questions.find(q => q.id === favId);
+                favorites.forEach(fav => {
+                    const question = questions.find(q => q.id === fav);
                     if (question) {
                         favoriteList.innerHTML += createQuestionLi(question);
                     }
@@ -96,7 +340,6 @@
         }
 
         function createQuestionLi(question) {
-            const favorites = loadFavorites();
             const isFavorite = favorites.includes(question.id);
             return `
                 <li>
@@ -107,18 +350,15 @@
         }
 
         function toggleFavorite(id) {
-            const favorites = loadFavorites();
             const index = favorites.indexOf(id);
             if (index === -1) {
                 favorites.push(id);
             } else {
                 favorites.splice(index, 1);
             }
-            saveFavorites(favorites);
             renderQuestions();
         }
 
-        // 初期表示
         renderQuestions();
     </script>
 </body>
