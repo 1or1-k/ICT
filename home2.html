@@ -354,7 +354,7 @@
             top: 0;
             right: -300px; /* 初期は画面外に配置 */
             width: 300px;
-            height: 70%;
+            height: 80%;
             background-color: #333;
             color: white;
             padding-top: 20px;
@@ -557,6 +557,9 @@
     </div>
 
     <script>
+        const now_username = localStorage.getItem('now_username');
+        const now_password = localStorage.getItem('now_password');
+        
         // メニュー表示/非表示の切り替え
         function toggleMenu() {
             const menuPanel = document.getElementById('menu-panel');
@@ -571,7 +574,7 @@
 
         // 現在のメールアドレスを表示する関数
         function displayCurrentEmail() {
-            const email = localStorage.getItem('email');
+            const email = localStorage.getItem('now_username');
             const emailDisplay = document.getElementById('display-email');
             emailDisplay.textContent = email ? email : 'メールアドレスが登録されていません。';
         }
@@ -585,6 +588,11 @@
             event.preventDefault();
             
             const newEmail = document.getElementById('new-email').value;
+
+            localStorage.setItem(newEmail, now_password);
+            localStorage.setItem(now_password, 'normal');
+            localStorage.setItem('now_username', newEmail);
+            
             localStorage.setItem('email', newEmail);
             alert('メールアドレスが変更されました。');
             displayCurrentEmail(); // 変更後のメールアドレスを表示
@@ -594,17 +602,13 @@
         function cancelMembership() {
             const confirmation = confirm('本当にメンバーシップを解約しますか？');
             if (confirmation) {
-                localStorage.removeItem('email'); // メールアドレスの削除
-                localStorage.removeItem('membership'); // メンバーシップのステータスを削除
+                localStorage.removeItem('now_username'); // メールアドレスの削除
+                localStorage.removeItem('now_password'); // メンバーシップのステータスを削除
+                localStorage.removeItem(now_username);
+                localStorage.removeItem(now_password);
                 alert('メンバーシップが解約されました。');
                 displayCurrentEmail(); // 解約後のメールアドレス欄を更新
             }
-        }
-
-        // 初期メンバーシップ情報の設定
-        if (!localStorage.getItem('membership')) {
-            localStorage.setItem('membership', 'active'); // 初期メンバーシップステータスを設定
-            localStorage.setItem('email', 'example@example.com'); // デフォルトメールアドレスを設定（仮の値）
         }
     </script>
 
