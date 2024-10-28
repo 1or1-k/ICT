@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お気に入り問題集</title>
+    <style>
+        /* スタイルは前回と同じ */
+        .category {
+            margin-bottom: 20px;
+        }
+        .favorite {
+            color: gold;
+            cursor: pointer;
+        }
+        /* 他のスタイルは省略 */
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="left-content">
+            <h1>お気に入り問題集</h1>
+            <div id="favorites-container"></div>
+            <button onclick="location.href='mondai.html'">問題集に戻る</button>
+        </div>
+
+        <!-- 右側のサイドバーは変更なし -->
+        <div class="sidebar">
+            <!-- サイドバーの内容は変更なし -->
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { id: 1, text: "日本の所得税の最高税率は何％ですか？", category: "所得税について" },
+            { id: 2, text: "所得税の課税対象となる所得の種類はどれですか？", category: "所得税について" },
+            { id: 3, text: "固定資産税はどのような資産に対して課されますか？", category: "固定資産税について" },
+            { id: 4, text: "住民税はどのように計算されますか？", category: "その他" },
+            { id: 5, text: "相続税の基礎控除額はどのように計算されますか？", category: "その他" }
+        ];
+
+        // ローカルストレージからお気に入りを読み込む
+        function loadFavorites() {
+            const storedFavorites = localStorage.getItem('questionFavorites');
+            return storedFavorites ? JSON.parse(storedFavorites) : [];
+        }
+
+        // お気に入りの保存
+        function saveFavorites(favorites) {
+            localStorage.setItem('questionFavorites', JSON.stringify(favorites));
+        }
+
+        function toggleFavorite(id) {
+            const favorites = loadFavorites();
+            const index = favorites.indexOf(id);
+            if (index === -1) {
+                favorites.push(id);
+            } else {
+                favorites.splice(index, 1);
+            }
+            saveFavorites(favorites);
+            renderFavorites();
+        }
+
+        function renderFavorites() {
+            const favoritesContainer = document.getElementById('favorites-container');
+            const favorites = loadFavorites();
+            
+            if (favorites.length === 0) {
+                favoritesContainer.innerHTML = '<p>お気に入りに登録された問題はありません。</p>';
+                return;
+            }
+
+            let html = '<div class="category"><h2>お気に入り問題</h2><ul>';
+            
+            favorites.forEach(favoriteId => {
+                const question = questions.find(q => q.id === favoriteId);
+                if (question) {
+                    html += `
+                        <li>
+                            <button onclick="location.href='question${question.id}.html'">${question.text}</button>
+                            <span class="favorite" onclick="toggleFavorite(${question.id})">★</span>
+                        </li>
+                    `;
+                }
+            });
+            
+            html += '</ul></div>';
+            favoritesContainer.innerHTML = html;
+        }
+
+        // ページ読み込み時に実行
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFavorites();
+        });
+    </script>
+</body>
+</html>
