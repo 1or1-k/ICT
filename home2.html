@@ -49,10 +49,10 @@
             background-color: white;
         }
 
-        /* 广告区域 */
+        /* 広告エリア */
         .ad {
-            background-color: #ccf;
-            padding: 10px;
+            background-color: rgb(152, 236, 242);
+            padding: 15px;
             text-align: center;
             font-size: 0.9em;
             position: fixed;
@@ -60,22 +60,27 @@
             width: 100%;
         }
 
-        /* 底部导航栏 */
+        /* フッターナビゲーション */
         .footer {
-            background-color: #fff;
-            border-top: 1px solid #ddd;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 50px;
-            text-align: center;
-        }
+        background-color: #faf5ebf1; /* 背景色を薄い黄色に調整 */
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 
-        .footer a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #007BFF;
-        }
+    .footer img {
+        width: 30px;  /* 画像の幅を調整 */
+        height: 30px; /* 画像の高さを調整 */
+    }
+
+    .footer a {
+        text-decoration: none;
+    }
     </style>
 </head>
 <body>
@@ -200,9 +205,10 @@
 
     <!-- 底部导航栏 -->
     <div class="footer">
-        <a href="#">ホーム</a>
-        <a href="kennsaku.html">検索</a>
-        <a href="#">プロフィール</a>
+        <a href="home.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="mark.html"><img src="bottom_mark.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
     </div>
 
 </body>
