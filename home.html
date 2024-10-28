@@ -388,6 +388,9 @@
         
                     if (password === storedPassword) {
                         //alert("ログイン成功！");
+                        localStorage.setItem('now_username', userId);
+                        localStorage.setItem('now_password', password);
+
                         if (storedRank === 'normal') {
                             location.href = "home2.html";
                         }
