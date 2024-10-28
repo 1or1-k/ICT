@@ -592,6 +592,8 @@
             localStorage.setItem(newEmail, now_password);
             localStorage.setItem(now_password, 'normal');
             localStorage.setItem('now_username', newEmail);
+
+            localStorage.removeItem(now_username);
             
             localStorage.setItem('email', newEmail);
             alert('メールアドレスが変更されました。');
