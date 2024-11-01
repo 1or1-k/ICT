@@ -1,0 +1,204 @@
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブックマーク</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* ヘッダータイトルバー */
+        .header {
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .header img {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+
+        /* 戻るボタン */
+        .back-btn {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        /* ボタンの基本スタイル */
+        .number-btn {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #ffd27f; /* 薄い黄色のボーダー */
+            border-radius: 10px;
+            background-color: #fff7e6; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .number-btn:visited {
+            color: red; /* クリック後の文字色 */
+        }
+
+        /* ホバー時のスタイル */
+        .number-btn:hover {
+            background-color: #ffeecc; /* ホバー時にボタン背景が少し明るくなる */
+        }
+        .space {
+            height: 300px;
+        }
+        /* コンテンツ部分 */
+        .content {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .red-title {
+        color:  #fa8174f1;
+        }
+
+        /* 広告エリア */
+        .ad {
+            background-color: rgb(152, 236, 242);
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer img {
+        width: 30px;  /* 画像の幅を調整 */
+        height: 30px; /* 画像の高さを調整 */
+    }
+        /* フッターナビゲーション */
+        .footer {
+        background-color: #faf5ebf1; /* 背景色を薄い黄色に調整 */
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="header">
+        <a href="#" class="back-btn">戻る</a>
+        <h1>Taxsea💧</h1>
+        <div class="plan-info">
+            plan: Free
+            <input type="text" name="name" placeholder="検索してみて">
+        </div>
+    </div>
+
+    <h2 class="red-title">動画のブックマーク</h2>
+
+    <div id="recordedStars"></div>
+    
+    <script>
+        window.onload = function() {
+            const recordedStarsDiv = document.getElementById('recordedStars');
+
+            if (localStorage.getItem('v1_star') === 'bright') {
+                const link3 = document.createElement('a');
+                link3.href = 'video1_anime.html#v1_star';
+                link3.textContent = '⭐1.租税教育教材・アニメ';
+                link3.className = 'number-btn';
+                recordedStarsDiv.appendChild(link3);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('v2_star') === 'bright') {
+                const link4 = document.createElement('a');
+                link4.href = 'video2_kakutei.html#v2_star';
+                link4.textContent = '⭐2. 確定申告特集';
+                link4.className = 'number-btn';
+                recordedStarsDiv.appendChild(link4);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('v3_star') === 'bright') {
+                const link5 = document.createElement('a');
+                link5.href = 'video3_syohi.html#v3_star';
+                link5.textContent = '⭐3. 消費税　軽減税率制度特集';
+                link5.className = 'number-btn';
+                recordedStarsDiv.appendChild(link5);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('v4_star') === 'bright') {
+                const link6 = document.createElement('a');
+                link6.href = 'video4_nozei.html#v4_star';
+                link6.textContent = '⭐4. 納税の猶予制度特集';
+                link6.className = 'number-btn';
+                recordedStarsDiv.appendChild(link6);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            } 
+
+            if (localStorage.getItem('v5_star') === 'bright') {
+                const link7 = document.createElement('a');
+                link7.href = 'video5_kicyou.html#v5_star';
+                link7.textContent = '⭐5. 記帳・決算のしかた';
+                link7.className = 'number-btn';
+                recordedStarsDiv.appendChild(link7);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+
+            if (localStorage.getItem('v6_star') === 'bright') {
+                const link8 = document.createElement('a');
+                link8.href = 'video4_etax.html#v6_star';
+                link8.textContent = '⭐6. etax';
+                link8.className = 'number-btn';
+                recordedStarsDiv.appendChild(link8);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+        }
+    </script>
+
+    <div class="space"></div>
+    <!-- 広告エリア -->
+    <div class="ad">
+        <a href="https://ads.google.com/intl/ja_jp/home/">広告  詳しくはこちら</a>
+
+    </div>
+
+    <!-- フッターナビゲーション -->
+    <div class="footer">
+        <a href="home.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="bookmark.html"><img src="bottom_mark.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
+    </div>
+
+</body>
+</html>

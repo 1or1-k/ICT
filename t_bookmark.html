@@ -1,0 +1,223 @@
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブックマーク</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* ヘッダータイトルバー */
+        .header {
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .header img {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+
+        /* 戻るボタン */
+        .back-btn {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        /* ボタンの基本スタイル */
+        .number-btn {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #ffd27f; /* 薄い黄色のボーダー */
+            border-radius: 10px;
+            background-color: #fff7e6; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .number-btn:visited {
+            color: red; /* クリック後の文字色 */
+        }
+
+        /* ホバー時のスタイル */
+        .number-btn:hover {
+            background-color: #ffeecc; /* ホバー時にボタン背景が少し明るくなる */
+        }
+        .space {
+            height: 300px;
+        }
+        /* コンテンツ部分 */
+        .content {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .red-title {
+        color:  #fa8174f1;
+        }
+
+        /* 広告エリア */
+        .ad {
+            background-color: rgb(152, 236, 242);
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer img {
+        width: 30px;  /* 画像の幅を調整 */
+        height: 30px; /* 画像の高さを調整 */
+    }
+        /* フッターナビゲーション */
+        .footer {
+        background-color: #faf5ebf1; /* 背景色を薄い黄色に調整 */
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="header">
+        <a href="#" class="back-btn">戻る</a>
+        <h1>Taxsea💧</h1>
+        <div class="plan-info">
+            plan: Free
+            <input type="text" name="name" placeholder="検索してみて">
+        </div>
+    </div>
+
+    <h2 class="red-title">参考書のブックマーク</h2>
+
+    <div id="recordedStars"></div>
+    
+    <script>
+        window.onload = function() {
+            const recordedStarsDiv = document.getElementById('recordedStars');
+            if (localStorage.getItem('t1_star') === 'bright') {
+                const link9 = document.createElement('a');
+                link9.href = 'textbook_vip_home.html#t1_star';
+                link9.textContent = '⭐1.税法入門';
+                link9.className = 'number-btn';
+                recordedStarsDiv.appendChild(link9);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('t2_star') === 'bright') { 
+                const link10 = document.createElement('a');
+                link10.href = 'textbook_vip_home.html#t2_star';
+                link10.textContent = '⭐2.国税通則法';
+                link10.className = 'number-btn';
+                recordedStarsDiv.appendChild(link10);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('t3_star') === 'bright') { 
+                const link11 = document.createElement('a');
+                link11.href = 'textbook_vip_home.html#t3_star';
+                link11.textContent = '⭐3.所得税法';
+                link11.className = 'number-btn';
+                recordedStarsDiv.appendChild(link11);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('t4_star') === 'bright') { 
+                const link12 = document.createElement('a');
+                link12.href = 'textbook_vip_home.html#t4_star';
+                link12.textContent = '⭐4.法人税法';
+                link12.className = 'number-btn';
+                recordedStarsDiv.appendChild(link12);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('t5_star') === 'bright') { 
+                const link13 = document.createElement('a');
+                link13.href = 'textbook_vip_home.html#t5_star';
+                link13.textContent = '⭐5.相続税法';
+                link13.className = 'number-btn';
+                recordedStarsDiv.appendChild(link13);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('t6_star') === 'bright') { 
+                const link14 = document.createElement('a');
+                link14.href = 'textbook_vip_home.html#t6_star';
+                link14.textContent = '⭐6.消費税法';
+                link14.className = 'number-btn';
+                recordedStarsDiv.appendChild(link14);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('t7_star') === 'bright') { 
+                const link15 = document.createElement('a');
+                link15.href = 'textbook_vip_home.html#t7_star';
+                link15.textContent = '⭐7.国税徴収法';
+                link15.className = 'number-btn';
+                recordedStarsDiv.appendChild(link15);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+            if (localStorage.getItem('t8_star') === 'bright') { 
+                const link16 = document.createElement('a');
+                link16.href = 'textbook_vip_home.html#t8_star';
+                link16.textContent = '⭐8.間接税法';
+                link16.className = 'number-btn';
+                recordedStarsDiv.appendChild(link16);
+                recordedStarsDiv.appendChild(document.createElement('br'));
+            }
+
+
+
+        }
+    </script>
+
+    <div class="space"></div>
+    <!-- 広告エリア -->
+    <div class="ad">
+        <a href="https://ads.google.com/intl/ja_jp/home/">広告  詳しくはこちら</a>
+
+    </div>
+
+    <!-- フッターナビゲーション -->
+    <div class="footer">
+        <a href="home.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="bookmark.html"><img src="bottom_mark.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
+    </div>
+
+</body>
+</html>
