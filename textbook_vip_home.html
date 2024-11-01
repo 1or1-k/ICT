@@ -96,6 +96,12 @@
             color: #007BFF;
         }
 
+        .star {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        }
+
         /* コンテンツ部分 */
         .content {
             padding: 20px;
@@ -107,12 +113,14 @@
         color:  #fa8174f1;
         }
 
-
+        .space {
+            height: 150px;
+        }
 
         /* 広告エリア */
         .ad {
             background-color: rgb(152, 236, 242);
-            padding: 10px;
+            padding: 15px;
             text-align: center;
             font-size: 0.9em;
             position: fixed;
@@ -142,6 +150,57 @@
             text-decoration: none;
         }
     </style>
+
+    <script>
+        // localStorageから星の状態を読み込む
+
+        window.onload = function() { 
+            if (localStorage.getItem('t1_star') === 'bright') {
+                document.getElementById('t1_star').src = 'yellow_star.png';
+            }
+
+            if (localStorage.getItem('t2_star') === 'bright') {
+                document.getElementById('t2_star').src = 'yellow_star.png';
+            }
+
+            if (localStorage.getItem('t3_star') === 'bright') {
+                document.getElementById('t3_star').src = 'yellow_star.png';
+            }
+
+            if (localStorage.getItem('t4_star') === 'bright') {
+                document.getElementById('t4_star').src = 'yellow_star.png';
+            }
+
+            if (localStorage.getItem('t5_star') === 'bright') {
+                document.getElementById('t5_star').src = 'yellow_star.png';
+            }
+
+            if (localStorage.getItem('t6_star') === 'bright') {
+                document.getElementById('t6_star').src = 'yellow_star.png';
+            }
+
+            if (localStorage.getItem('t7_star') === 'bright') {
+                document.getElementById('t7_star').src = 'yellow_star.png';
+            }
+
+            if (localStorage.getItem('t8_star') === 'bright') {
+                document.getElementById('t8_star').src = 'yellow_star.png';
+            }
+
+        }
+
+        // 星の画像を切り替えて状態を保存する
+        function toggleStar(starId) {
+            const star = document.getElementById(starId);
+            if (star.src.includes('grey_star.png')) {
+                star.src = 'yellow_star.png';
+                localStorage.setItem(starId, 'bright');
+            } else {
+                star.src = 'grey_star.png';
+                localStorage.removeItem(starId);
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -157,12 +216,14 @@
 
     <!-- メインコンテンツ -->
     <h1 class="red-title">参考書で税金の知識を学ぼう</h1>
+       
 
     <div class="book-list">
         
         <div class="book">
             <span style="font-size: 20px;"><strong>税法入門</strong></span>
             <div class="buttons">
+                <img id="t1_star" class="star" src="grey_star.png" onclick="toggleStar('t1_star')" alt="t1">
                 <a href="textbook/nyuumonn.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
                 <a href="textbook/nyuumonn.pdf" download class="download-btn">ダウンロード</a>
             </div>
@@ -171,6 +232,7 @@
         <div class="book">
             <span style="font-size: 20px;"><strong>国税通則法</strong></span>
             <div class="buttons">
+                <img id="t2_star" class="star" src="grey_star.png" onclick="toggleStar('t2_star')" alt="t2">
                 <a href="textbook/kokuzei_tsuisoku" target="_blank" class="watch-btn">オンライン閲覧</a>
                 <a href="textbook/kokuzei_tsuisoku" download class="download-btn">ダウンロード</a>
             </div>
@@ -179,6 +241,7 @@
         <div class="book">
             <span style="font-size: 20px;"><strong>所得税法</strong></span>
             <div class="buttons">
+                <img id="t3_star" class="star" src="grey_star.png" onclick="toggleStar('t3_star')" alt="t3">
                 <a href="textbook/syotoku.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
                 <a href="textbook/syotoku.pdf" download class="download-btn">ダウンロード</a>
             </div>
@@ -187,6 +250,7 @@
         <div class="book">
             <span style="font-size: 20px;"><strong>法人税法</strong></span>
             <div class="buttons">
+                <img id="t4_star" class="star" src="grey_star.png" onclick="toggleStar('t4_star')" alt="t4">
                 <a href="textbook/houjinn.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
                 <a href="textbook/houjinn.pdf" download class="download-btn">ダウンロード</a>
             </div>
@@ -195,6 +259,7 @@
         <div class="book">
             <span style="font-size: 20px;"><strong>相続税法</strong></span>
             <div class="buttons">
+                <img id="t5_star" class="star" src="grey_star.png" onclick="toggleStar('t5_star')" alt="t5">
                 <a href="textbook/souzoku.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
                 <a href="textbook/souzoku.pdf" download class="download-btn">ダウンロード</a>
             </div>
@@ -203,26 +268,37 @@
         <div class="book">
             <span style="font-size: 20px;"><strong>消費税法</strong></span>
             <div class="buttons">
+                <img id="t6_star" class="star" src="grey_star.png" onclick="toggleStar('t6_star')" alt="t6">
                 <a href="textbook/syouhi.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
                 <a href="textbook/syouhi.pdf" download class="download-btn">ダウンロード</a>
             </div>
         </div>
     
-    </div>
 
-        <!-- 新しい会員情報モジュール -->
-    <div class="membership-info" style="max-width: 600px; margin: 0 auto; background-color: #faf5ebf1; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 20px; margin-bottom: 300px;">
-        <h2 style="text-align: center; color: #f89a7d;">上級会員になったら、もっとたくさんの参考書が見れる</h2>
-        <p style="text-align: center;">今すぐ上級会員登録して、たくさんの税金関連の参考書を楽しもう！</p>
-        <div style="text-align: center; margin-top: 10px;">
-            <a href="signup.html" style="background-color: #f1d961; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">上級会員登録</a>
+        <div class="book">
+            <span style="font-size: 20px;"><strong>国税徴収法</strong></span>
+            <div class="buttons">
+                <img id="t7_star" class="star" src="grey_star.png" onclick="toggleStar('t7_star')" alt="t7">
+                <a href="textbook/kokuzei_cyosyu.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/kokuzei_cyosyu.pdf" download class="download-btn">ダウンロード</a>
+            </div>
         </div>
+
+        <div class="book">
+            <span style="font-size: 20px;"><strong>間接税法</strong></span>
+            <div class="buttons">
+                <img id="t8_star" class="star" src="grey_star.png" onclick="toggleStar('t8_star')" alt="t8">
+                <a href="textbook/kannsetu.pdf" target="_blank" class="watch-btn">オンライン閲覧</a>
+                <a href="textbook/kannsetu.pdf" download class="download-btn">ダウンロード</a>
+            </div>
+        </div>
+    
     </div>
 
+    <div class="space"></div>
 
     <!-- 広告エリア -->
     <div class="ad">
-        <p>広告</p>
         <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
     </div>
 
@@ -230,7 +306,7 @@
     <div class="footer">
         <a href="home.html"><img src="bottom_home.png"></a>
         <a href="kennsaku.html"><img src="bottom_search.png"></a>
-        <a href="mark.html"><img src="bottom_mark.png"></a>
+        <a href="bookmark.html"><img src="bottom_mark.png"></a>
         <a href="other.html"><img src="bottom_other.png"></a>
     </div>
 
