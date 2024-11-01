@@ -42,7 +42,11 @@
             text-decoration: none;
             color: #007BFF;
         }
-
+        .star {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
         /* 内容部分 */
         .content {
             padding: 20px;
@@ -90,6 +94,26 @@
     }
 
     </style>
+        <script>
+        // localStorageから星の状態を読み込む
+        window.onload = function() {
+            if (localStorage.getItem('v2_star') === 'bright') {
+                document.getElementById('v2_star').src = 'yellow_star.png';
+            }
+        }
+
+        // 星の画像を切り替えて状態を保存する
+        function toggleStar(starId) {
+            const star = document.getElementById(starId);
+            if (star.src.includes('grey_star.png')) {
+                star.src = 'yellow_star.png';
+                localStorage.setItem(starId, 'bright');
+            } else {
+                star.src = 'grey_star.png';
+                localStorage.removeItem(starId);
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -109,7 +133,9 @@
          <!-- 数字按钮列表 -->
 
     <h2>2. 確定申告特集</h2>
-
+    <div>
+        <img id="v2_star" class="star" src="grey_star.png" onclick="toggleStar('v2_star')" alt="v2">
+    </div>
     <h3>1　スマホ申告　青色申告決算書等の入力方法</h3>
     <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/JXS8rr64fCI?si=YsFQvgoKPGSA8cC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
