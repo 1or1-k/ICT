@@ -42,7 +42,11 @@
             text-decoration: none;
             color: #007BFF;
         }
-
+        .star {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        }
         /* 内容部分 */
         .content {
             padding: 20px;
@@ -90,6 +94,27 @@
     }
 
     </style>
+
+    <script>
+        // localStorageから星の状態を読み込む
+        window.onload = function() {
+            if (localStorage.getItem('v4_star') === 'bright') {
+                document.getElementById('v4_star').src = 'yellow_star.png';
+            }
+        }
+
+        // 星の画像を切り替えて状態を保存する
+        function toggleStar(starId) {
+            const star = document.getElementById(starId);
+            if (star.src.includes('grey_star.png')) {
+                star.src = 'yellow_star.png';
+                localStorage.setItem(starId, 'bright');
+            } else {
+                star.src = 'grey_star.png';
+                localStorage.removeItem(starId);
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -110,32 +135,25 @@
 
     <h2>4. 納税の猶予制度特集</h2>
 
-    <h3>1　申告書作成</h3>
+    <div>
+        <img id="v4_star" class="star" src="grey_star.png" onclick="toggleStar('v4_star')" alt="v4">
+    </div>
+    
+    <h3>1　新たに猶予を申請する方 Excelでできる！国税の猶予に必要な書類の作成方法</h3>
     <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/K6eCpcK5z5A?si=11_hCbu9OSdUsGHI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Q3o_f3CRlgY?si=0fy219FF0KI8iLGy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
     
-    <h3>2　申告書作成（課税仕入れ等の税額の計算から差引税額・地方消費税額の計算まで）</h3>
+    <h3>2　特例猶予を受けている方 Excelでできる！国税の猶予に必要な書類の作成方法</h3>
     <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/O-8EOgtjhtU?si=RRlYh_D9tJvM57KA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-
-    <h3>3 申告書作成（課税標準額・消費税額の計算から課税売上割合の計算まで）</h3>
-    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto;"></div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/QQv8VSTf5qA?si=RjwWRGORq5G3Z7Ew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-
-    <h3>4 軽減税率制度の概要・区分経理、決算処理</h3>
-    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto;"></div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/QUbZygZMjnU?si=0f92ZPVmWqf0Gur0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/iTo66klUTKY?si=YJ_g9bjm95DdQppd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
     
-    <h3>5 適格請求書等保存方式</h3>
+    <h3>3 自宅のExcelでできる特例猶予の申請書の作成方法</h3>
     <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto; "></div>
     <iframe width="560" height="315" 
-    src="https://www.youtube.com/embed/BbtIuGquc_A?si=lHJzaeoQG4CZ7_So" 
-    title="YouTube video player" 
-    frameborder="0" 
+    src="https://www.youtube.com/embed/R0RjIZBBYPk?si=FM1VfPeDZJYUJGRm" 
+    title="YouTube video player" frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
     referrerpolicy="strict-origin-when-cross-origin" 
     allowfullscreen style="margin-bottom: 200px;"></iframe>  
@@ -152,7 +170,7 @@
     <div class="footer">
         <a href="home.html"><img src="bottom_home.png"></a>
         <a href="kennsaku.html"><img src="bottom_search.png"></a>
-        <a href="mark.html"><img src="bottom_mark.png"></a>
+        <a href="bookmark.html"><img src="bottom_mark.png"></a>
         <a href="other.html"><img src="bottom_other.png"></a>
     </div>
 
