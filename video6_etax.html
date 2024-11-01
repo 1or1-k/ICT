@@ -1,0 +1,203 @@
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* 顶部标题栏 */
+        .header {
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .header img {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+        .header h1 {
+            font-size: 1.5em;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .star {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        }
+        /* 内容部分 */
+        .content {
+            padding: 20px;
+            background-color: white;
+        }
+
+            /* 调整标题的外边距 */
+        h2, h3 {
+            margin-top: 10px;  /* 标题上方的外边距 */
+            margin-bottom: 5px; /* 标题下方的外边距 */
+        }
+
+        /* 调整视频容器的外边距 */
+        .video-container {
+            margin-bottom: 10px;  /* 视频与下一个元素的外边距 */
+        }
+
+        /* 广告区域 */
+        .ad {
+            background-color: rgb(152, 236, 242);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* 底部导航栏 */
+        .footer {
+        background-color: #faf5ebf1; /* 调整背景为淡黄色 */
+        border-top: 0px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .footer img {
+        width: 30px;  /* 调整图片宽度 */
+        height: 30px; /* 调整图片高度 */
+    }
+
+    </style>
+
+    <script>
+        // localStorageから星の状態を読み込む
+        window.onload = function() {
+            if (localStorage.getItem('v6_star') === 'bright') {
+                document.getElementById('v6_star').src = 'yellow_star.png';
+            }
+        }
+
+        // 星の画像を切り替えて状態を保存する
+        function toggleStar(starId) {
+            const star = document.getElementById(starId);
+            if (star.src.includes('grey_star.png')) {
+                star.src = 'yellow_star.png';
+                localStorage.setItem(starId, 'bright');
+            } else {
+                star.src = 'grey_star.png';
+                localStorage.removeItem(starId);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- 顶部标题栏 -->
+    <div class="header">
+        <a href="#" class="back-btn">戻る</a>
+        <h1>Taxsea💧</h1>
+        <div class="plan-info">
+            plan: Free
+            <input type="text" name="name" placeholder="検索してみて">
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <h1>動画で税金の知識を学ぼう</h1>
+         <!-- 数字按钮列表 -->
+
+    <h2>6. e-Taxのご利用方法</h2>
+
+    <div>
+        <img id="v6_star" class="star" src="grey_star.png" onclick="toggleStar('v6_star')" alt="v6">
+    </div>
+    
+    <h3>1　e-Taxソフト（WEB版）をご利用の方へ【90秒ver】</h3>
+    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_bSyj4rs2nc?si=IGtOhk-K4r1L7yg6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    
+    <h3>2　e-Taxソフト（WEB版）をご利用の方へ</h3>
+    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Z9CxPnrbjFE?si=EiauQHCoRJOEx8M5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <h3>3　e-Taxのご利用方法③納税証明書の交付請求</h3>
+    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/PCEGth2C23A?si=ly393KZZO_3OPYOW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>    
+    
+    <h3>4　e-Taxのご利用方法④電子納税の概要</h3>
+    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6-J49h0n3TI?si=JGt0Pn84PSCg2H8V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>    
+
+    <h3>5　e-Taxのご利用方法⑤ダイレクト納付（e-Taxによる口座振替）について</h3> 
+    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Tm8P6_ohfTw?si=hod5ZQfW1Sge0KjC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    
+    <h3>6　e-Taxのご利用方法⑥インターネットバンキングによる納付について</h3>
+    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MSPuuGX_WN0?si=n_J5ytExIxtx4rFf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    
+    <h3>7　e-Taxのご利用方法⑧e-Taxを利用した法定調書の作成・提出</h3>
+    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/gxvp1LqH9lI?si=N2Mfg72mYtvNOzKc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <h3>8 e-Taxのご利用方法⑨税理士による代理送信の基本的な操作及びメッセージボックスの共有</h3>
+    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto; "></div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ViP1_9HTvr8?si=cz7z_Ce__qkxvcni" 
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen style="margin-bottom: 200px;"></iframe>  
+    </div>
+
+
+
+    <!-- 广告区域 -->
+    <div class="ad" >
+        <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="footer">
+        <a href="home.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="bookmark.html"><img src="bottom_mark.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
+    </div>
+
+
+</body>
+</html>
