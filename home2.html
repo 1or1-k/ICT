@@ -588,11 +588,11 @@
             event.preventDefault();
 
             localStorage.removeItem(now_username);
+            localStorage.removeItem('now_username'); // メールアドレスの削除
             
             const newEmail = document.getElementById('new-email').value;
 
             localStorage.setItem(newEmail, now_password);
-            localStorage.setItem(now_password, 'normal');
             localStorage.setItem('now_username', newEmail);
 
             
@@ -609,7 +609,6 @@
                 localStorage.removeItem('now_username'); // メールアドレスの削除
                 localStorage.removeItem('now_password'); // メンバーシップのステータスを削除
                 localStorage.removeItem(now_username);
-                localStorage.removeItem(now_password);
                 alert('メンバーシップが解約されました。');
                 location.href = "home.html";
                 displayCurrentEmail(); // 解約後のメールアドレス欄を更新
