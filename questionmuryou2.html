@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問題2</title>
+    <style>
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function checkAnswer() {
+            const selected = document.querySelector('input[name="choice"]:checked');
+            const result = document.getElementById('result');
+            const explanation = document.getElementById('explanation');
+            if (selected) {
+                if (selected.value === '4') {
+                    result.textContent = '〇 正解です！';
+                    explanation.textContent = '解説: 選択4が正解です。所得税の課税対象となる所得には、給与所得、利子所得、配当所得などが含まれます。したがって、正解は「以上すべて」です。';
+                } else {
+                    result.textContent = '× 不正解です。';
+                    explanation.textContent = '解説: 残念ながら選択4が正解です。所得税の課税対象となる所得には、給与所得、利子所得、配当所得などが含まれます。したがって、正解は「以上すべて」です。';
+                }
+            } else {
+                result.textContent = '選択肢を選んでください。';
+                explanation.textContent = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>問題2</h1>
+    <p>所得税の課税対象となる所得の種類はどれですか？</p>
+    <form>
+        <input type="radio" id="choice1" name="choice" value="1">
+        <label for="choice1">給与所得</label><br>
+        <input type="radio" id="choice2" name="choice" value="2">
+        <label for="choice2">利子所得</label><br>
+        <input type="radio" id="choice3" name="choice" value="3">
+        <label for="choice3">配当所得</label><br>
+        <input type="radio" id="choice4" name="choice" value="4">
+        <label for="choice4">以上すべて</label><br>
+        <button type="button" onclick="checkAnswer()">回答する</button>
+    </form>
+    <div id="result" class="result"></div>
+    <div id="explanation"></div>
+    <button onclick="location.href='mondaimuryou.html'">戻る</button>
+</body>
+</html>
