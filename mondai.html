@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -294,8 +295,16 @@
             { id: 4, text: "住民税はどのように計算されますか？", category: "その他" },
             { id: 5, text: "相続税の基礎控除額はどのように計算されますか？", category: "その他" }
         ];
+        function loadFavorites() {
+            const storedFavorites = localStorage.getItem('questionFavorites');
+            return storedFavorites ? JSON.parse(storedFavorites) : [];
+        }
 
-        let favorites = [];
+        function saveFavorites(favorites) {
+            localStorage.setItem('questionFavorites', JSON.stringify(favorites));
+        }
+
+        let favorites = loadFavorites();
 
         function renderQuestions() {
             const categoriesDiv = document.getElementById('categories');
@@ -309,7 +318,6 @@
                 categories[q.category].push(q);
             });
 
-            // お気に入りカテゴリーを先頭に追加
             if (favorites.length > 0) {
                 const favoriteCategory = document.createElement('div');
                 favoriteCategory.className = 'category';
@@ -325,7 +333,6 @@
                 categoriesDiv.appendChild(favoriteCategory);
             }
 
-            // その他のカテゴリーを追加
             for (const [category, categoryQuestions] of Object.entries(categories)) {
                 const categoryDiv = document.createElement('div');
                 categoryDiv.className = 'category';
@@ -356,6 +363,7 @@
             } else {
                 favorites.splice(index, 1);
             }
+            saveFavorites(favorites);
             renderQuestions();
         }
 
@@ -363,3 +371,4 @@
     </script>
 </body>
 </html>
+
