@@ -383,8 +383,149 @@
 
         <!-- 右側のサイドバーは変更なし -->
         <div class="sidebar">
-            <!-- サイドバーの内容は変更なし -->
+            <!-- 試験制度解説ブロック -->
+            <h3 class="title-block">税金の基本</h3>
+            <ul>
+                <li><a class="box-menu" href="#">税金とは</a></li>
+                <li><a class="box-menu" href="home.html">納税の義務とは</a></li>
+                <li><a class="box-menu" href="syoseki.html">おすすめ書籍集</a></li>
+                <li><a class="box-menu" href="video_vip_home.html">おすすめ動画集</a></li>
+                <li><a class="box-menu" href="#">よくある質問(FAQ)</a></li>
+            </ul>
+
+            
+            <h3>問題解説</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="#">消費税</a></li>
+                <li><a class="box-menu" href="#">法人税</a></li>
+                <li><a class="box-menu" href="#">贈与税</a></li>
+                <li><a class="box-menu" href="#">固定資産税</a></li>
+                <li><a class="box-menu" href="textbook_vip_home.html">参考書</a></li>
+            </ul>
+
+
+            <h3>メンバーシップの紹介</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="member.html">メンバーシップとは</a></li>
+            </ul>
+
+            
+
+            <p style="margin: 50px; color: white;">这段文字周围有 10px 的留白。</p>
         </div>
+    </div>
+
+    <!-- ページトップボタン -->
+    <div class="pagetop">
+        <a href="#">Pagetop</a>
+    </div>
+
+    <!-- ハンバーガーパネル -->
+    <div class="menu-panel" id="menu-panel">
+        <h2>会員情報管理</h2>
+
+        <div class="menu-item" onclick="showSection('current-email')">現在の登録メールアドレス</div>
+        <div class="menu-item" onclick="showSection('change-email')">メールアドレスの変更</div>
+        <div class="menu-item" onclick="showSection('cancel-membership')">メンバーシップの解約</div>
+
+        <!-- 現在の登録メールアドレス表示 -->
+        <div class="section" id="current-email">
+            <h3>現在のメールアドレス</h3>
+            <p id="display-email">メールアドレスが登録されていません。</p>
+        </div>
+
+        <!-- メールアドレスの変更フォーム -->
+        <form id="change-email" class="section">
+            <h3>メールアドレスの変更</h3>
+            <label class="menu-btn" for="new-email">新しいメールアドレス:</label>
+            <input class="menu-btn" type="email" id="new-email" required>
+            <button class="menu-btn" type="submit">変更する</button>
+        </form>
+
+        <!-- メンバーシップ解約 -->
+        <div class="section" id="cancel-membership">
+            <h3>メンバーシップの解約</h3>
+            <button class="menu-btn" onclick="cancelMembership()">解約する</button>
+        </div>
+    </div>
+
+    <script>
+        const now_username = localStorage.getItem('now_username');
+        const now_password = localStorage.getItem('now_password');
+        
+        // メニュー表示/非表示の切り替え
+        function toggleMenu() {
+            const menuPanel = document.getElementById('menu-panel');
+            menuPanel.classList.toggle('active');
+        }
+
+        // 指定されたセクションのみ表示
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // 現在のメールアドレスを表示する関数
+        function displayCurrentEmail() {
+            const email = localStorage.getItem('now_username');
+            const emailDisplay = document.getElementById('display-email');
+            emailDisplay.textContent = email ? email : 'メールアドレスが登録されていません。';
+        }
+
+        // 初期化 - ページロード時に現在のメールアドレスを表示
+        displayCurrentEmail();
+
+        // メールアドレス変更処理
+        const changeEmailForm = document.getElementById('change-email');
+        changeEmailForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            localStorage.removeItem(now_username);
+            localStorage.removeItem('now_username'); // メールアドレスの削除
+            
+            const newEmail = document.getElementById('new-email').value;
+
+            localStorage.setItem(newEmail, now_password);
+            localStorage.setItem('now_username', newEmail);
+
+            
+            
+            localStorage.setItem('email', newEmail);
+            alert('メールアドレスが変更されました。');
+            displayCurrentEmail(); // 変更後のメールアドレスを表示
+        });
+
+        // メンバーシップ解約処理
+        function cancelMembership() {
+            const confirmation = confirm('本当にメンバーシップを解約しますか？');
+            if (confirmation) {
+                localStorage.removeItem('now_username'); // メールアドレスの削除
+                localStorage.removeItem('now_password'); // メンバーシップのステータスを削除
+                localStorage.removeItem(now_username);
+                alert('メンバーシップが解約されました。');
+                location.href = "home.html";
+                displayCurrentEmail(); // 解約後のメールアドレス欄を更新
+            }
+        }
+    </script>
+
+
+
+    <!-- 广告区域 -->
+    <div class="ad">
+        <p>広告</p>
+        <a href="https://ads.google.com/intl/ja_jp/home/">詳しくはこちら</a>
+
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="footer">
+        <a href="home2.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="bookmarkmatome.html"><img src="bottom_mark.png"></a>
+        <a onclick="toggleMenu()"><img src="bottom_other.png"></a>
     </div>
 
     <ul>
