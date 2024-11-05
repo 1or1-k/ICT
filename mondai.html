@@ -282,8 +282,7 @@
     <div class="pagetop">
         <a href="#">Pagetop</a>
     </div>
-
-    <script>
+　　<script>
         const questions = [
             { id: 1, text: "日本の所得税の最高税率は何％ですか？", category: "所得税について" },
             { id: 2, text: "所得税の課税対象となる所得の種類はどれですか？", category: "所得税について" },
@@ -295,6 +294,7 @@
             { id: 4, text: "住民税はどのように計算されますか？", category: "その他" },
             { id: 5, text: "相続税の基礎控除額はどのように計算されますか？", category: "その他" }
         ];
+
         function loadFavorites() {
             const storedFavorites = localStorage.getItem('questionFavorites');
             return storedFavorites ? JSON.parse(storedFavorites) : [];
@@ -367,7 +367,10 @@
             renderQuestions();
         }
 
-        renderQuestions();
+        document.addEventListener('DOMContentLoaded', function() {
+            favorites = loadFavorites(); // ページ読み込み時にお気に入りを再読み込み
+            renderQuestions();
+        });
     </script>
 </body>
 </html>
