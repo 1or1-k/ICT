@@ -43,27 +43,9 @@
             { id: 5, text: "相続税の基礎控除額はどのように計算されますか？", category: "その他" }
         ];
 
-        // ローカルストレージからお気に入りを読み込む
-        function loadFavorites() {
+          function loadFavorites() {
             const storedFavorites = localStorage.getItem('questionFavorites');
             return storedFavorites ? JSON.parse(storedFavorites) : [];
-        }
-
-        // お気に入りの保存
-        function saveFavorites(favorites) {
-            localStorage.setItem('questionFavorites', JSON.stringify(favorites));
-        }
-
-        function toggleFavorite(id) {
-            const favorites = loadFavorites();
-            const index = favorites.indexOf(id);
-            if (index === -1) {
-                favorites.push(id);
-            } else {
-                favorites.splice(index, 1);
-            }
-            saveFavorites(favorites);
-            renderFavorites();
         }
 
         function renderFavorites() {
@@ -93,7 +75,6 @@
             favoritesContainer.innerHTML = html;
         }
 
-        // ページ読み込み時に実行
         document.addEventListener('DOMContentLoaded', function() {
             renderFavorites();
         });
