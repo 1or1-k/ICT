@@ -14,7 +14,6 @@
 
     <script>
         const pages = [
-            //mondai.htmlはこのように検索させることにしました。当てはめる言葉はそれぞれで考えてもらって構わないです。私はquestion１つ１つは検索にひっからずにmondai.htmlにまとめました。
             { 
                 url: 'mondai.html', 
                 title: '問題集', 
@@ -93,8 +92,6 @@
             // 他のページ情報を追加
         ];
 
-            <button onclick="location.href='home.html'">戻る</button>
-        
         function performSearch() {
             const query = document.getElementById('searchBox').value.toLowerCase();
             const results = [];
@@ -125,6 +122,7 @@
                 resultsDiv.innerHTML = '<p>見つかりませんでした</p>';
             }
         }
+
         function highlightQuery(content, query) {
             const regex = new RegExp(`(${query})`, 'gi');
             return content.replace(regex, '<mark>$1</mark>');
