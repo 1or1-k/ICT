@@ -10,10 +10,10 @@
     <input type="text" id="searchBox" placeholder="検索キーワードを入力">
     <button onclick="performSearch()">検索</button>
     <div id="searchResults"></div>
+    <button onclick="location.href='home2.html'">戻る</button>
 
     <script>
         const pages = [
-            //mondai.htmlはこのように検索させることにしました。当てはめる言葉はそれぞれで考えてもらって構わないです。私はquestion１つ１つは検索にひっからずにmondai.htmlにまとめました。
             { 
                 url: 'mondai.html', 
                 title: '問題集', 
@@ -29,75 +29,9 @@
                     { text: '相続税の基礎控除額はどのように計算されますか？', category: '問題集' }
                 ]
             },
-            //以下に記入をお願いします。
-            { 
-                url: '', 
-                title: '', 
-                content: [
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                ]
-            },
-            
-            //以下に記入をお願いします。
-            { 
-                url: '', 
-                title: '', 
-                content: [
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                ]
-            },
-            
-            //以下に記入をお願いします。
-            { 
-                url: '', 
-                title: '', 
-                content: [
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                ]
-            },
-            
-            //以下に記入をお願いします。
-            { 
-                url: '', 
-                title: '', 
-                content: [
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                ]
-            },
-            
-            //以下に記入をお願いします。
-            { 
-                url: '', 
-                title: '', 
-                content: [
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                    { text: '', category: '' },
-                ]
-            },
             // 他のページ情報を追加
         ];
-        
-            <button onclick="location.href='home2.html'">戻る</button>
-        
+
         function performSearch() {
             const query = document.getElementById('searchBox').value.toLowerCase();
             const results = [];
@@ -128,7 +62,7 @@
                 resultsDiv.innerHTML = '<p>見つかりませんでした</p>';
             }
         }
-        <button onclick="location.href='home2.html'">戻る</button>
+
         function highlightQuery(content, query) {
             const regex = new RegExp(`(${query})`, 'gi');
             return content.replace(regex, '<mark>$1</mark>');
