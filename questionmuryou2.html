@@ -338,6 +338,44 @@
     </script>
 </head>
 <body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .panel {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #adminPanel {
+            background-color: #e9f9e9;
+        }
+    </style>
     <!-- 顶部标题栏 -->
     <div class="header">
         <a href="#" class="back-btn">戻る</a>
