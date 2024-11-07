@@ -317,11 +317,53 @@
 
     <!-- ヘッダー -->
     <div class="header">
-        <a href="#" class="back-btn">戻る</a>
         <h1>Taxsea💧</h1>
         <div class="plan-info">
             plan: Free
             <input type="text" name="name" placeholder="検索してみて">
+            <button id="loginButton" onclick="showLoginPanel()">ログイン・新規登録</button>
+            
+            <div id="loginPanel" class="panel">
+                <h3>アカウントにログイン</h3>
+                <input type="text" id="loginUserId" placeholder="ユーザーID"><br>
+                <input type="password" id="loginPassword" placeholder="パスワード"><br>
+                <button onclick="login()">ログインする</button>
+                <button onclick="hidePanel()">閉じる</button>
+
+                <div>アカウントを作成しませんか？</div>
+                <button id="registerButton" onclick="location.href='member.html';">メンバーシップの紹介</button>
+            </div>
+        
+            <script>
+                function showLoginPanel() {
+                    hideAllPanels();
+                    document.getElementById("loginPanel").style.display = "block";
+                }
+        
+                function login() {
+                    const userId = document.getElementById("loginUserId").value;
+                    const password = document.getElementById("loginPassword").value;
+        
+                    const storedPassword = localStorage.getItem(userId);
+        
+                    if (password === storedPassword) {
+                        //alert("ログイン成功！");
+                        localStorage.setItem('now_username', userId);
+                        localStorage.setItem('now_password', password);
+                        location.href = "home2.html";
+                    } else {
+                        alert("ユーザーIDまたはパスワードが間違っています。");
+                    }
+                }
+
+                function hideAllPanels() {
+                    document.getElementById("loginPanel").style.display = "none";
+                }
+        
+                function hidePanel() {
+                    hideAllPanels();
+                }
+            </script>
         </div>
     </div>
 
