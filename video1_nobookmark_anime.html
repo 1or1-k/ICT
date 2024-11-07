@@ -93,6 +93,204 @@
             text-decoration: none;
         }
     </style>
+    <style>
+
+        /* 左側コンテンツ */
+        .left-content {
+            width: 65%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            bottom: 120px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white; /* ボタンの文字色は白 */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #f7a992; /* ホバー時にボタン背景が少し明るくなる */
+        }
+        
+        /* 右側サイドバー */
+        .sidebar {
+            width: 33%;
+            padding: 0px;
+            margin-left: 25px;
+            
+            
+        }
+
+        .sidebar h3 {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white; /* ボタンの文字色は白 */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 0px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ページトップボタン */
+        .pagetop {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+        }
+
+        .pagetop a {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .pagetop a:hover {
+            background-color: #f7a992; /* ホバー時にボタン背景が少し明るくなる */
+        }
+
+        
+
+        /* ブロックスタイル */
+        .block {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .block h3 {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .block ul li {
+            padding: 5px 0;
+        }
+
+        .block ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .block ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* 広告ブロックスタイル */
+        .ad-block {
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad-block img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ad-block p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .sidebar h3 {
+            position: relative;
+            color: white;
+            line-height: 30px;
+            height: 24px;
+            text-align: center;
+            font-size: 24px;
+            padding: 5px 0px;
+            border-top: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-bottom: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-left: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-image: initial;
+            border-right: none;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px;
+            background: linear-gradient(#f7a992, #ef8e71);
+        }
+
+        .sidebar .box {
+            background: white;
+            list-style: none;
+            margin-bottom: 5px;
+        }
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+            unicode-bidi: isolate;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* ボタンの基本スタイル */
+        .box-menu {
+            display: block;
+            padding: 5px 15px;
+            margin: 0px;
+            border: 1px solid #e7e5e5; /* 薄い黄色のボーダー */
+            border-radius: 0px;
+            background-color: #ffffff; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            /*text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 0px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .box-menu:visited {
+            color: red; /* クリック後の文字色 */
+        }
+        /* ホバー時のスタイル */
+        .box-menu:hover {
+            background-color: #eae7e7; /* ホバー時にボタン背景が少し明るくなる */
+        }
+    </style>
 
 </head>
 
@@ -101,6 +299,44 @@
 
 
 <body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .panel {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #adminPanel {
+            background-color: #e9f9e9;
+        }
+    </style>
 
     <!-- 顶部标题栏 -->
     <div class="header">
@@ -109,49 +345,150 @@
         <div class="plan-info">
             plan: Free
             <input type="text" name="name" placeholder="検索してみて">
+            <button id="loginButton" onclick="showLoginPanel()">ログイン・新規登録</button>
+            
+            <div id="loginPanel" class="panel">
+                <h3>アカウントにログイン</h3>
+                <input type="text" id="loginUserId" placeholder="ユーザーID"><br>
+                <input type="password" id="loginPassword" placeholder="パスワード"><br>
+                <button onclick="login()">ログインする</button>
+                <button onclick="hidePanel()">閉じる</button>
+
+                <div>アカウントを作成しませんか？</div>
+                <button id="registerButton" onclick="location.href='member.html';">メンバーシップの紹介</button>
+            </div>
+        
+            <script>
+                function showLoginPanel() {
+                    hideAllPanels();
+                    document.getElementById("loginPanel").style.display = "block";
+                }
+        
+                function login() {
+                    const userId = document.getElementById("loginUserId").value;
+                    const password = document.getElementById("loginPassword").value;
+        
+                    const storedPassword = localStorage.getItem(userId);
+        
+                    if (password === storedPassword) {
+                        //alert("ログイン成功！");
+                        localStorage.setItem('now_username', userId);
+                        localStorage.setItem('now_password', password);
+                        location.href = "home2.html";
+                    } else {
+                        alert("ユーザーIDまたはパスワードが間違っています。");
+                    }
+                }
+
+                function hideAllPanels() {
+                    document.getElementById("loginPanel").style.display = "none";
+                }
+        
+                function hidePanel() {
+                    hideAllPanels();
+                }
+            </script>
         </div>
     </div>
 
     <!-- 主要内容 -->
-    <h1>動画で税金の知識を学ぼう</h1>
-         <!-- 数字按钮列表 -->
+    <div class="content">
+        <div class="left-content">
+            <h1>動画で税金の知識を学ぼう</h1>
+                 <!-- 数字按钮列表 -->
+        
+            <h2>1.租税教育教材・アニメ</h2>
+        
+            <h3>1　ダナの森ものがたり</h3>
+            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8uV2fjZHRtI?si=zYFqloq5dB6ivdqh" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen></iframe>
+            </div>
+            
+            <h3>2　ふしぎなはこ</h3>
+            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/8qDEt8ysi5k?si=7oFRFGVB2oWP87kD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <h3>3 みんなのためだから</h3>
+            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto;"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wzWT1cdHplA?si=OhKyBNtTjH4Wi0I8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
+            </div>
+            <h3>4 ちぇいとうんこちゃん</h3>
+            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto;"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/RhTeTzhYwXc?si=VfVKkjezH2cBOx7P" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe>   
+            </div>
+            
+            <h3>5 マリンとヤマト　不思議な日曜日</h3>
+            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto; "></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/MivtD3Hhl6M?si=t8GWC0k0wubZQ1Vl" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen style="margin-bottom: 200px;"></iframe>  
+            </div>
+        </div>
 
-    <h2>1.租税教育教材・アニメ</h2>
+        <!-- 右側サイドバー -->
+        <div class="sidebar">
+            <!-- 試験制度解説ブロック -->
+            <h3 class="title-block">税金の基本</h3>
+            <ul>
+                <li><a class="box-menu" href="#">税金とは</a></li>
+                <li><a class="box-menu" href="home.html">納税の義務とは</a></li>
+                <li><a class="box-menu" href="syoseki.html">おすすめ書籍集</a></li>
+                <li><a class="box-menu" href="video_home.html">おすすめ動画集</a></li>
+                <li><a class="box-menu" href="#">よくある質問(FAQ)</a></li>
+            </ul>
 
-    <h3>1　ダナの森ものがたり</h3>
-    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/8uV2fjZHRtI?si=zYFqloq5dB6ivdqh" 
-        title="YouTube video player" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen></iframe>
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 商品やサービスの紹介がここに入ります。</p>
+            </div>
+            
+            <h3>問題解説</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="mondaimuryou.html">消費税</a></li>
+                <li><a class="box-menu" href="mondaimuryou.html">法人税</a></li>
+                <li><a class="box-menu" href="mondaimuryou.html">贈与税</a></li>
+                <li><a class="box-menu" href="mondaimuryou.html">固定資産税</a></li>
+                <li><a class="box-menu" href="textbook_home.html">参考書</a></li>
+            </ul>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
+
+            <h3>メンバーシップの紹介</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="member.html">メンバーシップとは</a></li>
+            </ul>
+
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p >スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
+
+            <p style="margin: 50px; color: white;">这段文字周围有 10px 的留白。</p>
+        </div>
+        
+    <!-- ページトップボタン -->
+    <div class="pagetop">
+        <a href="#">Pagetop</a>
     </div>
     
-    <h3>2　ふしぎなはこ</h3>
-    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;"></div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/8qDEt8ysi5k?si=7oFRFGVB2oWP87kD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-    <h3>3 みんなのためだから</h3>
-    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto;"></div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/wzWT1cdHplA?si=OhKyBNtTjH4Wi0I8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
-    </div>
-    <h3>4 ちぇいとうんこちゃん</h3>
-    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto;"></div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/RhTeTzhYwXc?si=VfVKkjezH2cBOx7P" 
-    title="YouTube video player" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen></iframe>   
-    </div>
-    
-    <h3>5 マリンとヤマト　不思議な日曜日</h3>
-    <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto; "></div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/MivtD3Hhl6M?si=t8GWC0k0wubZQ1Vl" 
-    title="YouTube video player" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen style="margin-bottom: 200px;"></iframe>  
-    </div>
 
 
 
