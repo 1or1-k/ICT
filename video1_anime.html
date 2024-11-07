@@ -324,14 +324,146 @@
 </head>
 
 <body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .panel {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #adminPanel {
+            background-color: #e9f9e9;
+        }
+    </style>
+
+    <style>
+        /* ハンバーガーパネル */
+        .menu-panel {
+            position: fixed;
+            top: 0;
+            right: -300px; /* 初期は画面外に配置 */
+            width: 300px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        .menu-panel.active {
+            right: 0; /* パネルがスライドインして表示 */
+        }
+        .menu-panel h2 {
+            text-align: center;
+            color: #fff;
+            margin-top: 0;
+        }
+        .menu-item {
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            background-color: #444;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .menu-item:hover {
+            background-color: #555;
+        }
+
+        /* メニューボタン */
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1001;
+        }
+
+        /* フォーム */
+        .menu-panel form, .menu-panel .section {
+            padding: 15px;
+            display: none; /* 初期は非表示 */
+        }
+        .menu-panel form.active, .menu-panel .section.active {
+            display: block; /* アクティブなフォームのみ表示 */
+        }
+    </style>
 
     <!-- 顶部标题栏 -->
     <div class="header">
-        <a href="#" class="back-btn">戻る</a>
         <h1>Taxsea💧</h1>
         <div class="plan-info">
             plan: Free
             <input type="text" name="name" placeholder="検索してみて">
+            <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
+        
+            <div id="adminPanel" class="panel">
+                <h2>管理パネル</h2>
+                <button onclick="toggleMenu()">アカウント情報</button>
+                <button onclick="location.href='bookmarkmatome.html';">ブックマーク</button>
+                <button onclick="logout()">ログアウト</button>
+                <button onclick="hidePanel()">閉じる</button>
+            </div>
+        
+            <script>
+                function showAdminPanel() {
+                    hideAllPanels();
+                    document.getElementById("adminPanel").style.display = "block";
+                }
+        
+                function registerMember() {
+                    alert("メンバー登録機能");
+                }
+        
+                function review() {
+                    alert("復習機能");
+                }
+        
+                function logout() {
+                    location.href = "home.html";
+                    alert("ログアウトしました。");
+                }
+        
+                function hideAllPanels() {
+                    document.getElementById("adminPanel").style.display = "none";
+                }
+        
+                function hidePanel() {
+                    hideAllPanels();
+                }
+            </script>
         </div>
     </div>
 
@@ -388,45 +520,31 @@
             <h3 class="title-block">税金の基本</h3>
             <ul>
                 <li><a class="box-menu" href="#">税金とは</a></li>
-                <li><a class="box-menu" href="home.html">納税の義務とは</a></li>
-                <li><a class="box-menu" href="syoseki.html">おすすめ書籍集</a></li>
-                <li><a class="box-menu" href="video_home.html">おすすめ動画集</a></li>
+                <li><a class="box-menu" href="home2.html">納税の義務とは</a></li>
+                <li><a class="box-menu" href="premium_syoseki.html">おすすめ書籍集</a></li>
+                <li><a class="box-menu" href="video_vip_home.html">おすすめ動画集</a></li>
                 <li><a class="box-menu" href="#">よくある質問(FAQ)</a></li>
             </ul>
 
-            <!-- 広告ブロック -->
-            <div class="ad-block">
-                <img src="https://via.placeholder.com/300x250" alt="広告">
-                <p>スポンサー広告: 商品やサービスの紹介がここに入ります。</p>
-            </div>
             
             <h3>問題解説</h3>
             <!-- 過去問題解説ブロック -->
             <ul>
-                <li><a class="box-menu" href="#">消費税</a></li>
-                <li><a class="box-menu" href="#">法人税</a></li>
-                <li><a class="box-menu" href="#">贈与税</a></li>
-                <li><a class="box-menu" href="#">固定資産税</a></li>
-                <li><a class="box-menu" href="textbook_home.html">参考書</a></li>
+                <li><a class="box-menu" href="mondai.html">消費税</a></li>
+                <li><a class="box-menu" href="mondai.html">法人税</a></li>
+                <li><a class="box-menu" href="mondai.html">贈与税</a></li>
+                <li><a class="box-menu" href="mondai.html">固定資産税</a></li>
+                <li><a class="box-menu" href="textbook_vip_home.html">参考書</a></li>
             </ul>
 
-            <!-- 広告ブロック -->
-            <div class="ad-block">
-                <img src="https://via.placeholder.com/300x250" alt="広告">
-                <p>スポンサー広告: 追加のプロモーションがここに表示されます。</p>
-            </div>
 
             <h3>メンバーシップの紹介</h3>
             <!-- 過去問題解説ブロック -->
             <ul>
-                <li><a class="box-menu" href="member.html">メンバーシップとは</a></li>
+                <li><a class="box-menu" href="#">メンバーシップとは</a></li>
             </ul>
 
-            <!-- 広告ブロック -->
-            <div class="ad-block">
-                <img src="https://via.placeholder.com/300x250" alt="広告">
-                <p >スポンサー広告: 追加のプロモーションがここに表示されます。</p>
-            </div>
+            
 
             <p style="margin: 50px; color: white;">这段文字周围有 10px 的留白。</p>
         </div>
@@ -437,6 +555,95 @@
         <a href="#">Pagetop</a>
     </div>
 
+    <!-- ハンバーガーパネル -->
+    <div class="menu-panel" id="menu-panel">
+        <h2>会員情報管理</h2>
+
+        <div class="menu-item" onclick="showSection('current-email')">現在の登録メールアドレス</div>
+        <div class="menu-item" onclick="showSection('change-email')">メールアドレスの変更</div>
+        <div class="menu-item" onclick="showSection('cancel-membership')">メンバーシップの解約</div>
+
+        <!-- 現在の登録メールアドレス表示 -->
+        <div class="section" id="current-email">
+            <h3>現在のメールアドレス</h3>
+            <p id="display-email">メールアドレスが登録されていません。</p>
+        </div>
+
+        <!-- メールアドレスの変更フォーム -->
+        <form id="change-email" class="section">
+            <h3>メールアドレスの変更</h3>
+            <label class="menu-btn" for="new-email">新しいメールアドレス:</label>
+            <input class="menu-btn" type="email" id="new-email" required>
+            <button class="menu-btn" type="submit">変更する</button>
+        </form>
+
+        <!-- メンバーシップ解約 -->
+        <div class="section" id="cancel-membership">
+            <h3>メンバーシップの解約</h3>
+            <button class="menu-btn" onclick="cancelMembership()">解約する</button>
+        </div>
+    </div>
+
+    <script>
+        const now_username = localStorage.getItem('now_username');
+        const now_password = localStorage.getItem('now_password');
+        
+        // メニュー表示/非表示の切り替え
+        function toggleMenu() {
+            const menuPanel = document.getElementById('menu-panel');
+            menuPanel.classList.toggle('active');
+        }
+
+        // 指定されたセクションのみ表示
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // 現在のメールアドレスを表示する関数
+        function displayCurrentEmail() {
+            const email = localStorage.getItem('now_username');
+            const emailDisplay = document.getElementById('display-email');
+            emailDisplay.textContent = email ? email : 'メールアドレスが登録されていません。';
+        }
+
+        // 初期化 - ページロード時に現在のメールアドレスを表示
+        displayCurrentEmail();
+
+        // メールアドレス変更処理
+        const changeEmailForm = document.getElementById('change-email');
+        changeEmailForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            localStorage.removeItem(now_username);
+            localStorage.removeItem('now_username'); // メールアドレスの削除
+            
+            const newEmail = document.getElementById('new-email').value;
+
+            localStorage.setItem(newEmail, now_password);
+            localStorage.setItem('now_username', newEmail);
+
+            
+            
+            localStorage.setItem('email', newEmail);
+            alert('メールアドレスが変更されました。');
+            displayCurrentEmail(); // 変更後のメールアドレスを表示
+        });
+
+        // メンバーシップ解約処理
+        function cancelMembership() {
+            const confirmation = confirm('本当にメンバーシップを解約しますか？');
+            if (confirmation) {
+                localStorage.removeItem('now_username'); // メールアドレスの削除
+                localStorage.removeItem('now_password'); // メンバーシップのステータスを削除
+                localStorage.removeItem(now_username);
+                alert('メンバーシップが解約されました。');
+                location.href = "home.html";
+                displayCurrentEmail(); // 解約後のメールアドレス欄を更新
+            }
+        }
+    </script>
+
     <!-- 广告区域 -->
     <div class="ad" >
         <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
@@ -444,10 +651,10 @@
 
     <!-- 底部导航栏 -->
     <div class="footer">
-        <a href="home.html"><img src="bottom_home.png"></a>
-        <a href="kennsaku.html"><img src="bottom_search.png"></a>
-        <a href="mark.html"><img src="bottom_mark.png"></a>
-        <a href="other.html"><img src="bottom_other.png"></a>
+        <a href="home2.html"><img src="bottom_home.png"></a>
+        <a href="kensaku.html"><img src="bottom_search.png"></a>
+        <a href="bookmarkmatome.html"><img src="bottom_mark.png"></a>
+        <a onclick="toggleMenu()"><img src="bottom_other.png"></a>
     </div>
 
 
