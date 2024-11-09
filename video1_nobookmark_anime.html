@@ -39,6 +39,10 @@
             padding: 20px;
             background-color: white;
             display: flex;
+            justify-content: space-between;  /* 两端对齐 */
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
         }
 
             /* 调整标题的外边距 */
@@ -163,12 +167,14 @@
     <style>
 
         /* 左側コンテンツ */
+
         .left-content {
-            width: 65%;
+            flex: 1;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 120px;
+            min-width: 0;
         }
 
         button {
@@ -190,11 +196,8 @@
         
         /* 右側サイドバー */
         .sidebar {
-            width: 33%;
-            padding: 0px;
-            margin-left: 25px;
-            
-            
+            width: 300px;
+            padding: 0;
         }
 
         .sidebar h3 {
