@@ -309,6 +309,44 @@
 </head>
 <body>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .panel {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #adminPanel {
+            background-color: #e9f9e9;
+        }
+    </style>
+    <style>
         /* ハンバーガーパネル */
         .menu-panel {
             position: fixed;
@@ -438,8 +476,8 @@
             <h3 class="title-block">税金の基本</h3>
             <ul>
                 <li><a class="box-menu" href="#">税金とは</a></li>
-                <li><a class="box-menu" href="home.html">納税の義務とは</a></li>
-                <li><a class="box-menu" href="syoseki.html">おすすめ書籍集</a></li>
+                <li><a class="box-menu" href="home2.html">納税の義務とは</a></li>
+                <li><a class="box-menu" href="premium_syoseki.html">おすすめ書籍集</a></li>
                 <li><a class="box-menu" href="video_vip_home.html">おすすめ動画集</a></li>
                 <li><a class="box-menu" href="#">よくある質問(FAQ)</a></li>
             </ul>
@@ -448,10 +486,10 @@
             <h3>問題解説</h3>
             <!-- 過去問題解説ブロック -->
             <ul>
-                <li><a class="box-menu" href="#">消費税</a></li>
-                <li><a class="box-menu" href="#">法人税</a></li>
-                <li><a class="box-menu" href="#">贈与税</a></li>
-                <li><a class="box-menu" href="#">固定資産税</a></li>
+                <li><a class="box-menu" href="mondai.html">消費税</a></li>
+                <li><a class="box-menu" href="mondai.html">法人税</a></li>
+                <li><a class="box-menu" href="mondai.html">贈与税</a></li>
+                <li><a class="box-menu" href="mondai.html">固定資産税</a></li>
                 <li><a class="box-menu" href="textbook_vip_home.html">参考書</a></li>
             </ul>
 
@@ -459,7 +497,7 @@
             <h3>メンバーシップの紹介</h3>
             <!-- 過去問題解説ブロック -->
             <ul>
-                <li><a class="box-menu" href="member.html">メンバーシップとは</a></li>
+                <li><a class="box-menu" href="#">メンバーシップとは</a></li>
             </ul>
 
             
