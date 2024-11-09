@@ -33,18 +33,22 @@
             padding: 0;
         }
 
+        /* 返回按钮 */
+        .back-btn {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #007BFF;
+        }
 
         /* 内容部分 */
         .content {
             padding: 20px;
             background-color: white;
             display: flex;
-            justify-content: space-between;  /* 两端对齐 */
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 30px;
         }
-
             /* 调整标题的外边距 */
         h2, h3 {
             margin-top: 10px;  /* 标题上方的外边距 */
@@ -55,126 +59,46 @@
         .video-container {
             margin-bottom: 10px;  /* 视频与下一个元素的外边距 */
         }
-/* ナビゲーションバーのスタイル */
-.nav-container {
-    background-color: #faf5ebf1;
-    border-top: 0px solid #ddd;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 60px;    /* 初期位置、広告バーと連動 */
-    left: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-sizing: border-box;
-    z-index: 999;
-    transition: bottom 0.3s ease;  /* スムーズな遷移効果を維持 */
-}
 
-/* ナビゲーションバーの画像サイズ */
-.nav-container img {
-    width: 30px;
-    height: 30px;
-}
+        /* 广告区域 */
+        .ad {
+            background-color: rgb(152, 236, 242);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
-/* 広告バーのスタイル */
-.banner-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: #F5F5F5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    z-index: 998;
-}
-
-/* 広告コンテンツのレイアウト */
-.banner-content {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    gap: 20px;
-}
-
-/* 広告タイトルのスタイル */
-.banner-title {
-    font-size: 16px;
-    white-space: nowrap;
-}
-
-/* 広告テキストのスタイル */
-.banner-text {
-    font-size: 14px;
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* 広告サービス提供者のスタイル */
-.banner-service {
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-/* 詳細ボタンのスタイル */
-.detail-btn {
-    background: #fa8174f1;
-    color: white;
-    padding: 8px 24px;
-    border: none;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 14px;
-    margin-left: 20px;
-}
-
-/* 閉じるボタンのスタイル */
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 0 10px;
-    color: #666;
-}
-
-/* レスポンシブデザイン - モバイルデバイスの場合 */
-@media (max-width: 768px) {
-    .banner-text {
-        display: none;    /* 広告テキストを非表示 */
+        /* 底部导航栏 */
+        .footer {
+        background-color: #faf5ebf1; /* 调整背景为淡黄色 */
+        border-top: 0px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
-    
-    .banner-service {
-        display: none;    /* サービス提供者を非表示 */
-    }
-    
-    .banner-content {
-        gap: 10px;    /* 要素間の間隔を縮小 */
-    }
-    
-    .detail-btn {
-        padding: 6px 16px;    /* ボタンの内部余白を縮小 */
-    }
-}
 
+    .footer img {
+        width: 30px;  /* 调整图片宽度 */
+        height: 30px; /* 调整图片高度 */
+    }
+
+    </style>
     <style>
 
         /* 左側コンテンツ */
-
         .left-content {
-            flex: 1;
+            width: 65%;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 120px;
-            min-width: 0;
+            bottom: 120px;
         }
 
         button {
@@ -196,8 +120,11 @@
         
         /* 右側サイドバー */
         .sidebar {
-            width: 300px;
-            padding: 0;
+            width: 33%;
+            padding: 0px;
+            margin-left: 25px;
+            
+            
         }
 
         .sidebar h3 {
@@ -361,12 +288,7 @@
             background-color: #eae7e7; /* ホバー時にボタン背景が少し明るくなる */
         }
     </style>
-
 </head>
-
-
-
-
 
 <body>
     <style>
@@ -467,7 +389,7 @@
                  <!-- 数字按钮列表 -->
         
             <h2>1.租税教育教材・アニメ</h2>
-        
+
             <h3>1　ダナの森ものがたり</h3>
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; margin-bottom: 20px;">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/8uV2fjZHRtI?si=zYFqloq5dB6ivdqh" 
@@ -478,13 +400,15 @@
             </div>
             
             <h3>2　ふしぎなはこ</h3>
-            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; margin-bottom: 20px;">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/8qDEt8ysi5k?si=7oFRFGVB2oWP87kD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+            
             <h3>3 みんなのためだから</h3>
             <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/wzWT1cdHplA?si=OhKyBNtTjH4Wi0I8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
             </div>
+            
             <h3>4 ちぇいとうんこちゃん</h3>
             <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/RhTeTzhYwXc?si=VfVKkjezH2cBOx7P" 
@@ -558,46 +482,21 @@
         <a href="#">Pagetop</a>
     </div>
     
-<!-- ナビゲーションバー -->
-<nav class="nav-container" id="navBar">
-    <a href="home.html"><img src="bottom_home.png" alt="Home"></a>
-    <a href="kennsaku.html"><img src="bottom_search.png" alt="Search"></a>
-    <a href="bookmark.html"><img src="bottom_mark.png" alt="Bookmark"></a>
-    <a href="other.html"><img src="bottom_other.png" alt="Other"></a>
-</nav>
 
-<!-- 広告バナー -->
-<div class="banner-container" id="adBanner">
-    <div class="banner-content">
-        <div class="banner-title">プライムビデオで観よう</div>
-        <div class="banner-text">プライムビデオで侍ジャパンの試合を観よう！プレミア12 2024の試合をライブ配信。</div>
-        <div class="banner-service">プライムビデオ</div>
-        <a href="https://www.amazon.co.jp/gp/video/storefront/sports?contentType=home&contentId=Sports&ref=dvm_pdd_gdn_jp_de_s_24nov_premier12_afi_mb_mae_gm_cz&gclid=EAIaIQobChMIoIzz0LTEiQMVC4bpBR2D0A3qEAEYASAAEgIy8fD_BwE&dplnkId=e104fd35-a328-40a7-80fe-65305cd79bd1" 
-           class="detail-btn" 
-           target="_blank">
-            詳細
-        </a>
+
+
+    <!-- 广告区域 -->
+    <div class="ad" >
+        <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
     </div>
-    <button class="close-btn" onclick="closeBanner()">×</button>
-</div>
 
-<script>
-function closeBanner() {
-    const banner = document.getElementById('adBanner');
-    const navBar = document.getElementById('navBar');
-    
-    // 広告をフェードアウト
-    banner.style.transition = 'opacity 0.3s ease';
-    banner.style.opacity = '0';
-    
-    setTimeout(() => {
-        banner.style.display = 'none';
-        // ナビゲーションバーを下部にスライド
-        navBar.style.bottom = '0';
-    }, 300);
-}
-</script>
-
+    <!-- 底部导航栏 -->
+    <div class="footer">
+        <a href="home.html"><img src="bottom_home.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
+        <a href="member_reccomend.html"><img src="bottom_mark.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
+    </div>
 
 
 </body>
