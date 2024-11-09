@@ -110,27 +110,114 @@
         color:  #fa8174f1;
         }
 
-        /* フッター */
-        .footer {
-        background-color: #faf5ebf1; /* 背景色を淡い黄色に変更 */
-        border-top: 1px solid #ddd;
-        padding: 10px;
-        position: fixed;
-        width: 100%;
-        bottom: 50px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
+        /* ナビゲーションバーのスタイル */
+.nav-container {
+    background-color: #faf5ebf1;
+    border-top: 0px solid #ddd;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 60px;    /* 初期位置、広告バーと連動 */
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 999;
+    transition: bottom 0.3s ease;  /* スムーズな遷移効果を維持 */
+}
 
-    .footer img {
-        width: 30px;  /* 画像の幅を調整 */
-        height: 30px; /* 画像の高さを調整 */
-    }
+/* ナビゲーションバーの画像サイズ */
+.nav-container img {
+    width: 30px;
+    height: 30px;
+}
 
-        .footer a {
-            text-decoration: none;
-        }
+/* 広告バーのスタイル */
+.banner-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #F5F5F5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 998;
+}
+
+/* 広告コンテンツのレイアウト */
+.banner-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
+}
+
+/* 広告タイトルのスタイル */
+.banner-title {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* 広告テキストのスタイル */
+.banner-text {
+    font-size: 14px;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 広告サービス提供者のスタイル */
+.banner-service {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* 詳細ボタンのスタイル */
+.detail-btn {
+    background: #fa8174f1;
+    color: white;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+/* 閉じるボタンのスタイル */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 10px;
+    color: #666;
+}
+
+/* レスポンシブデザイン - モバイルデバイスの場合 */
+@media (max-width: 768px) {
+    .banner-text {
+        display: none;    /* 広告テキストを非表示 */
+    }
+    
+    .banner-service {
+        display: none;    /* サービス提供者を非表示 */
+    }
+    
+    .banner-content {
+        gap: 10px;    /* 要素間の間隔を縮小 */
+    }
+    
+    .detail-btn {
+        padding: 6px 16px;    /* ボタンの内部余白を縮小 */
+    }
+}
 
     .banner-container {
         position: fixed;
@@ -629,16 +716,20 @@
     </div>
     
 
+<!-- ナビゲーションバー -->
+<nav class="nav-container" id="navBar">
+    <a href="home.html"><img src="bottom_home.png" alt="Home"></a>
+    <a href="kennsaku.html"><img src="bottom_search.png" alt="Search"></a>
+    <a href="bookmark.html"><img src="bottom_mark.png" alt="Bookmark"></a>
+    <a href="other.html"><img src="bottom_other.png" alt="Other"></a>
+</nav>
 
-    <!-- 広告エリア -->
+<!-- 広告バナー -->
 <div class="banner-container" id="adBanner">
     <div class="banner-content">
-        <div class="ad-title">プライムビデオで観よう</div>
-        <div class="ad-text">
-            プライムビデオで侍ジャパンの試合を観よう！
-            プレミア12 2024の試合をライブ配信。
-        </div>
-        <div class="ad-service">プライムビデオ</div>
+        <div class="banner-title">プライムビデオで観よう</div>
+        <div class="banner-text">プライムビデオで侍ジャパンの試合を観よう！プレミア12 2024の試合をライブ配信。</div>
+        <div class="banner-service">プライムビデオ</div>
         <a href="https://www.amazon.co.jp/gp/video/storefront/sports?contentType=home&contentId=Sports&ref=dvm_pdd_gdn_jp_de_s_24nov_premier12_afi_mb_mae_gm_cz&gclid=EAIaIQobChMIoIzz0LTEiQMVC4bpBR2D0A3qEAEYASAAEgIy8fD_BwE&dplnkId=e104fd35-a328-40a7-80fe-65305cd79bd1" 
            class="detail-btn" 
            target="_blank">
@@ -647,21 +738,23 @@
     </div>
     <button class="close-btn" onclick="closeBanner()">×</button>
 </div>
+
 <script>
 function closeBanner() {
     const banner = document.getElementById('adBanner');
-    banner.style.display = 'none';
+    const navBar = document.getElementById('navBar');
+    
+    // 広告をフェードアウト
+    banner.style.transition = 'opacity 0.3s ease';
+    banner.style.opacity = '0';
+    
+    setTimeout(() => {
+        banner.style.display = 'none';
+        // ナビゲーションバーを下部にスライド
+        navBar.style.bottom = '0';
+    }, 300);
 }
 </script>
-
-    <!-- フッター -->
-    <div class="footer">
-        <a href="home.html"><img src="bottom_home.png"></a>
-        <a href="kennsaku.html"><img src="bottom_search.png"></a>
-        <a href="member_reccomend.html"><img src="bottom_mark.png"></a>
-        <a href="other.html"><img src="bottom_other.png"></a>
-    </div>
-
 
 </body>
 </html>
