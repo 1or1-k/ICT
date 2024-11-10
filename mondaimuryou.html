@@ -281,6 +281,45 @@
             background-color: #eae7e7;
         }
     </style>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .panel {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #adminPanel {
+            background-color: #e9f9e9;
+        }
+    </style>
 </head>
 <body>
     <!-- 顶部标题栏 -->
@@ -289,6 +328,49 @@
         <div class="plan-info">
             plan: Free
             <input type="text" name="name" placeholder="検索してみて">
+            <button id="loginButton" onclick="showLoginPanel()">ログイン・新規登録</button>
+            
+            <div id="loginPanel" class="panel">
+                <h3>アカウントにログイン</h3>
+                <input type="text" id="loginUserId" placeholder="ユーザーID"><br>
+                <input type="password" id="loginPassword" placeholder="パスワード"><br>
+                <button onclick="login()">ログインする</button>
+                <button onclick="hidePanel()">閉じる</button>
+
+                <div>アカウントを作成しませんか？</div>
+                <button id="registerButton" onclick="location.href='member.html';">メンバーシップの紹介</button>
+            </div>
+        
+            <script>
+                function showLoginPanel() {
+                    hideAllPanels();
+                    document.getElementById("loginPanel").style.display = "block";
+                }
+        
+                function login() {
+                    const userId = document.getElementById("loginUserId").value;
+                    const password = document.getElementById("loginPassword").value;
+        
+                    const storedPassword = localStorage.getItem(userId);
+        
+                    if (password === storedPassword) {
+                        //alert("ログイン成功！");
+                        localStorage.setItem('now_username', userId);
+                        localStorage.setItem('now_password', password);
+                        location.href = "home2.html";
+                    } else {
+                        alert("ユーザーIDまたはパスワードが間違っています。");
+                    }
+                }
+
+                function hideAllPanels() {
+                    document.getElementById("loginPanel").style.display = "none";
+                }
+        
+                function hidePanel() {
+                    hideAllPanels();
+                }
+            </script>
         </div>
     </div>
     
