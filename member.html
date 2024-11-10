@@ -359,12 +359,88 @@
         }
     </style>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .panel {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #adminPanel {
+            background-color: #e9f9e9;
+        }
+    </style>
+
     <!-- 顶部标题栏 -->
     <div class="header">
         <h1>Taxsea💧</h1>
         <div class="plan-info">
             plan: Free
             <input type="text" name="name" placeholder="検索してみて">
+            <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
+        
+            <div id="adminPanel" class="panel">
+                <h2>管理パネル</h2>
+                <button onclick="toggleMenu()">アカウント情報</button>
+                <button onclick="location.href='bookmarkmatome.html';">ブックマーク</button>
+                <button onclick="logout()">ログアウト</button>
+                <button onclick="hidePanel()">閉じる</button>
+            </div>
+        
+            <script>
+                function showAdminPanel() {
+                    hideAllPanels();
+                    document.getElementById("adminPanel").style.display = "block";
+                }
+        
+                function registerMember() {
+                    alert("メンバー登録機能");
+                }
+        
+                function review() {
+                    alert("復習機能");
+                }
+        
+                function logout() {
+                    location.href = "home.html";
+                    alert("ログアウトしました。");
+                }
+        
+                function hideAllPanels() {
+                    document.getElementById("adminPanel").style.display = "none";
+                }
+        
+                function hidePanel() {
+                    hideAllPanels();
+                }
+            </script>
         </div>
     </div>
 
