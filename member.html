@@ -404,37 +404,43 @@
         <div class="plan-info">
             plan: Free
             <input type="text" name="name" placeholder="検索してみて">
-            <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
-        
-            <div id="adminPanel" class="panel">
-                <h2>管理パネル</h2>
-                <button onclick="toggleMenu()">アカウント情報</button>
-                <button onclick="location.href='bookmarkmatome.html';">ブックマーク</button>
-                <button onclick="logout()">ログアウト</button>
+            <button id="loginButton" onclick="showLoginPanel()">ログイン・新規登録</button>
+            
+            <div id="loginPanel" class="panel">
+                <h3>アカウントにログイン</h3>
+                <input type="text" id="loginUserId" placeholder="ユーザーID"><br>
+                <input type="password" id="loginPassword" placeholder="パスワード"><br>
+                <button onclick="login()">ログインする</button>
                 <button onclick="hidePanel()">閉じる</button>
+
+                <div>アカウントを作成しませんか？</div>
+                <button id="registerButton" onclick="location.href='member.html';">メンバーシップの紹介</button>
             </div>
         
             <script>
-                function showAdminPanel() {
+                function showLoginPanel() {
                     hideAllPanels();
-                    document.getElementById("adminPanel").style.display = "block";
+                    document.getElementById("loginPanel").style.display = "block";
                 }
         
-                function registerMember() {
-                    alert("メンバー登録機能");
-                }
+                function login() {
+                    const userId = document.getElementById("loginUserId").value;
+                    const password = document.getElementById("loginPassword").value;
         
-                function review() {
-                    alert("復習機能");
-                }
+                    const storedPassword = localStorage.getItem(userId);
         
-                function logout() {
-                    location.href = "home.html";
-                    alert("ログアウトしました。");
+                    if (password === storedPassword) {
+                        //alert("ログイン成功！");
+                        localStorage.setItem('now_username', userId);
+                        localStorage.setItem('now_password', password);
+                        location.href = "home2.html";
+                    } else {
+                        alert("ユーザーIDまたはパスワードが間違っています。");
+                    }
                 }
-        
+
                 function hideAllPanels() {
-                    document.getElementById("adminPanel").style.display = "none";
+                    document.getElementById("loginPanel").style.display = "none";
                 }
         
                 function hidePanel() {
