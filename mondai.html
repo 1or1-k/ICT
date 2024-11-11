@@ -60,6 +60,17 @@
             background-color: white;
             display: flex;
         }
+        /* Taxsea💧のリンクのスタイル */
+        .title-link {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .title-link:hover {
+            color: #0056b3;
+        }
 
         /* 広告エリア */
         .ad {
@@ -402,10 +413,11 @@
 
     <!-- 顶部标题栏 -->
     <div class="header">
-        <h1>Taxsea💧</h1>
+        <h1><a href="home2.html" class="title-link">Taxsea💧</a></h1>
+        <h1>税金に関するクイズ</h1>
         <div class="plan-info">
             plan: Premium
-            <!--<input type="text" name="name" placeholder="検索してみて">-->
+            <!-- <input type="text" name="name" placeholder="検索してみて"> -->
             <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
         
             <div id="adminPanel" class="panel">
