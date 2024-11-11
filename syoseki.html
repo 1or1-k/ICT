@@ -469,6 +469,47 @@
     <div class="header">
         <h1><a href="home.html" class="title-link">Taxsea💧</a></h1>
         <h1>税金に関する書籍紹介</h1>
+        <div class="plan-info">
+            plan: Free
+            <!-- <input type="text" name="name" placeholder="検索してみて"> -->
+            <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
+        
+            <div id="adminPanel" class="panel">
+                <h2>管理パネル</h2>
+                <button onclick="toggleMenu()">アカウント情報</button>
+                <button onclick="location.href='bookmarkmatome.html';">ブックマーク</button>
+                <button onclick="logout()">ログアウト</button>
+                <button onclick="hidePanel()">閉じる</button>
+            </div>
+        
+            <script>
+                function showAdminPanel() {
+                    hideAllPanels();
+                    document.getElementById("adminPanel").style.display = "block";
+                }
+        
+                function registerMember() {
+                    alert("メンバー登録機能");
+                }
+        
+                function review() {
+                    alert("復習機能");
+                }
+        
+                function logout() {
+                    location.href = "home.html";
+                    alert("ログアウトしました。");
+                }
+        
+                function hideAllPanels() {
+                    document.getElementById("adminPanel").style.display = "none";
+                }
+        
+                function hidePanel() {
+                    hideAllPanels();
+                }
+            </script>
+        </div>
     </div>
 
     <!-- 検索バー -->
