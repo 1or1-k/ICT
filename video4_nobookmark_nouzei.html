@@ -33,33 +33,13 @@
             padding: 0;
         }
 
-        /* 返回按钮 */
-        .back-btn {
-            position: absolute;
-            left: 10px;
-            top: 10px;
-            font-size: 1em;
-            text-decoration: none;
-            color: #007BFF;
-        }
+
         /* 内容部分 */
         .content {
             padding: 20px;
             background-color: white;
             display: flex;
         }
-        /* Taxsea💧のリンクのスタイル */
-        .title-link {
-            text-decoration: none;
-            color: #007BFF;
-            font-size: 1.8em;
-            font-weight: bold;
-        }
-
-        .title-link:hover {
-            color: #0056b3;
-        }
-
             /* 调整标题的外边距 */
         h2, h3 {
             margin-top: 10px;  /* 标题上方的外边距 */
@@ -70,35 +50,113 @@
         .video-container {
             margin-bottom: 10px;  /* 视频与下一个元素的外边距 */
         }
+        .nav-container {
+    background-color: #faf5ebf1;
+    border-top: 0px solid #ddd;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 60px;    /* 初期位置、広告バーと連動 */
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 999;
+    transition: bottom 0.3s ease;  /* スムーズな遷移効果を維持 */
+}
 
-        /* 广告区域 */
-        .ad {
-            background-color: rgb(152, 236, 242);
-            padding: 10px;
-            text-align: center;
-            font-size: 0.9em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+/* ナビゲーションバーの画像サイズ */
+.nav-container img {
+    width: 30px;
+    height: 30px;
+}
 
-        /* 底部导航栏 */
-        .footer {
-        background-color: #faf5ebf1; /* 调整背景为淡黄色 */
-        border-top: 0px solid #ddd;
-        padding: 10px;
-        position: fixed;
-        width: 100%;
-        bottom: 40px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+/* 広告バーのスタイル */
+.banner-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #F5F5F5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 998;
+}
+
+/* 広告コンテンツのレイアウト */
+.banner-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
+}
+
+/* 広告タイトルのスタイル */
+.banner-title {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* 広告テキストのスタイル */
+.banner-text {
+    font-size: 14px;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 広告サービス提供者のスタイル */
+.banner-service {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* 詳細ボタンのスタイル */
+.detail-btn {
+    background: #fa8174f1;
+    color: white;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+/* 閉じるボタンのスタイル */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 10px;
+    color: #666;
+}
+
+/* レスポンシブデザイン - モバイルデバイスの場合 */
+@media (max-width: 768px) {
+    .banner-text {
+        display: none;    /* 広告テキストを非表示 */
     }
-
-    .footer img {
-        width: 30px;  /* 调整图片宽度 */
-        height: 30px; /* 调整图片高度 */
+    
+    .banner-service {
+        display: none;    /* サービス提供者を非表示 */
     }
+    
+    .banner-content {
+        gap: 10px;    /* 要素間の間隔を縮小 */
+    }
+    
+    .detail-btn {
+        padding: 6px 16px;    /* ボタンの内部余白を縮小 */
+    }
+}
 
     </style>
     <style>
@@ -299,7 +357,6 @@
             background-color: #eae7e7; /* ホバー時にボタン背景が少し明るくなる */
         }
     </style>
-
 </head>
 
 <body>
@@ -344,11 +401,10 @@
 
     <!-- 顶部标题栏 -->
     <div class="header">
-        <h1><a href="home.html" class="title-link">Taxsea💧</a></h1>
-        <h1>税金に関する動画紹介</h1>
+        <h1>Taxsea💧</h1>
         <div class="plan-info">
             plan: Free
-            <!-- <input type="text" name="name" placeholder="検索してみて"> -->
+            <input type="text" name="name" placeholder="検索してみて">
             <button id="loginButton" onclick="showLoginPanel()">ログイン・新規登録</button>
             
             <div id="loginPanel" class="panel">
@@ -400,29 +456,28 @@
         <div class="left-content">
             <h1>動画で税金の知識を学ぼう</h1>
                  <!-- 数字按钮列表 -->
-        
-            <h2>4. 納税の猶予制度特集</h2>
+                 <h2>4. 納税の猶予制度特集</h2>
             
-            <h3>1　新たに猶予を申請する方 Excelでできる！国税の猶予に必要な書類の作成方法</h3>
-            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Q3o_f3CRlgY?si=0fy219FF0KI8iLGy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            
-            <h3>2　特例猶予を受けている方 Excelでできる！国税の猶予に必要な書類の作成方法</h3>
-            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/iTo66klUTKY?si=YJ_g9bjm95DdQppd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            
-            <h3>3 自宅のExcelでできる特例猶予の申請書の作成方法</h3>
-            <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto; ">
-            <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/R0RjIZBBYPk?si=FM1VfPeDZJYUJGRm" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen style="margin-bottom: 200px;"></iframe>  
-            </div>
-        </div>
+                 <h3>1　新たに猶予を申請する方 Excelでできる！国税の猶予に必要な書類の作成方法</h3>
+                 <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
+                     <iframe width="560" height="315" src="https://www.youtube.com/embed/Q3o_f3CRlgY?si=0fy219FF0KI8iLGy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                 </div>
+                 
+                 <h3>2　特例猶予を受けている方 Excelでできる！国税の猶予に必要な書類の作成方法</h3>
+                 <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 50%; height: auto;">
+                 <iframe width="560" height="315" src="https://www.youtube.com/embed/iTo66klUTKY?si=YJ_g9bjm95DdQppd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                 </div>
+                 
+                 <h3>3 自宅のExcelでできる特例猶予の申請書の作成方法</h3>
+                 <div style="position: relative; padding-bottom: 2%; height: 0; overflow: hidden; max-width: 100%; height: auto; ">
+                 <iframe width="560" height="315" 
+                 src="https://www.youtube.com/embed/R0RjIZBBYPk?si=FM1VfPeDZJYUJGRm" 
+                 title="YouTube video player" frameborder="0" 
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                 referrerpolicy="strict-origin-when-cross-origin" 
+                 allowfullscreen style="margin-bottom: 200px;"></iframe>  
+                 </div>
+             </div>
 
         <!-- 右側サイドバー -->
         <div class="sidebar">
@@ -438,8 +493,9 @@
 
             <!-- 広告ブロック -->
             <div class="ad-block">
-                <img src="https://via.placeholder.com/300x250" alt="広告">
-                <p>スポンサー広告: 商品やサービスの紹介がここに入ります。</p>
+                <a href="https://www.audible.co.jp/ep/audiobook?source_code=GPSSRCHALLW0710150001&ipRedirectOverride=true&gclid=Cj0KCQiA0MG5BhD1ARIsAEcZtwTIEkfdXNXj4dccIHQ9eOroxfqdY-CHN9pl0dom2-1HLES2H8WC3UsaAjClEALw_wcB&gclsrc=aw.ds">
+                <img src="side_ad.png" alt="広告">
+                </a> 
             </div>
             
             <h3>問題解説</h3>
@@ -454,8 +510,9 @@
 
             <!-- 広告ブロック -->
             <div class="ad-block">
-                <img src="https://via.placeholder.com/300x250" alt="広告">
-                <p>スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+                <a href="https://www.audible.co.jp/ep/audiobook?source_code=GPSSRCHALLW0710150001&ipRedirectOverride=true&gclid=Cj0KCQiA0MG5BhD1ARIsAEcZtwTIEkfdXNXj4dccIHQ9eOroxfqdY-CHN9pl0dom2-1HLES2H8WC3UsaAjClEALw_wcB&gclsrc=aw.ds">
+                <img src="side_ad.png" alt="広告">
+                </a> 
             </div>
 
             <h3>メンバーシップの紹介</h3>
@@ -466,8 +523,9 @@
 
             <!-- 広告ブロック -->
             <div class="ad-block">
-                <img src="https://via.placeholder.com/300x250" alt="広告">
-                <p >スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+                <a href="https://www.audible.co.jp/ep/audiobook?source_code=GPSSRCHALLW0710150001&ipRedirectOverride=true&gclid=Cj0KCQiA0MG5BhD1ARIsAEcZtwTIEkfdXNXj4dccIHQ9eOroxfqdY-CHN9pl0dom2-1HLES2H8WC3UsaAjClEALw_wcB&gclsrc=aw.ds">
+                <img src="side_ad.png" alt="広告">
+                </a> 
             </div>
 
             <p style="margin: 50px; color: white;">这段文字周围有 10px 的留白。</p>
@@ -478,21 +536,46 @@
         <a href="#">Pagetop</a>
     </div>
     
+<!-- ナビゲーションバー -->
+<nav class="nav-container" id="navBar">
+    <a href="home.html"><img src="bottom_home.png" alt="Home"></a>
+    <a href="kensakumuryou.html"><img src="bottom_search.png" alt="Search"></a>
+    <a href="member_reccomend.html"><img src="bottom_mark.png" alt="Bookmark"></a>
+    <a href="other.html"><img src="bottom_other.png" alt="Other"></a>
+</nav>
 
 
-
-    <!-- 广告区域 -->
-    <div class="ad" >
-        <a href="https://ads.google.com/intl/ja_jp/home/">広告　詳しくはこちら</a>
+<!-- 広告バナー -->
+<div class="banner-container" id="adBanner">
+    <div class="banner-content">
+        <div class="banner-title">プライムビデオで観よう</div>
+        <div class="banner-text">プライムビデオで侍ジャパンの試合を観よう！プレミア12 2024の試合をライブ配信。</div>
+        <div class="banner-service">プライムビデオ</div>
+        <a href="https://www.amazon.co.jp/gp/video/storefront/sports?contentType=home&contentId=Sports&ref=dvm_pdd_gdn_jp_de_s_24nov_premier12_afi_mb_mae_gm_cz&gclid=EAIaIQobChMIoIzz0LTEiQMVC4bpBR2D0A3qEAEYASAAEgIy8fD_BwE&dplnkId=e104fd35-a328-40a7-80fe-65305cd79bd1" 
+           class="detail-btn" 
+           target="_blank">
+            詳細
+        </a>
     </div>
+    <button class="close-btn" onclick="closeBanner()">×</button>
+</div>
 
-    <!-- 底部导航栏 -->
-    <div class="footer">
-        <a href="home.html"><img src="bottom_home.png"></a>
-        <a href="kensakumuryou.html"><img src="bottom_search.png"></a>
-        <a href="member_reccomend.html"><img src="bottom_mark.png"></a>
-        <a href="other.html"><img src="bottom_other.png"></a>
-    </div>
+<script>
+function closeBanner() {
+    const banner = document.getElementById('adBanner');
+    const navBar = document.getElementById('navBar');
+    
+    // 広告をフェードアウト
+    banner.style.transition = 'opacity 0.3s ease';
+    banner.style.opacity = '0';
+    
+    setTimeout(() => {
+        banner.style.display = 'none';
+        // ナビゲーションバーを下部にスライド
+        navBar.style.bottom = '0';
+    }, 300);
+}
+</script>
 
 
 </body>
