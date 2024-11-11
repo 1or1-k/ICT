@@ -116,6 +116,49 @@
             font-size:1.2em;
             border:2px dashed #aaa;
         }  
+        /*　広告　*/
+        .ad-container{
+            background-color:#add;
+            color:#333;
+            text-align:center;
+            padding:20px;
+            margin-top:20px;
+            font-size:1.2em;
+            border:2px dashed #aaa;
+        }  
+                /* 広告エリア */
+        .ad {
+            background-color: rgb(152, 236, 242);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* フッター */
+        .footer {
+            background-color: #faf5ebf1; /* 背景色を淡い黄色に変更 */
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0; /* フッターを画面下部に固定 */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 3000;
+        }
+
+        .footer img {
+            width: 30px;  /* 画像の幅を調整 */
+            height: 30px; /* 画像の高さを調整 */
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
 
     </style>
 
@@ -325,6 +368,102 @@
     </style>
 </head>
 <body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .panel {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #adminPanel {
+            background-color: #e9f9e9;
+        }
+    </style>
+
+    <style>
+        /* ハンバーガーパネル */
+        .menu-panel {
+            position: fixed;
+            top: 0;
+            right: -300px; /* 初期は画面外に配置 */
+            width: 300px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        .menu-panel.active {
+            right: 0; /* パネルがスライドインして表示 */
+        }
+        .menu-panel h2 {
+            text-align: center;
+            color: #fff;
+            margin-top: 0;
+        }
+        .menu-item {
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            background-color: #444;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .menu-item:hover {
+            background-color: #555;
+        }
+
+        /* メニューボタン */
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1001;
+        }
+
+        /* フォーム */
+        .menu-panel form, .menu-panel .section {
+            padding: 15px;
+            display: none; /* 初期は非表示 */
+        }
+        .menu-panel form.active, .menu-panel .section.active {
+            display: block; /* アクティブなフォームのみ表示 */
+        }
+    </style>
 
     <!-- タイトルヘッダー -->
     <div class="header">
@@ -333,9 +472,9 @@
     </div>
 
     <!-- 検索バー -->
-    <div class="search-bar">
-        <input type="text" id="search-input" placeholder="検索" oninput="filterBooks()">
-    </div>
+    <!--<div class="search-bar">-->
+        <!--<input type="text" id="search-input" placeholder="検索" oninput="filterBooks()">-->
+    <!--</div>-->
 
     <div class="content">
         <div class="left-content">
