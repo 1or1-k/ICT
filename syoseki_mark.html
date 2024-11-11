@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お気に入り問題集</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* 顶部标题栏 */
+        .header {
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .header img {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+        .header h1 {
+            font-size: 1.5em;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 1em;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        /* 内容部分 */
+        .content {
+            padding: 20px;
+            background-color: white;
+            display: flex;
+        }
+
+        /* 広告エリア */
+        .ad {
+            background-color: rgb(152, 236, 242);
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 2000;
+        }
+
+        /* フッターナビゲーション */
+        .footer {
+        background-color: #faf5ebf1; /* 背景色を薄い黄色に調整 */
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 3000;
+    }
+
+    .footer img {
+        width: 30px;  /* 画像の幅を調整 */
+        height: 30px; /* 画像の高さを調整 */
+    }
+
+    .footer a {
+        text-decoration: none;
+    }
+    </style>
+
+    <style>
+        /* ボタンの基本スタイル */
+        .number-btn {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 2px solid #ffd27f; /* 薄い黄色のボーダー */
+            border-radius: 10px;
+            background-color: #fff7e6; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .number-btn:visited {
+            color: red; /* クリック後の文字色 */
+        }
+
+        /* ホバー時のスタイル */
+        .number-btn:hover {
+            background-color: #ffeecc; /* ホバー時にボタン背景が少し明るくなる */
+        }
+
+        /* 左側コンテンツ */
+        .left-content {
+            width: 65%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            bottom: 120px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white; /* ボタンの文字色は白 */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #f7a992; /* ホバー時にボタン背景が少し明るくなる */
+        }
+        
+        /* 右側サイドバー */
+        .sidebar {
+            width: 33%;
+            padding: 0px;
+            margin-left: 25px;
+            
+            
+        }
+
+        .sidebar h3 {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white; /* ボタンの文字色は白 */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 0px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* ページトップボタン */
+        .pagetop {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+        }
+
+        .pagetop a {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .pagetop a:hover {
+            background-color: #f7a992; /* ホバー時にボタン背景が少し明るくなる */
+        }
+
+        
+
+        /* ブロックスタイル */
+        .block {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .block h3 {
+            background-color: #f89a7d; /* ボタンの背景色 */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .block ul li {
+            padding: 5px 0;
+        }
+
+        .block ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .block ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* 広告ブロックスタイル */
+        .ad-block {
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad-block img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ad-block p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .sidebar h3 {
+            position: relative;
+            color: white;
+            line-height: 30px;
+            height: 24px;
+            text-align: center;
+            font-size: 24px;
+            padding: 5px 0px;
+            border-top: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-bottom: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-left: 1px solid #ef8e71; /* ボタンの背景色 */
+            border-image: initial;
+            border-right: none;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px;
+            background: linear-gradient(#f7a992, #ef8e71);
+        }
+
+        .sidebar .box {
+            background: white;
+            list-style: none;
+            margin-bottom: 5px;
+        }
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+            unicode-bidi: isolate;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* ボタンの基本スタイル */
+        .box-menu {
+            display: block;
+            padding: 5px 15px;
+            margin: 0px;
+            border: 1px solid #e7e5e5; /* 薄い黄色のボーダー */
+            border-radius: 0px;
+            background-color: #ffffff; /* ボタンの背景色 */
+            color: blue; /* ボタンの文字色は青 */
+            font-size: 1.5em;
+            /*text-decoration: none; /* リンクの下線を消す */
+            cursor: pointer;
+            margin-bottom: 0px;
+        }
+
+        /* ボタンがクリックされた後、文字色が赤になる */
+        .box-menu:visited {
+            color: red; /* クリック後の文字色 */
+        }
+        /* ホバー時のスタイル */
+        .box-menu:hover {
+            background-color: #eae7e7; /* ホバー時にボタン背景が少し明るくなる */
+        }
+    </style>
+    
+    <style>
+        /* スタイルは前回と同じ */
+        .category {
+            margin-bottom: 20px;
+        }
+        .favorite {
+            color: gold;
+            cursor: pointer;
+        }
+        /* 他のスタイルは省略 */
+    </style>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        .panel {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #adminPanel {
+            background-color: #e9f9e9;
+        }
+    </style>
+
+    <style>
+        /* ハンバーガーパネル */
+        .menu-panel {
+            position: fixed;
+            top: 0;
+            right: -300px; /* 初期は画面外に配置 */
+            width: 300px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        .menu-panel.active {
+            right: 0; /* パネルがスライドインして表示 */
+        }
+        .menu-panel h2 {
+            text-align: center;
+            color: #fff;
+            margin-top: 0;
+        }
+        .menu-item {
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            background-color: #444;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .menu-item:hover {
+            background-color: #555;
+        }
+
+        /* メニューボタン */
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1001;
+        }
+
+        /* フォーム */
+        .menu-panel form, .menu-panel .section {
+            padding: 15px;
+            display: none; /* 初期は非表示 */
+        }
+        .menu-panel form.active, .menu-panel .section.active {
+            display: block; /* アクティブなフォームのみ表示 */
+        }
+    </style>
+
+    <!-- 顶部标题栏 -->
+    <div class="header">
+        <h1>Taxsea💧</h1>
+        <div class="plan-info">
+            plan: Free
+            <input type="text" name="name" placeholder="検索してみて">
+            <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
+        
+            <div id="adminPanel" class="panel">
+                <h2>管理パネル</h2>
+                <button onclick="toggleMenu()">アカウント情報</button>
+                <button onclick="location.href='bookmarkmatome.html';">ブックマーク</button>
+                <button onclick="logout()">ログアウト</button>
+                <button onclick="hidePanel()">閉じる</button>
+            </div>
+        
+            <script>
+                function showAdminPanel() {
+                    hideAllPanels();
+                    document.getElementById("adminPanel").style.display = "block";
+                }
+        
+                function registerMember() {
+                    alert("メンバー登録機能");
+                }
+        
+                function review() {
+                    alert("復習機能");
+                }
+        
+                function logout() {
+                    location.href = "home.html";
+                    alert("ログアウトしました。");
+                }
+        
+                function hideAllPanels() {
+                    document.getElementById("adminPanel").style.display = "none";
+                }
+        
+                function hidePanel() {
+                    hideAllPanels();
+                }
+            </script>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="left-content">
+            <h1>お気に入り書籍</h1>
+            <div id="favorites-container"></div>
+            <button onclick="location.href='premium_syoseki.html'">書籍ページに戻る</button>
+　　　　　　　<button onclick="location.href='bookmarkmatome.html'">戻る</button>
+        </div>
+
+        <!-- 右側サイドバー -->
+        <div class="sidebar">
+            <!-- 試験制度解説ブロック -->
+            <h3 class="title-block">税金の基本</h3>
+            <ul>
+                <li><a class="box-menu" href="#">税金とは</a></li>
+                <li><a class="box-menu" href="home2.html">納税の義務とは</a></li>
+                <li><a class="box-menu" href="premium_syoseki.html">おすすめ書籍集</a></li>
+                <li><a class="box-menu" href="video_vip_home.html">おすすめ動画集</a></li>
+                <li><a class="box-menu" href="#">よくある質問(FAQ)</a></li>
+            </ul>
+
+            
+            <h3>問題解説</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="mondai.html">消費税</a></li>
+                <li><a class="box-menu" href="mondai.html">法人税</a></li>
+                <li><a class="box-menu" href="mondai.html">贈与税</a></li>
+                <li><a class="box-menu" href="mondai.html">固定資産税</a></li>
+                <li><a class="box-menu" href="textbook_vip_home.html">参考書</a></li>
+            </ul>
+
+
+            <h3>メンバーシップの紹介</h3>
+            <!-- 過去問題解説ブロック -->
+            <ul>
+                <li><a class="box-menu" href="#">メンバーシップとは</a></li>
+            </ul>
+
+            
+
+            <p style="margin: 50px; color: white;">这段文字周围有 10px 的留白。</p>
+        </div>
+    </div>
+        
+    <!-- ページトップボタン -->
+    <div class="pagetop">
+        <a href="#">Pagetop</a>
+    </div>
+    
+    <!-- ハンバーガーパネル -->
+    <div class="menu-panel" id="menu-panel">
+        <h2>会員情報管理</h2>
+
+        <div class="menu-item" onclick="showSection('current-email')">現在の登録メールアドレス</div>
+        <div class="menu-item" onclick="showSection('change-email')">メールアドレスの変更</div>
+        <div class="menu-item" onclick="showSection('cancel-membership')">メンバーシップの解約</div>
+
+        <!-- 現在の登録メールアドレス表示 -->
+        <div class="section" id="current-email">
+            <h3>現在のメールアドレス</h3>
+            <p id="display-email">メールアドレスが登録されていません。</p>
+        </div>
+
+        <!-- メールアドレスの変更フォーム -->
+        <form id="change-email" class="section">
+            <h3>メールアドレスの変更</h3>
+            <label class="menu-btn" for="new-email">新しいメールアドレス:</label>
+            <input class="menu-btn" type="email" id="new-email" required>
+            <button class="menu-btn" type="submit">変更する</button>
+        </form>
+
+        <!-- メンバーシップ解約 -->
+        <div class="section" id="cancel-membership">
+            <h3>メンバーシップの解約</h3>
+            <button class="menu-btn" onclick="cancelMembership()">解約する</button>
+        </div>
+    </div>
+
+    <script>
+        const now_username = localStorage.getItem('now_username');
+        const now_password = localStorage.getItem('now_password');
+        
+        // メニュー表示/非表示の切り替え
+        function toggleMenu() {
+            const menuPanel = document.getElementById('menu-panel');
+            menuPanel.classList.toggle('active');
+        }
+
+        // 指定されたセクションのみ表示
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // 現在のメールアドレスを表示する関数
+        function displayCurrentEmail() {
+            const email = localStorage.getItem('now_username');
+            const emailDisplay = document.getElementById('display-email');
+            emailDisplay.textContent = email ? email : 'メールアドレスが登録されていません。';
+        }
+
+        // 初期化 - ページロード時に現在のメールアドレスを表示
+        displayCurrentEmail();
+
+        // メールアドレス変更処理
+        const changeEmailForm = document.getElementById('change-email');
+        changeEmailForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            localStorage.removeItem(now_username);
+            localStorage.removeItem('now_username'); // メールアドレスの削除
+            
+            const newEmail = document.getElementById('new-email').value;
+
+            localStorage.setItem(newEmail, now_password);
+            localStorage.setItem('now_username', newEmail);
+
+            
+            
+            localStorage.setItem('email', newEmail);
+            alert('メールアドレスが変更されました。');
+            displayCurrentEmail(); // 変更後のメールアドレスを表示
+        });
+
+        // メンバーシップ解約処理
+        function cancelMembership() {
+            const confirmation = confirm('本当にメンバーシップを解約しますか？');
+            if (confirmation) {
+                localStorage.removeItem('now_username'); // メールアドレスの削除
+                localStorage.removeItem('now_password'); // メンバーシップのステータスを削除
+                localStorage.removeItem(now_username);
+                alert('メンバーシップが解約されました。');
+                location.href = "home.html";
+                displayCurrentEmail(); // 解約後のメールアドレス欄を更新
+            }
+        }
+    </script>
+
+<script>
+
+        const books = [
+            {
+                title: "マンガと図解 新・くらしの税金百科 2024‐2025",
+                description: "最新の税金制度を漫画と図解でわかりやすく解説。会社員や自営業者に役立つ知識が詰まっています。",
+                image: "https://m.media-amazon.com/images/I/713tq3T0W1L._SY522_.jpg",
+                link: "sample_syoseki.pdf",
+                favorite: false
+            },
+            {
+                title: "令和元年度版 税金の知識",
+                description: "生活に密接した税金の知識を一問一答形式で解説。基本的な知識を網羅しています。",
+                image: "https://m.media-amazon.com/images/I/912H9Pbpb+L._SY522_.jpg",
+                link: "sample_syoseki.pdf",
+                favorite: false
+            },
+            {
+                title: "あなたが払う税金はざっくり言ってこれくらい",
+                description: "日常の様々な場面を元に、税制の概要や具体的な税額をイラストで解説。初心者におすすめの一冊。",
+                image: "https://m.media-amazon.com/images/I/51H4exz3RdL._SY522_.jpg",
+                link: "sample_syoseki.pdf",
+                favorite: false
+            },
+            {
+                title: "キホンがわかる！ 税金とわたしたちのくらし 税金のしくみ",
+                description: "税金の仕組みを初心者向けにていねいに解説。生活にどう影響するのかを学べる一冊です。",
+                image: "https://m.media-amazon.com/images/I/81WlX+0qgnL._SY522_.jpg",
+                link: "sample_syoseki.pdf",
+                favorite: false
+            },
+            {
+                title: "税金のひみつ",
+                description: "税金の目的や役割、集め方や使い道などについて漫画でわかりやすく学べます",
+                image: "https://cloud-library.keyring.net/contents/0c/0c97c8f87ba2431fae559c7df9bea50a_thumb",
+                link: "https://gk-himitsu.gakken.jp/view-online/ac2ff56a8aabb100e9022312af6d1598/385",
+                favorite: false
+            }
+    ];
+
+    function loadFavorites() {
+    const savedFavorites = JSON.parse(localStorage.getItem("favoriteBooks"));
+    if (savedFavorites) {
+        books.forEach((book, index) => {
+            books[index].favorite = savedFavorites.includes(book.title);
+        });
+    }
+}
+
+    // お気に入り書籍を表示する関数
+    function displayFavorites() {
+        const favoritesContainer = document.getElementById('favorites-container');
+        favoritesContainer.innerHTML = '';
+
+        const favoriteBooks = books.filter(book => book.favorite);
+        if (favoriteBooks.length === 0) {
+            favoritesContainer.innerHTML = '<p>お気に入りの書籍はありません。</p>';
+            return;
+        }
+
+        favoriteBooks.forEach(book => {
+            const bookItem = `
+                <div class="book">
+                    <img src="${book.image}" alt="${book.title}">
+                    <h3>${book.title}</h3>
+                    <p>${book.description}</p>
+                    <a href="${book.link}" target="_blank">詳細を確認</a>
+                </div>
+            `;
+            favoritesContainer.innerHTML += bookItem;
+        });
+    }
+
+    // ページが読み込まれたときにお気に入りデータを表示
+    document.addEventListener('DOMContentLoaded', () => {
+        loadFavorites();
+        displayFavorites();
+    });
+</script>
+
+
+    <!-- 广告区域 -->
+    <div class="ad">
+        <p>広告</p>
+        <a href="https://ads.google.com/intl/ja_jp/home/">詳しくはこちら</a>
+
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="footer">
+        <a href="home2.html"><img src="bottom_home.png"></a>
+        <a href="kensaku.html"><img src="bottom_search.png"></a>
+        <a href="bookmarkmatome.html"><img src="bottom_mark.png"></a>
+        <a onclick="toggleMenu()"><img src="bottom_other.png"></a>
+    </div>
+</body>
+</html>
