@@ -577,52 +577,23 @@
     </footer>-->
 
 
-    <script>
+
+<script>
         // 書籍データの配列
         const books = [
-            {
-                title: "マンガと図解 新・くらしの税金百科 2024‐2025",
-                description: "最新の税金制度を漫画と図解でわかりやすく解説。会社員や自営業者に役立つ知識が詰まっています。",
-                image: "https://m.media-amazon.com/images/I/713tq3T0W1L._SY522_.jpg",
-                link: "sample_syoseki.pdf",
-                favorite: false
-            },
-            {
-                title: "令和元年度版 税金の知識",
-                description: "生活に密接した税金の知識を一問一答形式で解説。基本的な知識を網羅しています。",
-                image: "https://m.media-amazon.com/images/I/912H9Pbpb+L._SY522_.jpg",
-                link: "sample_syoseki.pdf",
-                favorite: false
-            },
-            {
-                title: "あなたが払う税金はざっくり言ってこれくらい",
-                description: "日常の様々な場面を元に、税制の概要や具体的な税額をイラストで解説。初心者におすすめの一冊。",
-                image: "https://m.media-amazon.com/images/I/51H4exz3RdL._SY522_.jpg",
-                link: "sample_syoseki.pdf",
-                favorite: false
-            },
-            {
-                title: "キホンがわかる！ 税金とわたしたちのくらし 税金のしくみ",
-                description: "税金の仕組みを初心者向けにていねいに解説。生活にどう影響するのかを学べる一冊です。",
-                image: "https://m.media-amazon.com/images/I/81WlX+0qgnL._SY522_.jpg",
-                link: "sample_syoseki.pdf",
-                favorite: false
-            },
-            {
-                title: "税金のひみつ",
-                description: "税金の目的や役割、集め方や使い道などについて漫画でわかりやすく学べます",
-                image: "https://cloud-library.keyring.net/contents/0c/0c97c8f87ba2431fae559c7df9bea50a_thumb",
-                link: "https://gk-himitsu.gakken.jp/view-online/ac2ff56a8aabb100e9022312af6d1598/385",
-                favorite: false
-            }
+            { title: "マンガと図解 新・くらしの税金百科 2024‐2025", description: "最新の税金制度を漫画と図解でわかりやすく解説。会社員や自営業者に役立つ知識が詰まっています。", image: "https://m.media-amazon.com/images/I/713tq3T0W1L._SY522_.jpg", link: "sample_syoseki.pdf", favorite: false },
+            { title: "令和元年度版 税金の知識", description: "生活に密接した税金の知識を一問一答形式で解説。基本的な知識を網羅しています。", image: "https://m.media-amazon.com/images/I/912H9Pbpb+L._SY522_.jpg", link: "sample_syoseki.pdf", favorite: false },
+            { title: "あなたが払う税金はざっくり言ってこれくらい", description: "日常の様々な場面を元に、税制の概要や具体的な税額をイラストで解説。初心者におすすめの一冊。", image: "https://m.media-amazon.com/images/I/51H4exz3RdL._SY522_.jpg", link: "sample_syoseki.pdf", favorite: false },
+            { title: "キホンがわかる！ 税金とわたしたちのくらし 税金のしくみ", description: "税金の仕組みを初心者向けにていねいに解説。生活にどう影響するのかを学べる一冊です。", image: "https://m.media-amazon.com/images/I/81WlX+0qgnL._SY522_.jpg", link: "sample_syoseki.pdf", favorite: false },
+            { title: "税金のひみつ", description: "税金の目的や役割、集め方や使い道などについて漫画でわかりやすく学べます", image: "https://cloud-library.keyring.net/contents/0c/0c97c8f87ba2431fae559c7df9bea50a_thumb", link: "https://gk-himitsu.gakken.jp/view-online/ac2ff56a8aabb100e9022312af6d1598/385", favorite: false }
         ];
     
         // localStorageからお気に入り状態を読み込む
         function loadFavorites() {
-            const savedFavorites = JSON.parse(localStorage.getItem("favorites"));
+            const savedFavorites = JSON.parse(localStorage.getItem("favoriteBooks"));
             if (savedFavorites) {
-                books.forEach((book, index) => {
-                    book.favorite = savedFavorites[index] || false;
+                books.forEach(book => {
+                    book.favorite = savedFavorites.includes(book.title); // タイトルに基づいてお気に入り状態を確認
                 });
             }
         }
@@ -643,7 +614,7 @@
             // お気に入りを上に表示するためにソート
             const sortedBooks = [...books].sort((a, b) => b.favorite - a.favorite);
     
-            sortedBooks.forEach((book, index) => {
+            sortedBooks.forEach(book => {
                 const favoriteClass = book.favorite ? 'favorite active' : 'favorite';
                 const bookItem = `
                     <div class="book">
@@ -651,7 +622,7 @@
                         <h3>${book.title}</h3>
                         <p>${book.description}</p>
                         <a href="${book.link}" target="_blank">購読</a>
-                        <span class="${favoriteClass}" onclick="toggleFavorite(${index})">&#9733;</span>
+                        <span class="${favoriteClass}" onclick="toggleFavorite('${book.title}')">&#9733;</span>
                     </div>
                 `;
                 if (book.favorite) {
@@ -663,15 +634,20 @@
         }
     
         // お気に入り状態を切り替える関数
-        function toggleFavorite(index) {
-            books[index].favorite = !books[index].favorite;
-            saveFavorites(); // 更新後の状態を保存
-            displayBooks();  // お気に入りが上に表示されるよう再描画
+        function toggleFavorite(title) {
+            const book = books.find(book => book.title === title);
+            if (book) {
+                book.favorite = !book.favorite;
+                saveFavorites();
+                displayBooks();
+            }
         }
     
         // ページロード時にお気に入りの状態をロードし表示
-        loadFavorites();
-        displayBooks();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFavorites();
+            displayBooks();
+        });
     </script>
 
 
