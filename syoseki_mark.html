@@ -51,18 +51,6 @@
             display: flex;
         }
 
-        /* Taxsea💧のリンクのスタイル */
-        .title-link {
-            text-decoration: none;
-            color: #007BFF;
-            font-size: 1.8em;
-            font-weight: bold;
-        }
-
-        .title-link:hover {
-            color: #0056b3;
-        }
-
         /* 広告エリア */
         .ad {
             background-color: rgb(152, 236, 242);
@@ -82,7 +70,7 @@
         padding: 10px;
         position: fixed;
         width: 100%;
-        bottom: 0px;
+        bottom: 50px;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -434,11 +422,10 @@
 
     <!-- 顶部标题栏 -->
     <div class="header">
-        <h1><a href="home2.html" class="title-link">Taxsea💧</a></h1>
-        <h1>税金に関する書籍紹介</h1>
+        <h1>Taxsea💧</h1>
         <div class="plan-info">
-            plan: Premium
-            <!-- <input type="text" name="name" placeholder="検索してみて"> -->
+            plan: Free
+            <input type="text" name="name" placeholder="検索してみて">
             <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
         
             <div id="adminPanel" class="panel">
@@ -483,8 +470,8 @@
         <div class="left-content">
             <h1>お気に入り書籍</h1>
             <div id="favorites-container"></div>
-            <button onclick="location.href='premium_syoseki.html'">書籍ページに戻る</button>
-　　　　　　　<button onclick="location.href='bookmarkmatome.html'">戻る</button>
+            <button onclick="location.href='premium_syoseki.html'" style="margin-bottom: 200px;">書籍ページに戻る</button>
+　　　　　　　<button onclick="location.href='bookmarkmatome.html'" style="margin-bottom: 200px;">戻る</button>
         </div>
 
         <!-- 右側サイドバー -->
@@ -698,7 +685,12 @@
 </script>
 
 
+    <!-- 广告区域 -->
+    <div class="ad">
+        <p>広告</p>
+        <a href="https://ads.google.com/intl/ja_jp/home/">詳しくはこちら</a>
 
+    </div>
 
     <!-- 底部导航栏 -->
     <div class="footer">
@@ -709,3 +701,4 @@
     </div>
 </body>
 </html>
+
