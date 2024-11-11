@@ -482,57 +482,16 @@
         }
     </style>
 
-    <!-- タイトルヘッダー -->
+     <!-- タイトルヘッダー -->
     <div class="header">
-        <h1><a href="home2.html" class="title-link">Taxsea💧</a></h1>
+        <h1><a href="home2.html" class="title-link">TaxseaPremium💧</a></h1>
         <h1>税金に関する書籍紹介</h1>
-        <div class="plan-info">
-            plan: Premium
-            <!-- <input type="text" name="name" placeholder="検索してみて"> -->
-            <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
-        
-            <div id="adminPanel" class="panel">
-                <h2>管理パネル</h2>
-                <button onclick="toggleMenu()">アカウント情報</button>
-                <button onclick="location.href='bookmarkmatome.html';">ブックマーク</button>
-                <button onclick="logout()">ログアウト</button>
-                <button onclick="hidePanel()">閉じる</button>
-            </div>
-        
-            <script>
-                function showAdminPanel() {
-                    hideAllPanels();
-                    document.getElementById("adminPanel").style.display = "block";
-                }
-        
-                function registerMember() {
-                    alert("メンバー登録機能");
-                }
-        
-                function review() {
-                    alert("復習機能");
-                }
-        
-                function logout() {
-                    location.href = "home.html";
-                    alert("ログアウトしました。");
-                }
-        
-                function hideAllPanels() {
-                    document.getElementById("adminPanel").style.display = "none";
-                }
-        
-                function hidePanel() {
-                    hideAllPanels();
-                }
-            </script>
-        </div>
     </div>
 
     <!-- 検索バー -->
-    <!--<div class="search-bar">-->
-        <!--<input type="text" id="search-input" placeholder="検索" oninput="filterBooks()">-->
-    <!--</div>-->
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="検索" oninput="filterBooks()">
+    </div>
     <!--メインコンテンツ-->
     <div class="main-container">
         <!-- 左側のメインコンテンツ -->
@@ -553,33 +512,50 @@
             <h3 class="title-block">税金の基本</h3>
             <ul>
                 <li><a class="box-menu" href="#">税金とは</a></li>
-                <li><a class="box-menu" href="home2.html">納税の義務とは</a></li>
-                <li><a class="box-menu" href="premium_syoseki.html">おすすめ書籍集</a></li>
-                <li><a class="box-menu" href="video_vip_home.html">おすすめ動画集</a></li>
+                <li><a class="box-menu" href="home.html">納税の義務とは</a></li>
+                <li><a class="box-menu" href="syoseki.html">おすすめ書籍集</a></li>
+                <li><a class="box-menu" href="video_home.html">おすすめ動画集</a></li>
                 <li><a class="box-menu" href="#">よくある質問(FAQ)</a></li>
             </ul>
 
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 商品やサービスの紹介がここに入ります。</p>
+            </div>
             
             <h3>問題解説</h3>
             <!-- 過去問題解説ブロック -->
             <ul>
-                <li><a class="box-menu" href="mondai.html">消費税</a></li>
-                <li><a class="box-menu" href="mondai.html">法人税</a></li>
-                <li><a class="box-menu" href="mondai.html">贈与税</a></li>
-                <li><a class="box-menu" href="mondai.html">固定資産税</a></li>
-                <li><a class="box-menu" href="textbook_vip_home.html">参考書</a></li>
+                <li><a class="box-menu" href="#">消費税</a></li>
+                <li><a class="box-menu" href="#">法人税</a></li>
+                <li><a class="box-menu" href="#">贈与税</a></li>
+                <li><a class="box-menu" href="#">固定資産税</a></li>
+                <li><a class="box-menu" href="textbook_home.html">参考書</a></li>
             </ul>
 
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p>スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
 
             <h3>メンバーシップの紹介</h3>
             <!-- 過去問題解説ブロック -->
             <ul>
-                <li><a class="box-menu" href="#">メンバーシップとは</a></li>
+                <li><a class="box-menu" href="member.html">メンバーシップとは</a></li>
             </ul>
 
-            
+            <!-- 広告ブロック -->
+            <div class="ad-block">
+                <img src="https://via.placeholder.com/300x250" alt="広告">
+                <p >スポンサー広告: 追加のプロモーションがここに表示されます。</p>
+            </div>
 
             <p style="margin: 50px; color: white;">这段文字周围有 10px 的留白。</p>
+    
+        <!-- 右側サイドバー -->
+            <!-- サイドバーの内容 -->
         </div>
     </div>
 
@@ -590,9 +566,9 @@
     </div>
 
     <!-- ホームに戻るボタン　-->
-    <!--<div style="text-align: center; margin-top: 20px">-->
-        <!--<button onclick="window.location.href='home.html'" clas="btn">home</button>-->
-    <!--</div>-->
+    <div style="text-align: center; margin-top: 20px">
+        <button onclick="window.location.href='home.html'" clas="btn">home</button>
+    </div>
     <!--広告スペース-->
     <!--<footer>
         <div class = "ad-container">
@@ -603,7 +579,6 @@
 
     <script>
         // 書籍データの配列
-        // お気に入り機能付きの書籍データの配列
         const books = [
             {
                 title: "マンガと図解 新・くらしの税金百科 2024‐2025",
@@ -632,19 +607,42 @@
                 image: "https://m.media-amazon.com/images/I/81WlX+0qgnL._SY522_.jpg",
                 link: "sample_syoseki.pdf",
                 favorite: false
+            },
+            {
+                title: "税金のひみつ",
+                description: "税金の目的や役割、集め方や使い道などについて漫画でわかりやすく学べます",
+                image: "https://cloud-library.keyring.net/contents/0c/0c97c8f87ba2431fae559c7df9bea50a_thumb",
+                link: "https://gk-himitsu.gakken.jp/view-online/ac2ff56a8aabb100e9022312af6d1598/385",
+                favorite: false
             }
         ];
-
+    
+        // localStorageからお気に入り状態を読み込む
+        function loadFavorites() {
+            const savedFavorites = JSON.parse(localStorage.getItem("favorites"));
+            if (savedFavorites) {
+                books.forEach((book, index) => {
+                    book.favorite = savedFavorites[index] || false;
+                });
+            }
+        }
+    
+        // お気に入り状態をlocalStorageに保存
+        function saveFavorites() {
+            const favorites = books.filter(book => book.favorite).map(book => book.title);
+            localStorage.setItem("favoriteBooks", JSON.stringify(favorites));
+        }
+    
         // 書籍リストを表示する関数
         function displayBooks() {
             const bookListContainer = document.getElementById('book-list');
             const favoriteListContainer = document.getElementById('favorite-list');
             bookListContainer.innerHTML = '';
             favoriteListContainer.innerHTML = '';
-
+    
             // お気に入りを上に表示するためにソート
             const sortedBooks = [...books].sort((a, b) => b.favorite - a.favorite);
-
+    
             sortedBooks.forEach((book, index) => {
                 const favoriteClass = book.favorite ? 'favorite active' : 'favorite';
                 const bookItem = `
@@ -653,138 +651,38 @@
                         <h3>${book.title}</h3>
                         <p>${book.description}</p>
                         <a href="${book.link}" target="_blank">購読</a>
-                        <span class="${favoriteClass}" onclick="toggleFavorite(${index})">&#9733;</span> <!-- 星アイコンを購読リンクの近くに配置 -->
+                        <span class="${favoriteClass}" onclick="toggleFavorite(${index})">&#9733;</span>
                     </div>
                 `;
-                if(book.favorite){
+                if (book.favorite) {
                     favoriteListContainer.innerHTML += bookItem;
-                }else{
+                } else {
                     bookListContainer.innerHTML += bookItem;
                 }
             });
         }
-
+    
         // お気に入り状態を切り替える関数
         function toggleFavorite(index) {
             books[index].favorite = !books[index].favorite;
-            displayBooks(); // お気に入りが上に表示されるように再描画
+            saveFavorites(); // 更新後の状態を保存
+            displayBooks();  // お気に入りが上に表示されるよう再描画
         }
-        function filterBooks() {
-            const searchQuery = document.getElementById('search-input').value.toLowerCase();
-            const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchQuery));
-            displayBooks(filteredBooks);
-        }
-
-
-        // 初期の書籍リストを表示
+    
+        // ページロード時にお気に入りの状態をロードし表示
+        loadFavorites();
         displayBooks();
-
-        // 検索フィルター機能
-        function filterBooks() {
-            const searchQuery = document.getElementById('search-input').value.toLowerCase();
-            const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchQuery));
-            displayBooks(filteredBooks);
-        }
-    </script>
-
-    <!-- ハンバーガーパネル -->
-    <div class="menu-panel" id="menu-panel">
-        <h2>会員情報管理</h2>
-
-        <div class="menu-item" onclick="showSection('current-email')">現在の登録メールアドレス</div>
-        <div class="menu-item" onclick="showSection('change-email')">メールアドレスの変更</div>
-        <div class="menu-item" onclick="showSection('cancel-membership')">メンバーシップの解約</div>
-
-        <!-- 現在の登録メールアドレス表示 -->
-        <div class="section" id="current-email">
-            <h3>現在のメールアドレス</h3>
-            <p id="display-email">メールアドレスが登録されていません。</p>
-        </div>
-
-        <!-- メールアドレスの変更フォーム -->
-        <form id="change-email" class="section">
-            <h3>メールアドレスの変更</h3>
-            <label class="menu-btn" for="new-email">新しいメールアドレス:</label>
-            <input class="menu-btn" type="email" id="new-email" required>
-            <button class="menu-btn" type="submit">変更する</button>
-        </form>
-
-        <!-- メンバーシップ解約 -->
-        <div class="section" id="cancel-membership">
-            <h3>メンバーシップの解約</h3>
-            <button class="menu-btn" onclick="cancelMembership()">解約する</button>
-        </div>
-    </div>
-
-    <script>
-        const now_username = localStorage.getItem('now_username');
-        const now_password = localStorage.getItem('now_password');
-        
-        // メニュー表示/非表示の切り替え
-        function toggleMenu() {
-            const menuPanel = document.getElementById('menu-panel');
-            menuPanel.classList.toggle('active');
-        }
-
-        // 指定されたセクションのみ表示
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-        }
-
-        // 現在のメールアドレスを表示する関数
-        function displayCurrentEmail() {
-            const email = localStorage.getItem('now_username');
-            const emailDisplay = document.getElementById('display-email');
-            emailDisplay.textContent = email ? email : 'メールアドレスが登録されていません。';
-        }
-
-        // 初期化 - ページロード時に現在のメールアドレスを表示
-        displayCurrentEmail();
-
-        // メールアドレス変更処理
-        const changeEmailForm = document.getElementById('change-email');
-        changeEmailForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            localStorage.removeItem(now_username);
-            localStorage.removeItem('now_username'); // メールアドレスの削除
-            
-            const newEmail = document.getElementById('new-email').value;
-
-            localStorage.setItem(newEmail, now_password);
-            localStorage.setItem('now_username', newEmail);
-
-            
-            
-            localStorage.setItem('email', newEmail);
-            alert('メールアドレスが変更されました。');
-            displayCurrentEmail(); // 変更後のメールアドレスを表示
-        });
-
-        // メンバーシップ解約処理
-        function cancelMembership() {
-            const confirmation = confirm('本当にメンバーシップを解約しますか？');
-            if (confirmation) {
-                localStorage.removeItem('now_username'); // メールアドレスの削除
-                localStorage.removeItem('now_password'); // メンバーシップのステータスを削除
-                localStorage.removeItem(now_username);
-                alert('メンバーシップが解約されました。');
-                location.href = "home.html";
-                displayCurrentEmail(); // 解約後のメールアドレス欄を更新
-            }
-        }
     </script>
 
 
     <!-- フッター -->
     <div class="footer">
         <a href="home2.html"><img src="bottom_home.png"></a>
-        <a href="kensaku.html"><img src="bottom_search.png"></a>
+        <a href="kennsaku.html"><img src="bottom_search.png"></a>
         <a href="bookmarkmatome.html"><img src="bottom_mark.png"></a>
-        <a onclick="toggleMenu()"><img src="bottom_other.png"></a>
+        <a href="other.html"><img src="bottom_other.png"></a>
     </div>
-
+    
 
 </body>
 </html>
