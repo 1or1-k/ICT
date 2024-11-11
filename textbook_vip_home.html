@@ -99,6 +99,18 @@
             display: flex;
         }
 
+        /* Taxsea💧のリンクのスタイル */
+        .title-link {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .title-link:hover {
+            color: #0056b3;
+        }
+
             /* .red-title クラスのタイトルの色を赤に変更 */
         .red-title {
         color:  #fa8174f1;
@@ -506,10 +518,11 @@
 
     <!-- ヘッダー -->
     <div class="header">
-        <h1>Taxsea💧</h1>
+        <h1><a href="home2.html" class="title-link">Taxsea💧</a></h1>
+        <h1>税金に関する参考書紹介</h1>
         <div class="plan-info">
-            plan: Free
-            <input type="text" name="name" placeholder="検索してみて">
+            plan: Premium
+            <!-- <input type="text" name="name" placeholder="検索してみて"> -->
             <button id="loginButton" onclick="showAdminPanel()">メンバーシッププラン</button>
         
             <div id="adminPanel" class="panel">
